@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Activation\ActivationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CustomControls\CustomDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Customer\Controls\ucAddUpdateCustomer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Customer\Controls\ucCustomerCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Customer\Controls\ucCustomerCardWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Customer\Controls\ucCustomersList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Customer\Forms\frmAddUpdateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Dashbord\Controls\ucDashbord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Dashbord\Controls\ucMonthlyIncomeChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Dashbord\Controls\ucMonthlyOrdersCountChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Dashbord\Controls\ucStatisticsCards.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Login\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="OrderItem\Controls\ucOrderItemList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="OrderItem\Forms\frmAddUpdateItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Order\Controls\ucAddUpdateOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Order\Controls\ucOrdersList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Order\Controls\ucOrdersListWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Order\Forms\frmAddOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Order\Forms\frmRecordPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Order\Forms\frmUpdateOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Permission\ucDefaultPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Permission\ucNoPermissionPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Product\Controls\ucAddUpdateProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Product\Controls\ucProductItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Product\Controls\ucProductList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Product\Controls\ucProductListWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Product\Forms\frmAddUpdateProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Product\Forms\frmProductCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Product\Forms\frmProductsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Product\Forms\frmSetSellingLength.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Store\Forms\frmUpdateStoreInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="User\Controls\ucAddUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="User\Controls\ucUpdateUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="User\Controls\ucUsersList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="User\Forms\frmAddNewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="User\Forms\frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="User\Forms\frmUpdateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

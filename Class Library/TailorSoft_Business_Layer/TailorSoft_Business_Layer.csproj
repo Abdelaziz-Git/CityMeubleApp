@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="TailorSoft_Data_Layer">
+      <HintPath>..\TailorSoft_Data_Layer\bin\Debug\net8.0\TailorSoft_Data_Layer.dll</HintPath>
+    </Reference>
+    <Reference Include="TailorSoft_Models">
+      <HintPath>..\TailorSoft_Models\bin\Debug\net8.0\TailorSoft_Models.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

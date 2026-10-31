@@ -1,0 +1,376 @@
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\HFS\obj\Debug\net8.0-windows\TailorSoft.csproj.AssemblyReference.cache
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\HFS\obj\Debug\net8.0-windows\HFS.frmMain.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\HFS\obj\Debug\net8.0-windows\HFS.frmLogin.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\HFS\obj\Debug\net8.0-windows\HFS.Product.Controls.ucAddUpdateProduct.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\HFS\obj\Debug\net8.0-windows\HFS.Product.Controls.ucProductItem.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\HFS\obj\Debug\net8.0-windows\HFS.Product.Controls.ucProductList.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\HFS\obj\Debug\net8.0-windows\HFS.Product.Forms.frmAddUpdateProduct.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\HFS\obj\Debug\net8.0-windows\TailorSoft.Properties.Resources.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\HFS\obj\Debug\net8.0-windows\TailorSoft.csproj.GenerateResource.cache
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\HFS\obj\Debug\net8.0-windows\TailorSoft.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\HFS\obj\Debug\net8.0-windows\TailorSoft.AssemblyInfoInputs.cache
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\HFS\obj\Debug\net8.0-windows\TailorSoft.AssemblyInfo.cs
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\HFS\obj\Debug\net8.0-windows\TailorSoft.csproj.CoreCompileInputs.cache
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\AppSettings\appsettings.json
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft.exe
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft.deps.json
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft.runtimeconfig.json
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft.pdb
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Azure.Core.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Azure.Identity.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Bcl.Cryptography.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Data.SqlClient.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Memory.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Binder.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Json.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Identity.Client.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Identity.Client.Extensions.Msal.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Abstractions.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Logging.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Protocols.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Tokens.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.SqlServer.Server.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.ClientModel.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Configuration.ConfigurationManager.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Diagnostics.EventLog.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.IdentityModel.Tokens.Jwt.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Memory.Data.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Text.Encodings.Web.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Text.Json.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\cs\Microsoft.Data.SqlClient.resources.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\de\Microsoft.Data.SqlClient.resources.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\es\Microsoft.Data.SqlClient.resources.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\fr\Microsoft.Data.SqlClient.resources.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\it\Microsoft.Data.SqlClient.resources.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\ja\Microsoft.Data.SqlClient.resources.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\ko\Microsoft.Data.SqlClient.resources.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\pl\Microsoft.Data.SqlClient.resources.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\pt-BR\Microsoft.Data.SqlClient.resources.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\ru\Microsoft.Data.SqlClient.resources.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\tr\Microsoft.Data.SqlClient.resources.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Business_Layer.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Data_Layer.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Models.dll
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Business_Layer.pdb
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Data_Layer.pdb
+E:\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Models.pdb
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.csproj.AssemblyReference.cache
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\WinFormsControlsLibrary.CustomDataGridView.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Customers.Controls.ucAddUpdateCustomer.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Customer.Controls.ucCustomerCard.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Customer.Controls.ucCustomerCardWithFilter.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Customer.Controls.ucCustomersList.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Customer.Forms.frmAddUpdateCustomer.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\HFS.frmLogin.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.OrderItem.Controls.ucOrderItemList.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.OrderItem.Forms.frmAddUpdateItem.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Controls.ucAddUpdateOrder.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Controls.ucOrdersList.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Controls.ucOrdersListWithFilter.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Forms.frmAddOrder.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Forms.frmRecordPayment.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Forms.frmUpdateOrder.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\HFS.Product.Controls.ucAddUpdateProduct.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\HFS.Product.Controls.ucProductItem.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Product.Controls.ucProductList.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Product.Controls.ucProductListWithFilter.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\HFS.Product.Forms.frmAddUpdateProduct.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Product.Forms.frmProductCard.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Product.Forms.frmProductsList.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Product.Forms.frmSetSellingLength.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Properties.Resources.resources
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.csproj.GenerateResource.cache
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.GeneratedMSBuildEditorConfig.editorconfig
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.AssemblyInfoInputs.cache
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.AssemblyInfo.cs
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.csproj.CoreCompileInputs.cache
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.csproj.Up2Date
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.dll
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\refint\TailorSoft.dll
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.pdb
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.genruntimeconfig.cache
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\ref\TailorSoft.dll
+E:\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.frmMain.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\AppSettings\appsettings.json
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft.exe
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft.dll.config
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft.deps.json
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft.runtimeconfig.json
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft.pdb
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Azure.Core.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Azure.Identity.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Bcl.Cryptography.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Data.SqlClient.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Identity.Client.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Logging.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Protocols.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.SqlServer.Server.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.ClientModel.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Configuration.ConfigurationManager.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Diagnostics.EventLog.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Memory.Data.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Text.Encodings.Web.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Text.Json.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\WinForms.DataVisualization.Utilities.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\WinForms.DataVisualization.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\cs\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\pl\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\tr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Business_Layer.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Data_Layer.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Models.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Business_Layer.pdb
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Data_Layer.pdb
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Models.pdb
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.csproj.AssemblyReference.cache
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\WinFormsControlsLibrary.CustomDataGridView.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Customers.Controls.ucAddUpdateCustomer.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Customer.Controls.ucCustomerCard.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Customer.Controls.ucCustomerCardWithFilter.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Customer.Controls.ucCustomersList.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Customer.Forms.frmAddUpdateCustomer.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Dashbord.Controls.ucDashbord.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Dashbord.Controls.ucMonthlyIncomeChart.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Dashbord.Controls.ucMonthlyOrdersCountChart.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Dashbord.Controls.ucStatisticsCards.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.frmMain.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.frmLogin.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.OrderItem.Controls.ucOrderItemList.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.OrderItem.Forms.frmAddUpdateItem.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Controls.ucAddUpdateOrder.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Controls.ucOrdersList.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Controls.ucOrdersListWithFilter.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Forms.frmAddOrder.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Forms.frmRecordPayment.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Forms.frmUpdateOrder.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Permission.ucDefaultPage.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Permission.ucNoPermissionPage.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\HFS.Product.Controls.ucAddUpdateProduct.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\HFS.Product.Controls.ucProductItem.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Product.Controls.ucProductList.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Product.Controls.ucProductListWithFilter.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\HFS.Product.Forms.frmAddUpdateProduct.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Product.Forms.frmProductCard.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Product.Forms.frmProductsList.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Product.Forms.frmSetSellingLength.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Properties.Resources.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Store.Forms.frmUpdateStoreInfo.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.User.Controls.ucAddUser.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.User.Controls.ucUpdateUser.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.User.Controls.ucUsersList.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.User.Forms.frmAddNewUser.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.User.Forms.frmChangePassword.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.User.Forms.frmUpdateUser.resources
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.csproj.GenerateResource.cache
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.AssemblyInfoInputs.cache
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.AssemblyInfo.cs
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.csproj.CoreCompileInputs.cache
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.sourcelink.json
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.csproj.Up2Date
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\refint\TailorSoft.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.pdb
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.genruntimeconfig.cache
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\ref\TailorSoft.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.CodeDom.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Management.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Management.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Activation.ActivationForm.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.csproj.AssemblyReference.cache
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Activation.ActivationForm.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\WinFormsControlsLibrary.CustomDataGridView.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Customers.Controls.ucAddUpdateCustomer.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Customer.Controls.ucCustomerCard.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Customer.Controls.ucCustomerCardWithFilter.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Customer.Controls.ucCustomersList.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Customer.Forms.frmAddUpdateCustomer.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Dashbord.Controls.ucDashbord.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Dashbord.Controls.ucMonthlyIncomeChart.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Dashbord.Controls.ucMonthlyOrdersCountChart.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Dashbord.Controls.ucStatisticsCards.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.frmMain.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.frmLogin.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.OrderItem.Controls.ucOrderItemList.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.OrderItem.Forms.frmAddUpdateItem.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Controls.ucAddUpdateOrder.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Controls.ucOrdersList.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Controls.ucOrdersListWithFilter.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Forms.frmAddOrder.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Forms.frmRecordPayment.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Order.Forms.frmUpdateOrder.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Permission.ucDefaultPage.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Permission.ucNoPermissionPage.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\HFS.Product.Controls.ucAddUpdateProduct.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\HFS.Product.Controls.ucProductItem.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Product.Controls.ucProductList.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Product.Controls.ucProductListWithFilter.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\HFS.Product.Forms.frmAddUpdateProduct.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Product.Forms.frmProductCard.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Product.Forms.frmProductsList.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Product.Forms.frmSetSellingLength.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Store.Forms.frmUpdateStoreInfo.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.User.Controls.ucAddUser.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.User.Controls.ucUpdateUser.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.User.Controls.ucUsersList.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.User.Forms.frmAddNewUser.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.User.Forms.frmChangePassword.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.User.Forms.frmUpdateUser.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.csproj.GenerateResource.cache
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\AppSettings\appsettings.json
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft.exe
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft.dll.config
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft.deps.json
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft.runtimeconfig.json
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft.pdb
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Azure.Core.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Azure.Identity.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Bcl.Cryptography.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Data.SqlClient.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Identity.Client.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Logging.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Protocols.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\Microsoft.SqlServer.Server.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.ClientModel.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.CodeDom.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Configuration.ConfigurationManager.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Diagnostics.EventLog.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Management.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Memory.Data.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Text.Encodings.Web.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\System.Text.Json.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\WinForms.DataVisualization.Utilities.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\WinForms.DataVisualization.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\cs\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\pl\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\tr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Management.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Business_Layer.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Data_Layer.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Models.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Business_Layer.pdb
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Data_Layer.pdb
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\bin\Debug\net8.0-windows\TailorSoft_Models.pdb
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.Properties.Resources.resources
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.AssemblyInfoInputs.cache
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.AssemblyInfo.cs
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.csproj.CoreCompileInputs.cache
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.sourcelink.json
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.csproj.Up2Date
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\refint\TailorSoft.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.pdb
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\TailorSoft.genruntimeconfig.cache
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\TailorSoft\obj\Debug\net8.0-windows\ref\TailorSoft.dll

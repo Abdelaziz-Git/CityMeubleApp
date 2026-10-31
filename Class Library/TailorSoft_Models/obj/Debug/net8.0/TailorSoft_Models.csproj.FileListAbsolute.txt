@@ -1,0 +1,36 @@
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\Class Library\HFS_Models\bin\Debug\net8.0\TailorSoft_Models.deps.json
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\Class Library\HFS_Models\bin\Debug\net8.0\TailorSoft_Models.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\Class Library\HFS_Models\bin\Debug\net8.0\TailorSoft_Models.pdb
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\Class Library\HFS_Models\obj\Debug\net8.0\TailorSoft_Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\Class Library\HFS_Models\obj\Debug\net8.0\TailorSoft_Models.AssemblyInfoInputs.cache
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\Class Library\HFS_Models\obj\Debug\net8.0\TailorSoft_Models.AssemblyInfo.cs
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\Class Library\HFS_Models\obj\Debug\net8.0\TailorSoft_Models.csproj.CoreCompileInputs.cache
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\Class Library\HFS_Models\obj\Debug\net8.0\TailorSoft_Models.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\Class Library\HFS_Models\obj\Debug\net8.0\refint\TailorSoft_Models.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\Class Library\HFS_Models\obj\Debug\net8.0\TailorSoft_Models.pdb
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\HFS_Solution\Class Library\HFS_Models\obj\Debug\net8.0\ref\TailorSoft_Models.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\Class Library\TailorSoft_Models\bin\Debug\net8.0\TailorSoft_Models.deps.json
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\Class Library\TailorSoft_Models\bin\Debug\net8.0\TailorSoft_Models.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\Class Library\TailorSoft_Models\bin\Debug\net8.0\TailorSoft_Models.pdb
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\TailorSoft_Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\TailorSoft_Models.AssemblyInfoInputs.cache
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\TailorSoft_Models.AssemblyInfo.cs
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\TailorSoft_Models.csproj.CoreCompileInputs.cache
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\TailorSoft_Models.sourcelink.json
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\TailorSoft_Models.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\refint\TailorSoft_Models.dll
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\TailorSoft_Models.pdb
+C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\ref\TailorSoft_Models.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Models\bin\Debug\net8.0\TailorSoft_Models.deps.json
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Models\bin\Debug\net8.0\TailorSoft_Models.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Models\bin\Debug\net8.0\TailorSoft_Models.pdb
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\TailorSoft_Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\TailorSoft_Models.AssemblyInfoInputs.cache
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\TailorSoft_Models.AssemblyInfo.cs
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\TailorSoft_Models.csproj.CoreCompileInputs.cache
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\TailorSoft_Models.sourcelink.json
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\TailorSoft_Models.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\refint\TailorSoft_Models.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\TailorSoft_Models.pdb
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\ref\TailorSoft_Models.dll
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Models\obj\Debug\net8.0\TailorSo.C2C9BE83.Up2Date
