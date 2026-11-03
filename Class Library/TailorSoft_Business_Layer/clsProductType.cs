@@ -5,7 +5,35 @@ namespace TailorSoft_Business_Layer
 {
     public class clsProductType
     {
-        public enum enProductType { الكل = 0, طلامط = 1, وسادة, ستائر, سامبل, أكسيسوار }
+        public enum enProductType
+        {
+            Toute = 0,
+            Armoire = 1,
+            Bardage = 2,
+            Bibliothèque = 3,
+            Buffet = 4,
+            Bureau = 5,
+            CACA = 6,
+            CACE = 7,
+            Chaise = 8,
+            Commode_Chevêt = 9,
+            Cuisine = 10,
+            Décor_Accessoire = 11,
+            Groupe = 12,
+            Lit_Tapesier_A = 13,
+            Lit_Tapesier_E = 14,
+            Lustre = 15,
+            Matelas = 16,
+            Meuble_Chaussure = 17,
+            Meuble_Tv = 18,
+            SAM = 19,
+            Salon_Bureau = 20,
+            Salon_classique = 21,
+            Salon_Moderne = 22,
+            Salon_SR = 23,
+            Table_Bureau = 24,
+            Vitrine = 25
+        }
 
         public byte? Id { get; set; }
         public string? Name { get; set; }
@@ -20,10 +48,10 @@ namespace TailorSoft_Business_Layer
             clsProductTypeDTO? productTypeDTO = clsProductTypeData.GetProductTypeByID(id);
             return productTypeDTO != null ? new clsProductType(productTypeDTO) : null;
         }
-        public static List<clsProductType> GetAll()
+        public static List<clsProductTypeDTO> GetAll()
         {
             List<clsProductTypeDTO> productTypesDTO = clsProductTypeData.GetAllProductTypes();
-            return productTypesDTO.Select(pt => new clsProductType(pt)).ToList();
+            return productTypesDTO;
         }
     }
 }
