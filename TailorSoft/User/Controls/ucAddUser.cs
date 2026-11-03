@@ -21,14 +21,9 @@ namespace TailorSoft.User.Controls
         /// argument.</remarks>
         public event Action<int?>? OnUserAddedSuccessfully;
 
-        /// Enum names and values for permissions in Arabic
-        string[] permissionsNames = Enum.GetNames(typeof(clsUser.enPermissionsInArabic));
+        private readonly int[] permissionValues = (int[])Enum.GetValues(typeof(clsUser.enPermissionsInArabic));
+        private readonly List<CheckBox> permissionsCheckBoxes = new List<CheckBox>();
 
-        // Assuming the enum values are of type int, we can cast them to int array
-        int[] permissionValues = (int[])Enum.GetValues(typeof(clsUser.enPermissionsInArabic));
-
-        // List to hold the dynamically created CheckBox controls for permissions
-        List<CheckBox> permissionsCheckBoxes = new List<CheckBox>();
         public ucAddUser()
         {
             InitializeComponent();
@@ -48,13 +43,13 @@ namespace TailorSoft.User.Controls
         // Dynamically create CheckBox controls for each permission and add them to the FlowLayoutPanel
         private void LoadPermissions()
         {
-
-            for (int i = 0; i < permissionsNames.Length; i++)
+            foreach (int permissionValue in permissionValues)
             {
+                var permission = (clsUser.enPermissions)permissionValue;
                 CheckBox chk = new CheckBox
                 {
-                    Text = permissionsNames[i],
-                    Tag = permissionValues[i],
+                    Text = GetPermissionName(permission),
+                    Tag = permissionValue,
                     AutoSize = false,
                     Width = flpPermissions.ClientSize.Width - 30,
                     Height = 25,
@@ -63,7 +58,7 @@ namespace TailorSoft.User.Controls
                 };
 
 
-                if (chk.Tag is int tagValue && tagValue == (int)clsUser.enPermissions.All)
+                if (permission == clsUser.enPermissions.All)
                 {
                     chk.Font = new Font(chk.Font.FontFamily, 12, FontStyle.Bold | FontStyle.Underline);
                     chk.CheckedChanged += ChkAll_CheckedChanged;
@@ -77,7 +72,37 @@ namespace TailorSoft.User.Controls
                 permissionsCheckBoxes.Add(chk);
                 flpPermissions.Controls.Add(chk);
             }
+        }
 
+        private string GetPermissionName(clsUser.enPermissions permission)
+        {
+            return permission switch
+            {
+                clsUser.enPermissions.All => "Toutes les autorisations",
+                clsUser.enPermissions.ViewHome => "Accéder à l'accueil",
+                clsUser.enPermissions.ViewProducts => "Voir les produits",
+                clsUser.enPermissions.ViewProductsDetail => "Voir les détails des produits",
+                clsUser.enPermissions.AddProducts => "Ajouter des produits",
+                clsUser.enPermissions.EditProducts => "Modifier les produits",
+                clsUser.enPermissions.DeleteProducts => "Supprimer des produits",
+                clsUser.enPermissions.SaleProducts => "Vendre des produits",
+                clsUser.enPermissions.ViewCustomers => "Voir les clients",
+                clsUser.enPermissions.AddCustomers => "Ajouter des clients",
+                clsUser.enPermissions.EditCustomers => "Modifier les clients",
+                clsUser.enPermissions.DeleteCustomers => "Supprimer les clients",
+                clsUser.enPermissions.ViewOrders => "Voir les commandes",
+                clsUser.enPermissions.AddOrders => "Ajouter des commandes",
+                clsUser.enPermissions.EditOrders => "Modifier les commandes",
+                clsUser.enPermissions.DeleteOrders => "Supprimer les commandes",
+                clsUser.enPermissions.PaymentOrders => "Gérer les paiements des commandes",
+                clsUser.enPermissions.PrintOrders => "Imprimer les commandes",
+                clsUser.enPermissions.ViewUsers => "Voir les utilisateurs",
+                clsUser.enPermissions.AddUsers => "Ajouter des utilisateurs",
+                clsUser.enPermissions.EditUsers => "Modifier les utilisateurs",
+                clsUser.enPermissions.DeleteUsers => "Supprimer les utilisateurs",
+                clsUser.enPermissions.EditStoreInfo => "Modifier les informations du magasin",
+                _ => throw new ArgumentOutOfRangeException(nameof(permission), permission, null)
+            };
         }
 
         // Event handler for the "All" checkbox to check/uncheck all permissions
@@ -149,27 +174,27 @@ namespace TailorSoft.User.Controls
         {
             if (string.IsNullOrWhiteSpace(txtFirstName.Text))
             {
-                MessageBox.Show("يرجى إدخال الاسم الشخصي.", "خطأ في الإدخال", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Veuillez saisir le prénom.", "Erreur de saisie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtLastName.Text))
             {
-                MessageBox.Show("يرجى إدخال الاسم العائلي.", "خطأ في الإدخال", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Veuillez saisir le nom.", "Erreur de saisie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtPhone.Text))
             {
-                MessageBox.Show("يرجى إدخال رقم الهاتف.", "خطأ في الإدخال", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Veuillez saisir le numéro de téléphone.", "Erreur de saisie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtCity.Text))
             {
-                MessageBox.Show("يرجى إدخال المدينة.", "خطأ في الإدخال", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Veuillez saisir la ville.", "Erreur de saisie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtUsername.Text))
             {
-                MessageBox.Show("يرجى إدخال اسم المستخدم.", "خطأ في الإدخال", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Veuillez saisir le nom d'utilisateur.", "Erreur de saisie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (!IsUsernameUnique(txtUsername.Text.Trim()))
@@ -178,12 +203,12 @@ namespace TailorSoft.User.Controls
             }
             if (string.IsNullOrWhiteSpace(txtPassword.Text))
             {
-                MessageBox.Show("يرجى إدخال كلمة المرور.", "خطأ في الإدخال", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Veuillez saisir le mot de passe.", "Erreur de saisie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtConfirmPassword.Text))
             {
-                MessageBox.Show("يرجى تأكيد كلمة المرور.", "خطأ في الإدخال", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Veuillez confirmer le mot de passe.", "Erreur de saisie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (!IsConfirmPasswordMatching())
@@ -192,7 +217,7 @@ namespace TailorSoft.User.Controls
             }
             if (permissionsCheckBoxes.Count(chk => chk.Checked) == 0)
             {
-                MessageBox.Show("يرجى اختيار صلاحية واحدة على الأقل.", "خطأ في الإدخال", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Veuillez sélectionner au moins une autorisation.", "Erreur de saisie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -221,7 +246,7 @@ namespace TailorSoft.User.Controls
         {
             if (clsUser.IsExists(username))
             {
-                MessageBox.Show("اسم المستخدم هذا موجود بالفعل. يرجى اختيار اسم مستخدم آخر.", "خطأ في الإدخال", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ce nom d'utilisateur existe déjà. Veuillez en choisir un autre.", "Erreur de saisie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
@@ -232,7 +257,7 @@ namespace TailorSoft.User.Controls
         {
             if (txtPassword.Text.Trim() != txtConfirmPassword.Text.Trim())
             {
-                MessageBox.Show("كلمة المرور وتأكيد كلمة المرور غير متطابقين. يرجى التأكد من تطابقهما.", "خطأ في الإدخال", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Le mot de passe et sa confirmation ne correspondent pas. Veuillez vérifier qu'ils sont identiques.", "Erreur de saisie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
@@ -260,13 +285,13 @@ namespace TailorSoft.User.Controls
                 };
                 if (newUser != null && newUser.Save())
                 {
-                    MessageBox.Show("تم إضافة المستخدم بنجاح.", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("L'utilisateur a été ajouté avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     OnUserAddedSuccessfully?.Invoke(newUser.Id); // Invoke the event with the new user's ID
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"حدث خطأ أثناء إضافة المستخدم:\n {ex.Message}\n", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Une erreur est survenue lors de l'ajout de l'utilisateur :\n{ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

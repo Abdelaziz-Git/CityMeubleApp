@@ -10,20 +10,20 @@ namespace TailorSoft.Order.Controls
 {
     public partial class ucOrdersList : UserControl
     {
-        int _IconSize = 32; // Size of the icons in the actions column
+        int _IconSize = 28; // Size of the icons in the actions column
         int _Padding = 40; // Padding for icons in the actions column
         int _IconSpacing = 10; // Spacing between icons in the actions column
 
-        // Arabic translations for enum values
+        // French translations for enum values
         Dictionary<clsOrder.enStatus, string> statusTranslations = new Dictionary<clsOrder.enStatus, string>
             {
-                    { enStatus.Pending, "قيد الانتظار" },
-                    { enStatus.Measuring, "قياس" },
-                    { enStatus.InProgress, "قيد التنفيذ" },
-                    { enStatus.ReadyforDelivery, "جاهز للتسليم" },
-                    { enStatus.Delivered, "تم التسليم" },
-                    { enStatus.DeliveredAndPaid, "تم التسليم والدفع" },
-                    { enStatus.Cancelled, "ملغى" }
+                    { enStatus.Pending, "En attente" },
+                    { enStatus.Measuring, "Mesure" },
+                    { enStatus.InProgress, "En cours" },
+                    { enStatus.ReadyforDelivery, "Prêt pour la livraison" },
+                    { enStatus.Delivered, "Livré" },
+                    { enStatus.DeliveredAndPaid, "Livré et payé" },
+                    { enStatus.Cancelled, "Annulé" }
             };
 
         CustomDataGridView dgvOrdersLis = new CustomDataGridView();
@@ -68,7 +68,7 @@ namespace TailorSoft.Order.Controls
             dgvOrdersLis.RowHeadersVisible = false;
 
             dgvOrdersLis.Dock = DockStyle.Fill;
-            dgvOrdersLis.RightToLeft = RightToLeft.Yes;
+            dgvOrdersLis.RightToLeft = RightToLeft.No;
             dgvOrdersLis.AllowUserToAddRows = false;
             dgvOrdersLis.AllowUserToDeleteRows = false;
             dgvOrdersLis.AllowUserToResizeRows = false;
@@ -94,7 +94,7 @@ namespace TailorSoft.Order.Controls
             columns[0] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnID",
-                HeaderText = "رقم الطلب",
+                HeaderText = "N° de commande",
                 DataPropertyName = "Id",
                 ReadOnly = true
             };
@@ -102,7 +102,7 @@ namespace TailorSoft.Order.Controls
             columns[1] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnCustomerName",
-                HeaderText = "اسم الزبون",
+                HeaderText = "Nom du client",
                 DataPropertyName = "CustomerName",
                 ReadOnly = true
             };
@@ -110,7 +110,7 @@ namespace TailorSoft.Order.Controls
             columns[2] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnOrderDate",
-                HeaderText = "تاريخ الطلب",
+                HeaderText = "Date de la commande",
                 DataPropertyName = "OrderDate",
                 ReadOnly = true
             };
@@ -118,7 +118,7 @@ namespace TailorSoft.Order.Controls
             columns[3] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnRequiredDate",
-                HeaderText = "تاريخ التسليم المطلوب",
+                HeaderText = "Date de livraison requise",
                 DataPropertyName = "RequiredDate",
                 ReadOnly = true
             };
@@ -126,7 +126,7 @@ namespace TailorSoft.Order.Controls
             columns[4] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnDeliveryDate",
-                HeaderText = "تاريخ التسليم الفعلي",
+                HeaderText = "Date de livraison réelle",
                 DataPropertyName = "DeliveryDate",
                 ReadOnly = true
             };
@@ -136,7 +136,7 @@ namespace TailorSoft.Order.Controls
             var statusColumn = new DataGridViewComboBoxColumn
             {
                 Name = "clmnStatus",
-                HeaderText = "الحالة",
+                HeaderText = "Statut",
                 DataPropertyName = "Status", // bound to TINYINT in DB
                 DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox,
                 FlatStyle = FlatStyle.Standard,
@@ -157,7 +157,7 @@ namespace TailorSoft.Order.Controls
             columns[6] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnTotalAmount",
-                HeaderText = "المبلغ الإجمالي",
+                HeaderText = "Montant total",
                 DataPropertyName = "TotalAmount",
                 ReadOnly = true
             };
@@ -165,7 +165,7 @@ namespace TailorSoft.Order.Controls
             columns[7] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnInitialAmount",
-                HeaderText = "المبلغ المدفوع",
+                HeaderText = "Montant payé",
                 DataPropertyName = "InitialAmount",
                 ReadOnly = true
             };
@@ -173,7 +173,7 @@ namespace TailorSoft.Order.Controls
             columns[8] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnRemainingAmount",
-                HeaderText = "المبلغ المتبقي",
+                HeaderText = "Montant restant",
                 DataPropertyName = "RemainingAmount",
                 ReadOnly = true
             };
@@ -181,7 +181,7 @@ namespace TailorSoft.Order.Controls
             columns[9] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnPaymentDate",
-                HeaderText = "تاريخ الدفع",
+                HeaderText = "Date de paiement",
                 DataPropertyName = "PaymentDate",
                 ReadOnly = true
             };
@@ -189,14 +189,14 @@ namespace TailorSoft.Order.Controls
             columns[10] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnNotes",
-                HeaderText = "ملاحظات",
+                HeaderText = "Remarques",
                 DataPropertyName = "Notes",
                 ReadOnly = true
             };
             columns[11] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnActions",
-                HeaderText = "الإجراءات",
+                HeaderText = "Actions",
                 DataPropertyName = "Actions",
                 FillWeight = 180f,
                 ReadOnly = true
@@ -217,9 +217,9 @@ namespace TailorSoft.Order.Controls
                     order?.RequiredDate.ToString("dd-MM-yyyy"),
                     order?.DeliveryDate?.ToString("dd-MM-yyyy") ?? "",
                     order?.Status,
-                    (order?.TotalAmount % 1 == 0 ? order?.TotalAmount.ToString("F0") : order?.TotalAmount.ToString("F2")) + " درهم",
-                    (order?.InitialAmount % 1 == 0 ? order?.InitialAmount.ToString("F0") : order?.InitialAmount.ToString("F2")) + " درهم",
-                    (order?.RemainingAmount % 1 == 0 ? order?.RemainingAmount.ToString("F0") : order?.RemainingAmount.ToString("F2")) + " درهم",
+                    (order?.TotalAmount % 1 == 0 ? order?.TotalAmount.ToString("F0") : order?.TotalAmount.ToString("F2")) + "DH",
+                    (order?.InitialAmount % 1 == 0 ? order?.InitialAmount.ToString("F0") : order?.InitialAmount.ToString("F2")) + "DH",
+                    (order?.RemainingAmount % 1 == 0 ? order?.RemainingAmount.ToString("F0") : order?.RemainingAmount.ToString("F2")) + "DH",
                     order?.PaymentDate?.ToString("dd-MM-yyyy") ?? "",
                     order?.Notes ?? "",
                     ""); // Actions column will be handled in CellPainting
@@ -239,9 +239,9 @@ namespace TailorSoft.Order.Controls
                     order?.RequiredDate.ToString("dd-MM-yyyy"),
                     order?.DeliveryDate?.ToString("dd-MM-yyyy") ?? "",
                     order?.Status,
-                    (order?.TotalAmount % 1 == 0 ? order?.TotalAmount.ToString("F0") : order?.TotalAmount.ToString("F2")) + " درهم",
-                    (order?.InitialAmount % 1 == 0 ? order?.InitialAmount.ToString("F0") : order?.InitialAmount.ToString("F2")) + " درهم",
-                    (order?.RemainingAmount % 1 == 0 ? order?.RemainingAmount.ToString("F0") : order?.RemainingAmount.ToString("F2")) + " درهم",
+                    (order?.TotalAmount % 1 == 0 ? order?.TotalAmount.ToString("F0") : order?.TotalAmount.ToString("F2")) + "DH",
+                    (order?.InitialAmount % 1 == 0 ? order?.InitialAmount.ToString("F0") : order?.InitialAmount.ToString("F2")) + "DH",
+                    (order?.RemainingAmount % 1 == 0 ? order?.RemainingAmount.ToString("F0") : order?.RemainingAmount.ToString("F2")) + "DH",
                     order?.PaymentDate?.ToString("dd-MM-yyyy") ?? "",
                     order?.Notes ?? "",
                     ""); // Actions column will be handled in CellPainting
@@ -270,10 +270,10 @@ namespace TailorSoft.Order.Controls
             int x4 = x3 + _IconSize + _IconSpacing;
             int y = e.CellBounds.Top + (e.CellBounds.Height - _IconSize) / 2;
 
-            Rectangle editIconRect = new Rectangle(x2, y, _IconSize, _IconSize);
-            Rectangle deleteIconRect = new Rectangle(x1, y, _IconSize, _IconSize);
-            Rectangle cashPaymentIcon = new Rectangle(x3, y, _IconSize, _IconSize);
-            Rectangle printIcon = new Rectangle(x4, y, _IconSize, _IconSize);
+            Rectangle editIconRect = new Rectangle(x3, y, _IconSize, _IconSize);
+            Rectangle deleteIconRect = new Rectangle(x4, y, _IconSize, _IconSize);
+            Rectangle cashPaymentIcon = new Rectangle(x1, y, _IconSize, _IconSize);
+            Rectangle printIcon = new Rectangle(x2, y, _IconSize, _IconSize);
 
             e?.Graphics?.DrawImage(Properties.Resources.edit_icon_blue_32, editIconRect);
             e?.Graphics?.DrawImage(Properties.Resources.delete_icon_red_32, deleteIconRect);
@@ -295,10 +295,10 @@ namespace TailorSoft.Order.Controls
             int x4 = x3 + _IconSize + _IconSpacing; // For print icon
             int y = cellRect.Top + (cellRect.Height - _IconSize) / 2;
 
-            Rectangle editRect = new Rectangle(x2, y, _IconSize, _IconSize);
-            Rectangle deleteRect = new Rectangle(x1, y, _IconSize, _IconSize);
-            Rectangle cashPaymentIcon = new Rectangle(x3, y, _IconSize, _IconSize);
-            Rectangle printIcon = new Rectangle(x4, y, _IconSize, _IconSize);
+            Rectangle editRect = new Rectangle(x3, y, _IconSize, _IconSize);
+            Rectangle deleteRect = new Rectangle(x4, y, _IconSize, _IconSize);
+            Rectangle cashPaymentIcon = new Rectangle(x1, y, _IconSize, _IconSize);
+            Rectangle printIcon = new Rectangle(x2, y, _IconSize, _IconSize);
 
             if (editRect.Contains(mouse))
             {
@@ -307,7 +307,7 @@ namespace TailorSoft.Order.Controls
                     clsOrder? order = clsOrder.Find(orderID);
                     if (order == null)
                     {
-                        MessageBox.Show("الطلب غير موجود.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("La commande n'existe pas.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     using (frmUpdateOrder frm = new frmUpdateOrder(order))
@@ -329,16 +329,16 @@ namespace TailorSoft.Order.Controls
                 }
                 else
                 {
-                    MessageBox.Show("خطأ في قراءة رقم الطلب.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erreur lors de la lecture du numéro de commande.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if (deleteRect.Contains(mouse))
             {
                 if (dgvOrdersLis.Rows.Count == 0 || e.RowIndex < 0)
                 {
-                    MessageBox.Show("لا توجد طلبات لحذفهم.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Aucune commande à supprimer.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                if (MessageBox.Show("هل أنت متأكد من حذف هذا الطلب؟", "تأكيد الحذف", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                if (MessageBox.Show("Êtes-vous sûr de vouloir supprimer cette commande?", "Confirmer la suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 {
                     return;
                 }
@@ -349,11 +349,11 @@ namespace TailorSoft.Order.Controls
                         if (clsOrder.Delete(orderID))
                         {
                             SetOrders(clsOrder.GetAll());
-                            MessageBox.Show("تم حذف الطلب بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("La commande a été supprimée avec succès", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show("فشل في حذف الطلب", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Échec de la suppression de la commande", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     catch (Exception ex)
@@ -364,7 +364,7 @@ namespace TailorSoft.Order.Controls
                 }
                 else
                 {
-                    MessageBox.Show("رقم الطلب خطا");
+                    MessageBox.Show("Erreur lors de la lecture du numéro de commande.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if (cashPaymentIcon.Contains(mouse))
@@ -375,7 +375,7 @@ namespace TailorSoft.Order.Controls
                     clsOrder? order = clsOrder.Find(orderID);
                     if (order == null)
                     {
-                        MessageBox.Show("الطلب غير موجود.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("La commande n'existe pas.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     using (frmRecordPayment frm = new frmRecordPayment(orderID))
@@ -387,7 +387,7 @@ namespace TailorSoft.Order.Controls
                 }
                 else
                 {
-                    MessageBox.Show("خطأ في قراءة رقم الطلب.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erreur lors de la lecture du numéro de commande.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if (dgvOrdersLis.Columns[e.ColumnIndex].Name == "clmnActions" && printIcon.Contains(mouse))
@@ -398,7 +398,7 @@ namespace TailorSoft.Order.Controls
                     clsOrder? order = clsOrder.Find(orderID);
                     if (order == null)
                     {
-                        MessageBox.Show("الطلب غير موجود.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("La commande n'existe pas.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -408,7 +408,7 @@ namespace TailorSoft.Order.Controls
                 }
                 else
                 {
-                    MessageBox.Show("خطأ في قراءة رقم الطلب.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erreur lors de la lecture du numéro de commande.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -447,15 +447,15 @@ namespace TailorSoft.Order.Controls
                             catch (Exception ex)
                             {
                                 SystemSounds.Exclamation.Play(); // error beep
-                                MessageBox.Show($"⚠ خطأ أثناء الحفظ: {ex.Message}", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show($"⚠ Erreur lors de la sauvegarde: {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
 
                             if (saved)
                             {
                                 SystemSounds.Asterisk.Play(); // success beep
-                                MessageBox.Show($"✅ تم تحديث حالة الطلب رقم {orderId} إلى {statusTranslations[(enStatus)statusByte]}",
-                                    "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show($"✅ Le statut de la commande n°{orderId} a été mis à jour vers {statusTranslations[(enStatus)statusByte]}",
+                                    "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 // Refresh the list again after save
                                 var orders = await Task.Run(() => clsOrder.GetAll());
@@ -464,13 +464,13 @@ namespace TailorSoft.Order.Controls
                             else
                             {
                                 SystemSounds.Exclamation.Play(); // error beep
-                                MessageBox.Show("⚠ حدث خطأ أثناء تحديث الحالة", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("⚠ Une erreur s'est produite lors de la mise à jour du statut", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         else
                         {
                             SystemSounds.Exclamation.Play(); // error beep
-                            MessageBox.Show("⚠ الطلب غير موجود أو غير صحيح", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("⚠ La commande n'existe pas ou est invalide", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                 }

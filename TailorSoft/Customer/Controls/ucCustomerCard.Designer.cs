@@ -61,14 +61,15 @@
             groupBox1.Controls.Add(lblCustomerID);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.ForeColor = Color.Brown;
+            groupBox1.ForeColor = Color.DarkGoldenrod;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.RightToLeft = RightToLeft.Yes;
-            groupBox1.Size = new Size(734, 352);
+            groupBox1.RightToLeft = RightToLeft.No;
+            groupBox1.Size = new Size(622, 259);
             groupBox1.TabIndex = 19;
             groupBox1.TabStop = false;
-            groupBox1.Text = "معلومات الزبون";
+            groupBox1.Text = "Informations Client";
+            groupBox1.Enter += groupBox1_Enter;
             // 
             // lblAdress
             // 
@@ -78,9 +79,9 @@
             lblAdress.BorderStyle = BorderStyle.Fixed3D;
             lblAdress.Font = new Font("Segoe UI Semibold", 11.75F, FontStyle.Bold);
             lblAdress.ForeColor = Color.Black;
-            lblAdress.Location = new Point(57, 234);
+            lblAdress.Location = new Point(85, 183);
             lblAdress.Name = "lblAdress";
-            lblAdress.Size = new Size(578, 81);
+            lblAdress.Size = new Size(524, 58);
             lblAdress.TabIndex = 21;
             lblAdress.Text = "[???]";
             lblAdress.TextAlign = ContentAlignment.MiddleLeft;
@@ -93,9 +94,9 @@
             lblEmail.BorderStyle = BorderStyle.Fixed3D;
             lblEmail.Font = new Font("Segoe UI Semibold", 11.75F, FontStyle.Bold);
             lblEmail.ForeColor = Color.Black;
-            lblEmail.Location = new Point(57, 168);
+            lblEmail.Location = new Point(64, 147);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(278, 24);
+            lblEmail.Size = new Size(545, 24);
             lblEmail.TabIndex = 20;
             lblEmail.Text = "[???]";
             lblEmail.TextAlign = ContentAlignment.MiddleLeft;
@@ -108,9 +109,9 @@
             lblPhone.BorderStyle = BorderStyle.Fixed3D;
             lblPhone.Font = new Font("Segoe UI Semibold", 11.75F, FontStyle.Bold);
             lblPhone.ForeColor = Color.Black;
-            lblPhone.Location = new Point(396, 168);
+            lblPhone.Location = new Point(399, 102);
             lblPhone.Name = "lblPhone";
-            lblPhone.Size = new Size(239, 24);
+            lblPhone.Size = new Size(210, 24);
             lblPhone.TabIndex = 19;
             lblPhone.Text = "[???]";
             lblPhone.TextAlign = ContentAlignment.MiddleLeft;
@@ -123,9 +124,9 @@
             lblName.BorderStyle = BorderStyle.Fixed3D;
             lblName.Font = new Font("Segoe UI Semibold", 11.75F, FontStyle.Bold);
             lblName.ForeColor = Color.Black;
-            lblName.Location = new Point(57, 103);
+            lblName.Location = new Point(62, 102);
             lblName.Name = "lblName";
-            lblName.Size = new Size(578, 24);
+            lblName.Size = new Size(222, 24);
             lblName.TabIndex = 18;
             lblName.Text = "[???]";
             lblName.TextAlign = ContentAlignment.MiddleLeft;
@@ -135,11 +136,11 @@
             label3.Anchor = AnchorStyles.Top;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            label3.Location = new Point(244, 50);
+            label3.Location = new Point(263, 48);
             label3.Name = "label3";
-            label3.Size = new Size(101, 21);
+            label3.Size = new Size(143, 21);
             label3.TabIndex = 17;
-            label3.Text = "تاريخ التسجيل:";
+            label3.Text = "Date d'inscription:";
             // 
             // lblCreatedDate
             // 
@@ -149,9 +150,9 @@
             lblCreatedDate.BorderStyle = BorderStyle.Fixed3D;
             lblCreatedDate.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblCreatedDate.ForeColor = Color.FromArgb(64, 64, 64);
-            lblCreatedDate.Location = new Point(57, 48);
+            lblCreatedDate.Location = new Point(412, 46);
             lblCreatedDate.Name = "lblCreatedDate";
-            lblCreatedDate.Size = new Size(181, 24);
+            lblCreatedDate.Size = new Size(197, 24);
             lblCreatedDate.TabIndex = 16;
             lblCreatedDate.Text = "?? / ?? / ????";
             lblCreatedDate.TextAlign = ContentAlignment.MiddleLeft;
@@ -161,55 +162,55 @@
             label6.Anchor = AnchorStyles.Top;
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            label6.Location = new Point(637, 264);
+            label6.Location = new Point(6, 202);
             label6.Name = "label6";
-            label6.Size = new Size(60, 21);
+            label6.Size = new Size(73, 21);
             label6.TabIndex = 15;
-            label6.Text = "العنوان:";
+            label6.Text = "Adresse:";
             // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            label1.Location = new Point(656, 50);
+            label1.Location = new Point(6, 48);
             label1.Name = "label1";
-            label1.Size = new Size(41, 21);
+            label1.Size = new Size(32, 21);
             label1.TabIndex = 1;
-            label1.Text = "رقم :";
+            label1.Text = "N°:";
             // 
             // label2
             // 
             label2.Anchor = AnchorStyles.Top;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            label2.Location = new Point(644, 103);
+            label2.Location = new Point(6, 104);
             label2.Name = "label2";
-            label2.Size = new Size(53, 21);
+            label2.Size = new Size(50, 21);
             label2.TabIndex = 2;
-            label2.Text = "الاسم :";
+            label2.Text = "Nom:";
             // 
             // label4
             // 
             label4.Anchor = AnchorStyles.Top;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            label4.Location = new Point(641, 168);
+            label4.Location = new Point(303, 104);
             label4.Name = "label4";
-            label4.Size = new Size(56, 21);
+            label4.Size = new Size(90, 21);
             label4.TabIndex = 4;
-            label4.Text = "الهاتف:";
+            label4.Text = "Téléphone:";
             // 
             // label5
             // 
             label5.Anchor = AnchorStyles.Top;
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            label5.Location = new Point(341, 168);
+            label5.Location = new Point(6, 149);
             label5.Name = "label5";
-            label5.Size = new Size(49, 21);
+            label5.Size = new Size(52, 21);
             label5.TabIndex = 5;
-            label5.Text = "البريد:";
+            label5.Text = "Email:";
             // 
             // lblCustomerID
             // 
@@ -219,9 +220,9 @@
             lblCustomerID.BorderStyle = BorderStyle.Fixed3D;
             lblCustomerID.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold);
             lblCustomerID.ForeColor = Color.Black;
-            lblCustomerID.Location = new Point(351, 47);
+            lblCustomerID.Location = new Point(44, 46);
             lblCustomerID.Name = "lblCustomerID";
-            lblCustomerID.Size = new Size(284, 24);
+            lblCustomerID.Size = new Size(157, 24);
             lblCustomerID.TabIndex = 10;
             lblCustomerID.Text = "[???]";
             lblCustomerID.TextAlign = ContentAlignment.MiddleLeft;
@@ -233,8 +234,8 @@
             BackColor = Color.White;
             Controls.Add(groupBox1);
             Name = "ucCustomerCard";
-            RightToLeft = RightToLeft.Yes;
-            Size = new Size(734, 352);
+            RightToLeft = RightToLeft.No;
+            Size = new Size(622, 259);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

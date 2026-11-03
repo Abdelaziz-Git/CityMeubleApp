@@ -20,7 +20,7 @@ namespace TailorSoft.Dashbord.Controls
             lblTotalOrders.Text = statisticsCardDTO.TotalOrders.ToString();
             lblTotalCustomers.Text = statisticsCardDTO.TotalCustomers.ToString();
             lblTotalProducts.Text = statisticsCardDTO.TotalProducts.ToString();
-            lblAnnualIncome.Text = statisticsCardDTO.AnnualIncome.ToString("F1") + " د.م";
+            lblAnnualIncome.Text = statisticsCardDTO.AnnualIncome.ToString("F1") + " Dh";
         }
        
     }

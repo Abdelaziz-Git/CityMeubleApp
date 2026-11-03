@@ -69,7 +69,7 @@
             lblAnnualIncome.Name = "lblAnnualIncome";
             lblAnnualIncome.Size = new Size(293, 59);
             lblAnnualIncome.TabIndex = 2;
-            lblAnnualIncome.Text = "1967386 د.م";
+            lblAnnualIncome.Text = "1967386 Dh";
             lblAnnualIncome.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblPanelIncomeTitle
@@ -85,7 +85,7 @@
             lblPanelIncomeTitle.Padding = new Padding(0, 0, 5, 0);
             lblPanelIncomeTitle.Size = new Size(293, 64);
             lblPanelIncomeTitle.TabIndex = 1;
-            lblPanelIncomeTitle.Text = "الدخل السنوي";
+            lblPanelIncomeTitle.Text = "Revenu annuel";
             lblPanelIncomeTitle.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlCustomers
@@ -127,7 +127,7 @@
             lblPanelCustomersTitle.Padding = new Padding(0, 0, 20, 0);
             lblPanelCustomersTitle.Size = new Size(293, 64);
             lblPanelCustomersTitle.TabIndex = 1;
-            lblPanelCustomersTitle.Text = "الزبائن";
+            lblPanelCustomersTitle.Text = "Clients";
             lblPanelCustomersTitle.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlProducts
@@ -169,7 +169,7 @@
             lblPanelProductsTitle.Padding = new Padding(0, 0, 20, 0);
             lblPanelProductsTitle.Size = new Size(293, 64);
             lblPanelProductsTitle.TabIndex = 1;
-            lblPanelProductsTitle.Text = "المنتجات";
+            lblPanelProductsTitle.Text = "Produits";
             lblPanelProductsTitle.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlOrders
@@ -213,7 +213,7 @@
             lblPanelOrdersTitle.Padding = new Padding(0, 0, 20, 0);
             lblPanelOrdersTitle.Size = new Size(293, 66);
             lblPanelOrdersTitle.TabIndex = 1;
-            lblPanelOrdersTitle.Text = "الطلبات";
+            lblPanelOrdersTitle.Text = "Commandes";
             lblPanelOrdersTitle.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // ucStatisticsCards
@@ -226,7 +226,6 @@
             Controls.Add(pnlProducts);
             Controls.Add(pnlOrders);
             Name = "ucStatisticsCards";
-            RightToLeft = RightToLeft.Yes;
             Size = new Size(1255, 135);
             pnlAnnualIncome.ResumeLayout(false);
             pnlCustomers.ResumeLayout(false);

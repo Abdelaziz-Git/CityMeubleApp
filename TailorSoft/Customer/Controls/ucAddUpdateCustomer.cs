@@ -20,7 +20,7 @@ namespace TailorSoft.Customers.Controls
         {
             _Mode = enMode.AddNew;
             Customer = null;
-            lblTitle.Text = "إضافة عميل جديد";
+            lblTitle.Text = "Ajouter un nouveau client";
             lblCustomerID.Text = "[???]";
             ResetFields();
         }
@@ -31,7 +31,7 @@ namespace TailorSoft.Customers.Controls
             if (Customer != null)
             {
                 _Mode = enMode.Update;
-                lblTitle.Text = "تحديث بيانات العميل";
+                lblTitle.Text = "Mettre à jour les données du client";
                 lblCustomerID.Text = Customer.Id?.ToString() ?? "[???]";
                 txtFirstName.Text = Customer.Person?.FirstName;
                 txtLastName.Text = Customer.Person?.LastName;
@@ -45,7 +45,7 @@ namespace TailorSoft.Customers.Controls
         {
             if (Customer == null)
             {
-                MessageBox.Show("لا يوجد عميل لتحرير بياناته", "خطأ",
+                MessageBox.Show("Échec de la mise à jour du client", "Erreur",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -60,19 +60,19 @@ namespace TailorSoft.Customers.Controls
                 address: txtAddress.Text.Trim());
                 if (UpdatedCustomer == null)
                 {
-                    MessageBox.Show("فشل في تحديث بيانات العميل", "خطأ",
+                    MessageBox.Show("Échec de la mise à jour des données du client", "Erreur",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 LoadCustomerData(UpdatedCustomer);
                 Customer = UpdatedCustomer;
-                MessageBox.Show("تم تحديث بيانات العميل بنجاح", "نجاح",
+                MessageBox.Show("Données du client mises à jour avec succès", "Succès",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 OnCustomerSaved?.Invoke(Customer);
             }
             else
             {
-                MessageBox.Show("لا يمكن تحديث بيانات العميل بدون معرف شخصي", "خطأ",
+                MessageBox.Show("Impossible de mettre à jour le client sans ID personnel", "Erreur",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -90,26 +90,26 @@ namespace TailorSoft.Customers.Controls
         {
             if (string.IsNullOrWhiteSpace(txtFirstName.Text))
             {
-                errorProvider1.SetError(txtFirstName, "الاسم الأول مطلوب");
+                errorProvider1.SetError(txtFirstName, "Le prénom est obligatoire");
                 return false;
             }
 
             if (string.IsNullOrWhiteSpace(txtLastName.Text))
             {
-                errorProvider1.SetError(txtLastName, "اسم العائلة مطلوب");
+                errorProvider1.SetError(txtLastName, "Le nom de famille est obligatoire");
                 return false;
             }
 
             if (string.IsNullOrWhiteSpace(txtPhone.Text))
             {
-                errorProvider1.SetError(txtPhone, "الهاتف مطلوب");
+                errorProvider1.SetError(txtPhone, "Le téléphone est obligatoire");
                 return false;
             }
             if (_Mode == enMode.AddNew)
             {
                 if (clsCustomer.IsExistsByPhone(txtPhone.Text.Trim()))
                 {
-                    errorProvider1.SetError(txtPhone, "رقم الهاتف موجود بالفعل");
+                    errorProvider1.SetError(txtPhone, "Ce numéro de téléphone existe déjà");
                     return false;
                 }
             }
@@ -136,12 +136,12 @@ namespace TailorSoft.Customers.Controls
                 );
                 if (newCustomer == null)
                 {
-                    MessageBox.Show("فشل في إضافة العميل", "خطأ",
+                    MessageBox.Show("Échec de l'ajout du client", "Erreur",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 lblCustomerID.Text = newCustomer.Id?.ToString() ?? "[???]";
-                MessageBox.Show("تم إضافة العميل بنجاح", "نجاح",
+                MessageBox.Show("Client ajouté avec succès", "Succès",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadCustomerData(newCustomer);
                 OnCustomerSaved?.Invoke(newCustomer);
@@ -170,7 +170,7 @@ namespace TailorSoft.Customers.Controls
             }
             if (clsCustomer.IsExistsByPhone(txtPhone.Text.Trim()))
             {
-                errorProvider1.SetError(txtPhone, "رقم الهاتف موجود بالفعل");
+                errorProvider1.SetError(txtPhone, "Ce numéro de téléphone existe déjà");
             }
             else
             {

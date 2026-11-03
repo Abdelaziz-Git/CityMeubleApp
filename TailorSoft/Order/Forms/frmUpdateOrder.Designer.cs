@@ -37,8 +37,7 @@
             ucAddUpdateOrder1.Dock = DockStyle.Fill;
             ucAddUpdateOrder1.Location = new Point(0, 0);
             ucAddUpdateOrder1.Name = "ucAddUpdateOrder1";
-            ucAddUpdateOrder1.RightToLeft = RightToLeft.Yes;
-            ucAddUpdateOrder1.Size = new Size(1069, 705);
+            ucAddUpdateOrder1.Size = new Size(1167, 705);
             ucAddUpdateOrder1.TabIndex = 0;
             ucAddUpdateOrder1.OnButtonCloseClicked += ucAddUpdateOrder1_OnButtonCloseClicked;
             ucAddUpdateOrder1.OnOrderSavedSuccessfully += ucAddUpdateOrder1_OnOrderSavedSuccessfully;
@@ -47,7 +46,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1069, 705);
+            ClientSize = new Size(1167, 705);
             Controls.Add(ucAddUpdateOrder1);
             Name = "frmUpdateOrder";
             StartPosition = FormStartPosition.CenterScreen;

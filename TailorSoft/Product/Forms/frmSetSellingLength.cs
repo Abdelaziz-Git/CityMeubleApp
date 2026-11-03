@@ -15,30 +15,30 @@ namespace TailorSoft.Product.Forms
         {
             if (_productToSell == null || _productToSell.Id <= 0)
             {
-                MessageBox.Show("رقم المنتج غير صحيح", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Le numéro du produit est incorrect", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (_productToSell.StockLength <= 0)
             {
-                MessageBox.Show("لا يوجد طول متاح للبيع", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Aucune longueur disponible pour la vente", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 nudSellingLength.ResetText();
                 return;
             }
             if (_productToSell.StockLength < (double)nudSellingLength.Value)
             {
-                MessageBox.Show("الطول المطلوب للبيع أكبر من الطول المتاح", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Le nombre requise pour la vente est supérieure à la quantité disponible", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 nudSellingLength.ResetText();
                 return;
             }
             if (_productToSell.Sell((double)nudSellingLength.Value))
             {
                 OnSellingCompletedSuccessfully?.Invoke(_productToSell);
-                MessageBox.Show("تم خصم الطول بنجاح", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Le quantité a été déduite avec succès", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             else
             {
-                MessageBox.Show("حدث خطأ أثناء خصم الطول", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Une erreur s'est produite lors de la déduction de la quantité", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 nudSellingLength.ResetText();
             }
         }
@@ -46,11 +46,11 @@ namespace TailorSoft.Product.Forms
         {
             if (_productToSell == null || _productToSell.Id <= 0)
             {
-                MessageBox.Show("رقم المنتج غير صحيح", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Le numéro du produit est incorrect", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
                 return;
             }
-            lblTitle.Text = $"أكتب الطول بالمتر الذي تريد بيعه من الثوب رقم {_productToSell.Id}";
+            lblTitle.Text = $"Entrez la quantité que vous souhaitez vendre du produit numéro {_productToSell.Id}";
             nudSellingLength.ResetText();
         }
         private void btnSave_Click(object sender, EventArgs e)

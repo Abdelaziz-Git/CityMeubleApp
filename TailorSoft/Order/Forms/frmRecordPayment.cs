@@ -11,12 +11,12 @@
             _Order = clsOrder.Find(orderID);
             if (_Order == null)
             {
-                MessageBox.Show("الطلب غير موجود.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La commande n'a pas été trouvée.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
             else
             {
-                lblTitle.Text = $"تسجيل دفعة للطلب رقم {_Order.Id}";
+                lblTitle.Text = $"Enregistrement du paiement pour la commande n° {_Order.Id}";
             }
         }
 
@@ -33,17 +33,17 @@
                 bool success = clsOrder.RecordPayment(_orderID, amount);
                 if (success)
                 {
-                    MessageBox.Show("تم تسجيل الدفعة بنجاح.", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Le paiement a été enregistré avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("فشل تسجيل الدفعة. يرجى المحاولة مرة أخرى.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Échec de l'enregistrement du paiement. Veuillez réessayer.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("يرجى إدخال مبلغ صحيح.", "خطأ في التحقق", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Veuillez entrer un montant correct.", "Erreur de validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

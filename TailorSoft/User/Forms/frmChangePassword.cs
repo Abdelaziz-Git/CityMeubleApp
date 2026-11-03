@@ -14,27 +14,27 @@ namespace TailorSoft.User.Forms
         {
             if (string.IsNullOrWhiteSpace(txtCurrentPassword.Text))
             {
-                MessageBox.Show("الرجاء إدخال كلمة المرور الحالية.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Veuillez saisir le mot de passe actuel.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtNewPassword.Text))
             {
-                MessageBox.Show("الرجاء إدخال كلمة المرور الجديدة.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Veuillez saisir le nouveau mot de passe.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (txtNewPassword.Text != txtConfirmPassword.Text)
             {
-                MessageBox.Show("كلمة المرور الجديدة وتأكيد كلمة المرور غير متطابقين.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Le nouveau mot de passe et sa confirmation ne correspondent pas.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (txtCurrentPassword.Text == txtNewPassword.Text)
             {
-                MessageBox.Show("كلمة المرور الجديدة لا يمكن أن تكون نفس كلمة المرور الحالية.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Le nouveau mot de passe doit être différent du mot de passe actuel.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (clsPasswordHelper.VerifyPassword(txtCurrentPassword.Text, clsGlobal.CurrentUser?.PasswordHash ?? "") == false)
             {
-                MessageBox.Show("كلمة المرور الحالية غير صحيحة.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Le mot de passe actuel est incorrect.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -52,17 +52,17 @@ namespace TailorSoft.User.Forms
                     CurrentUser.PasswordHash = newHashedPassword;
                     if (CurrentUser.Save())
                     {
-                        MessageBox.Show("تم تغيير كلمة المرور بنجاح.", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Votre mot de passe a été modifié avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("حدث خطأ أثناء حفظ كلمة المرور الجديدة. الرجاء المحاولة مرة أخرى.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Une erreur est survenue lors de l'enregistrement du nouveau mot de passe. Veuillez réessayer.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("لم يتم العثور على المستخدم الحالي. الرجاء تسجيل الدخول مرة أخرى.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Utilisateur courant introuvable. Veuillez vous reconnecter.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

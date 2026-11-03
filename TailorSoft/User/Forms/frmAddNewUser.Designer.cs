@@ -37,7 +37,6 @@
             ucAddUser1.Dock = DockStyle.Fill;
             ucAddUser1.Location = new Point(0, 0);
             ucAddUser1.Name = "ucAddUser1";
-            ucAddUser1.RightToLeft = RightToLeft.Yes;
             ucAddUser1.Size = new Size(1084, 549);
             ucAddUser1.TabIndex = 0;
             // 

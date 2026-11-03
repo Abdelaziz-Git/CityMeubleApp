@@ -23,12 +23,12 @@ namespace TailorSoft.Order.Controls
         private void InitializeComboBoxFindBy()
         {
             cbFindBy.Items.Clear();
-            cbFindBy.Items.Add("لا شيء");
-            cbFindBy.Items.Add("رقم الطلب");
-            cbFindBy.Items.Add("حالة الطلب");
-            cbFindBy.Items.Add("تاريخ الطلب");
-            cbFindBy.Items.Add("تاريخ التسليم");
-            cbFindBy.Items.Add("اسم الزبون");
+            cbFindBy.Items.Add("Aucun");
+            cbFindBy.Items.Add("Numéro de commande");
+            cbFindBy.Items.Add("Statut de la commande");
+            cbFindBy.Items.Add("Date de la commande");
+            cbFindBy.Items.Add("Date de livraison");
+            cbFindBy.Items.Add("Nom du client");
             cbFindBy.SelectedIndex = 0;
 
         }
@@ -37,13 +37,13 @@ namespace TailorSoft.Order.Controls
             cbOrderStatus.Items.Clear();
             var statusTranslations = new Dictionary<clsOrder.enStatus, string>
             {
-                    { enStatus.Pending, "قيد الانتظار" },
-                    { enStatus.Measuring, "قياس" },
-                    { enStatus.InProgress, "قيد التنفيذ" },
-                    { enStatus.ReadyforDelivery, "جاهز للتسليم" },
-                    { enStatus.Delivered, "تم التسليم" },
-                    { enStatus.DeliveredAndPaid, "تم التسليم والدفع" },
-                    { enStatus.Cancelled, "ملغى" }
+                    { enStatus.Pending, "En attente" },
+                    { enStatus.Measuring, "Mesure" },
+                    { enStatus.InProgress, "En cours" },
+                    { enStatus.ReadyforDelivery, "Prêt pour la livraison" },
+                    { enStatus.Delivered, "Livré" },
+                    { enStatus.DeliveredAndPaid, "Livré et payé" },
+                    { enStatus.Cancelled, "Annulé" }
             };
 
             // Fill ComboBox with enum values
@@ -78,7 +78,7 @@ namespace TailorSoft.Order.Controls
             }
             else
             {
-                MessageBox.Show("رقم الطلب غير صحيح");
+                MessageBox.Show("Numéro de commande invalide");
             }
         }
         private void FilterOrdersListByStatus()
@@ -198,7 +198,7 @@ namespace TailorSoft.Order.Controls
         }
         private void UcOrdersList1_OnOrdersCountChanged(int obj)
         {
-            lblNumberOfOrders.Text = $"عدد الطلبات: {obj}";
+            lblNumberOfOrders.Text = $"Nombre de commandes: {obj}";
         }
         private void btnAddNewOrder_Click(object sender, EventArgs e)
         {

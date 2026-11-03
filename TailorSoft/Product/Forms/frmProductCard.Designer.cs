@@ -35,9 +35,10 @@
             // 
             ucProductItem1.BackColor = Color.WhiteSmoke;
             ucProductItem1.BorderStyle = BorderStyle.Fixed3D;
-            ucProductItem1.Location = new Point(3, 3);
+            ucProductItem1.Dock = DockStyle.Fill;
+            ucProductItem1.Location = new Point(0, 0);
             ucProductItem1.Name = "ucProductItem1";
-            ucProductItem1.Size = new Size(668, 334);
+            ucProductItem1.Size = new Size(1030, 349);
             ucProductItem1.TabIndex = 0;
             ucProductItem1.OnProductItemDeleted += ucProductItem1_OnProductItemDeleted;
             ucProductItem1.OnProductItemSaved += ucProductItem1_OnProductItemSaved;
@@ -47,14 +48,14 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(673, 339);
+            ClientSize = new Size(1030, 349);
             Controls.Add(ucProductItem1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmProductCard";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "معلومات المنتج";
+            Text = "Produit";
             ResumeLayout(false);
         }
 

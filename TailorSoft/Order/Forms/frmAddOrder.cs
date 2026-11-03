@@ -42,7 +42,7 @@ namespace TailorSoft.Order.Forms
         {
             if (_Customer == null || _Customer.Id.HasValue == false)
             {
-                MessageBox.Show("مرجوا اختيار الزبون قبل المتابعة", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Veuillez sélectionner le client avant de continuer", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (_ucAddUpdateOrder1 != null)
@@ -60,7 +60,7 @@ namespace TailorSoft.Order.Forms
                 };
                 if (!_Order.Save())
                 {
-                    MessageBox.Show("حدث خطأ أثناء انشاء طلب جديد ", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Une erreur s'est produite lors de la création d'une nouvelle commande", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 _ucAddUpdateOrder1.Visible = true;
@@ -78,18 +78,18 @@ namespace TailorSoft.Order.Forms
         {
             if (!_IsUserSavingOrder && _ucAddUpdateOrder1.Visible == true)
             {
-                if (MessageBox.Show("هل تريد الخروج بدون حفظ الطلب؟", "تحذير", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                if (MessageBox.Show("Voulez-vous quitter sans enregistrer la commande?", "Avertissement", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 {
                     e.Cancel = true; // Cancel the closing event
                     return;
                 }
                 if (clsOrder.Delete(_Order?.Id ?? 0))
                 {
-                    MessageBox.Show("تم حذف الطلب بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("La commande a été supprimée avec succès", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("حدث خطأ أثناء حذف الطلب", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Une erreur s'est produite lors de la suppression de la commande", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 

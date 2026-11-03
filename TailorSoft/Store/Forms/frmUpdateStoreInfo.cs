@@ -31,12 +31,12 @@ namespace TailorSoft.Store.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Failed to load image: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Impossible de charger l’image : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("File does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Le fichier n’existe pas.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private bool LoadImageFromFile()
@@ -45,8 +45,8 @@ namespace TailorSoft.Store.Forms
             {
                 using (OpenFileDialog openFileDialog = new OpenFileDialog())
                 {
-                    openFileDialog.Title = "Select an Image for product";
-                    openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                    openFileDialog.Title = "Sélectionner une image pour le logo du magasin";
+                    openFileDialog.Filter = "Fichiers image|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
                     openFileDialog.Multiselect = false;
 
                     if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -59,7 +59,7 @@ namespace TailorSoft.Store.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error to load image: {ex.Message}");
+                MessageBox.Show($"Erreur lors du chargement de l’image : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return false;
         }
@@ -91,16 +91,16 @@ namespace TailorSoft.Store.Forms
             try
             {
                 _Store.Save();
-                MessageBox.Show("تم تحديث معلومات المحل بنجاح");
+                MessageBox.Show("Les informations du magasin ont été mises à jour avec succès.", "Magasin", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             catch (IOException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"Erreur lors de l’enregistrement des informations du magasin : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"Erreur lors de l’enregistrement des informations du magasin : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -52,7 +52,7 @@
             // 
             txtUsername.Location = new Point(467, 178);
             txtUsername.Name = "txtUsername";
-            txtUsername.RightToLeft = RightToLeft.Yes;
+            txtUsername.RightToLeft = RightToLeft.No;
             txtUsername.Size = new Size(204, 23);
             txtUsername.TabIndex = 0;
             txtUsername.Validating += txtUsername_Validating;
@@ -72,7 +72,7 @@
             // 
             txtPassword.Location = new Point(467, 252);
             txtPassword.Name = "txtPassword";
-            txtPassword.RightToLeft = RightToLeft.Yes;
+            txtPassword.RightToLeft = RightToLeft.No;
             txtPassword.Size = new Size(204, 23);
             txtPassword.TabIndex = 2;
             txtPassword.UseSystemPasswordChar = true;
@@ -86,10 +86,10 @@
             label1.ForeColor = Color.FromArgb(129, 66, 86);
             label1.Location = new Point(407, 0);
             label1.Name = "label1";
-            label1.RightToLeft = RightToLeft.Yes;
-            label1.Size = new Size(314, 93);
+            label1.RightToLeft = RightToLeft.No;
+            label1.Size = new Size(314, 138);
             label1.TabIndex = 3;
-            label1.Text = "مرحبا بك";
+            label1.Text = "Bienvenue";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.UseMnemonic = false;
             // 
@@ -98,24 +98,24 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(129, 66, 86);
-            label2.Location = new Point(569, 150);
+            label2.Location = new Point(467, 150);
             label2.Name = "label2";
-            label2.RightToLeft = RightToLeft.Yes;
-            label2.Size = new Size(106, 21);
+            label2.RightToLeft = RightToLeft.No;
+            label2.Size = new Size(141, 21);
             label2.TabIndex = 4;
-            label2.Text = "اسم المستخدم:";
+            label2.Text = "Nom d'utilisateur:";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.FromArgb(129, 66, 86);
-            label3.Location = new Point(588, 227);
+            label3.Location = new Point(467, 227);
             label3.Name = "label3";
-            label3.RightToLeft = RightToLeft.Yes;
-            label3.Size = new Size(87, 21);
+            label3.RightToLeft = RightToLeft.No;
+            label3.Size = new Size(113, 21);
             label3.TabIndex = 5;
-            label3.Text = "كلمة المرور:";
+            label3.Text = "Mot de passe:";
             // 
             // btnLogin
             // 
@@ -124,10 +124,10 @@
             btnLogin.ForeColor = Color.White;
             btnLogin.Location = new Point(493, 356);
             btnLogin.Name = "btnLogin";
-            btnLogin.RightToLeft = RightToLeft.Yes;
+            btnLogin.RightToLeft = RightToLeft.No;
             btnLogin.Size = new Size(154, 46);
             btnLogin.TabIndex = 6;
-            btnLogin.Text = "تسجيل الدخول";
+            btnLogin.Text = "Connexion";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
@@ -140,12 +140,12 @@
             chkRememberMe.AutoSize = true;
             chkRememberMe.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             chkRememberMe.ForeColor = Color.FromArgb(129, 66, 86);
-            chkRememberMe.Location = new Point(503, 286);
+            chkRememberMe.Location = new Point(467, 286);
             chkRememberMe.Name = "chkRememberMe";
-            chkRememberMe.RightToLeft = RightToLeft.Yes;
-            chkRememberMe.Size = new Size(132, 21);
+            chkRememberMe.RightToLeft = RightToLeft.No;
+            chkRememberMe.Size = new Size(139, 21);
             chkRememberMe.TabIndex = 7;
-            chkRememberMe.Text = "تذكر تسجيل الدخول";
+            chkRememberMe.Text = "Se souvenir de moi";
             chkRememberMe.UseVisualStyleBackColor = true;
             chkRememberMe.CheckedChanged += chkRememberMe_CheckedChanged;
             // 
@@ -158,7 +158,7 @@
             label4.Name = "label4";
             label4.Size = new Size(407, 45);
             label4.TabIndex = 8;
-            label4.Text = "المفروشات المنزلية";
+            label4.Text = "City Meuble";
             label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox2
@@ -206,7 +206,7 @@
             MinimizeBox = false;
             Name = "frmLogin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "تسجيل الدخول";
+            Text = "Connexion";
             FormClosed += frmLogin_FormClosed;
             Load += frmLogin_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

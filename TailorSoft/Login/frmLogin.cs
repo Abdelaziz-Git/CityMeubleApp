@@ -101,7 +101,7 @@ namespace TailorSoft
             catch (Exception ex)
             {
                 // Log the error and keep SavedUsername / SavedPasswordHash as null so login fails safely
-                MessageBox.Show($"وقع خطأ أثناء الوصول إلى السجل: {ex.Message}");
+                MessageBox.Show($"Erreur lors de l'accès au registre : {ex.Message}");
                 SavedUsername = null;
                 SavedEncryptedPassword = null;
             }
@@ -128,13 +128,13 @@ namespace TailorSoft
                     }
                     else
                     {
-                        MessageBox.Show("تعذر الوصول إلى السجل لحفظ بيانات الاعتماد.");
+                        MessageBox.Show("Impossible d'accéder au registre pour enregistrer les données d'identification.");
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"وقع خطأ أثناء حفظ بيانات الاعتماد في السجل: {ex.Message}");
+                MessageBox.Show($"Erreur lors de l'enregistrement des données d'identification dans le registre: {ex.Message}");
             }
         }
 
@@ -143,25 +143,25 @@ namespace TailorSoft
         {
             if (!ValidateChildren())
             {
-                MessageBox.Show("من فضلك, صحح الاخطاء أولا قبل تسجيل الدخول.", "خطأ.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Veuillez corriger les erreurs avant de vous connecter.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
             if (!clsUser.IsExists(username))
             {
-                MessageBox.Show("اسم المستخدم غير صحيح.", "خطأ.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Le nom d'utilisateur est invalide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             clsUser? curentUser = clsUser.Find(username);
             if (curentUser == null || curentUser.Username == null || curentUser.PasswordHash == null)
             {
-                MessageBox.Show("حدث خطأ غير متوقع أثناء التحقق من بيانات المستخدم.", "خطأ.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Une erreur inattendue s'est produite lors de la vérification des données utilisateur.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (clsPasswordHelper.VerifyPassword(password, curentUser.PasswordHash) == false)
             {
-                MessageBox.Show("كلمة المرور غير صحيحة.", "خطأ.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Le mot de passe est incorrect.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             clsGlobal.CurrentUser = curentUser;
@@ -178,7 +178,7 @@ namespace TailorSoft
         {
             if (string.IsNullOrEmpty(txtUsername.Text.Trim()))
             {
-                errorProvider1.SetError(txtUsername, "اسم المستخدم لا يمكن أن يكون فارغاً.");
+                errorProvider1.SetError(txtUsername, "Le nom d'utilisateur ne peut pas être vide.");
             }
             else
             {
@@ -189,7 +189,7 @@ namespace TailorSoft
         {
             if (string.IsNullOrEmpty(txtPassword.Text.Trim()))
             {
-                errorProvider1.SetError(txtPassword, "كلمة المرور لا يمكن أن تكون فارغة.");
+                errorProvider1.SetError(txtPassword, "Le mot de passe ne peut pas être vide.");
             }
             else
             {
@@ -255,7 +255,7 @@ namespace TailorSoft
             catch (Exception ex)
             {
                 // Log the error and keep SavedUsername / SavedPasswordHash as null so login fails safely
-                MessageBox.Show($"وقع خطأ أثناء الوصول إلى السجل: {ex.Message}");
+                MessageBox.Show($"Erreur lors de l'accès au registre : {ex.Message}");
                 IsRemember = false;
             }
         }

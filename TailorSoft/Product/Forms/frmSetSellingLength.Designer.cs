@@ -40,7 +40,6 @@
             nudSellingLength.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             nudSellingLength.DecimalPlaces = 1;
             nudSellingLength.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            nudSellingLength.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
             nudSellingLength.Location = new Point(132, 76);
             nudSellingLength.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             nudSellingLength.Name = "nudSellingLength";
@@ -57,10 +56,9 @@
             btnClose.Location = new Point(63, 171);
             btnClose.Name = "btnClose";
             btnClose.Padding = new Padding(5);
-            btnClose.RightToLeft = RightToLeft.Yes;
-            btnClose.Size = new Size(117, 51);
+            btnClose.Size = new Size(126, 51);
             btnClose.TabIndex = 19;
-            btnClose.Text = "إغلاق";
+            btnClose.Text = "Fermer";
             btnClose.TextAlign = ContentAlignment.MiddleRight;
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
@@ -72,13 +70,12 @@
             btnSave.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.Image = Properties.Resources.Save_icon_32;
             btnSave.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSave.Location = new Point(301, 171);
+            btnSave.Location = new Point(277, 171);
             btnSave.Name = "btnSave";
             btnSave.Padding = new Padding(5);
-            btnSave.RightToLeft = RightToLeft.Yes;
-            btnSave.Size = new Size(117, 51);
+            btnSave.Size = new Size(136, 51);
             btnSave.TabIndex = 20;
-            btnSave.Text = "تأكيد";
+            btnSave.Text = "Confirmer";
             btnSave.TextAlign = ContentAlignment.MiddleRight;
             btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
@@ -91,10 +88,9 @@
             lblTitle.ForeColor = Color.Transparent;
             lblTitle.Location = new Point(0, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.RightToLeft = RightToLeft.Yes;
             lblTitle.Size = new Size(492, 59);
             lblTitle.TabIndex = 21;
-            lblTitle.Text = "أكتب الطول الذي تريد بيعه من هذا الثوب:";
+            lblTitle.Text = "Entrez la quantité que vous souhaitez vendre";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // frmSetSellingLength
@@ -111,7 +107,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmSetSellingLength";
-            RightToLeft = RightToLeft.Yes;
+            RightToLeft = RightToLeft.No;
             StartPosition = FormStartPosition.CenterScreen;
             Load += frmSetSellingLength_Load;
             ((System.ComponentModel.ISupportInitialize)nudSellingLength).EndInit();

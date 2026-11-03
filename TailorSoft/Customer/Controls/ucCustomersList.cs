@@ -47,7 +47,7 @@ namespace TailorSoft.Customer.Controls
             dgvCustomersList.RowHeadersVisible = false;
 
             dgvCustomersList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvCustomersList.RightToLeft = RightToLeft.Yes;
+            dgvCustomersList.RightToLeft = RightToLeft.No;
             dgvCustomersList.ColumnHeadersHeight = 44;
             dgvCustomersList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvCustomersList.AllowUserToAddRows = false;
@@ -70,21 +70,21 @@ namespace TailorSoft.Customer.Controls
         private DataGridViewColumn[] GetColumns()
         {
             DataGridViewColumn[] Columns = new DataGridViewColumn[7];
-            Columns[0] = new DataGridViewTextBoxColumn { Name = "clmnID", HeaderText = "الرقم" };
-            Columns[1] = new DataGridViewTextBoxColumn { Name = "clmnName", HeaderText = "الاسم" };
-            Columns[2] = new DataGridViewTextBoxColumn { Name = "clmnPhone", HeaderText = "الهاتف" };
-            Columns[3] = new DataGridViewTextBoxColumn { Name = "clmnEmail", HeaderText = "البريد الإلكتروني" };
-            Columns[4] = new DataGridViewTextBoxColumn { Name = "clmnAddress", HeaderText = "العنوان" };
+            Columns[0] = new DataGridViewTextBoxColumn { Name = "clmnID", HeaderText = "Numéro" };
+            Columns[1] = new DataGridViewTextBoxColumn { Name = "clmnName", HeaderText = "Nom" };
+            Columns[2] = new DataGridViewTextBoxColumn { Name = "clmnPhone", HeaderText = "Téléphone" };
+            Columns[3] = new DataGridViewTextBoxColumn { Name = "clmnEmail", HeaderText = "E-mail" };
+            Columns[4] = new DataGridViewTextBoxColumn { Name = "clmnAddress", HeaderText = "Adresse" };
             Columns[5] = new DataGridViewTextBoxColumn
             {
                 Name = "CreatedDate",
-                HeaderText = "تاريخ التسجيل",
+                HeaderText = "Date d'inscription",
                 ReadOnly = true
             };
             Columns[6] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnActions",
-                HeaderText = "الإجراءات",
+                HeaderText = "Actions",
                 FillWeight = 50f,
                 ReadOnly = true
             };
@@ -135,7 +135,7 @@ namespace TailorSoft.Customer.Controls
         #region Events
         private void ucCustomersList_Load(object sender, EventArgs e)
         {
-            cbFindBy.SelectedIndex = 0; // Default to "By Phone" 
+            cbFindBy.SelectedIndex = 0; // Default to "Par téléphone"
             txtSearch.Focus();
         }
         private void btnAddNewCustomer_Click(object sender, EventArgs e)
@@ -207,22 +207,22 @@ namespace TailorSoft.Customer.Controls
                     }
                     else
                     {
-                        MessageBox.Show("العميل غير موجود.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Le client n'existe pas.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("خطأ في قراءة رقم العميل.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erreur lors de la lecture du numéro client.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if (deleteRect.Contains(mouse))
             {
                 if (dgvCustomersList.Rows.Count == 0 || e.RowIndex < 0)
                 {
-                    MessageBox.Show("لا يوجد عملاء لحذفهم.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Il n'y a pas de clients à supprimer.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                if (MessageBox.Show("هل أنت متأكد من حذف هذا العميل؟", "تأكيد الحذف", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                if (MessageBox.Show("Êtes-vous sûr de vouloir supprimer ce client ?", "Confirmer la suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 {
                     return;
                 }
@@ -235,27 +235,27 @@ namespace TailorSoft.Customer.Controls
                             if (clsCustomer.Delete(customerId))
                             {
                                 dgvCustomersList.Rows.RemoveAt(e.RowIndex);
-                                MessageBox.Show("تم حذف العميل بنجاح.", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Le client a été supprimé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                             {
-                                MessageBox.Show("فشل في حذف العميل.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Échec de la suppression du client.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
 
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show($"حدث خطأ أثناء حذف العميل:\n\n\n {ex.Message}", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show($"Une erreur s'est produite lors de la suppression du client :\n\n\n {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("العميل غير موجود.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Le client n'existe pas.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("خطأ في قراءة رقم العميل.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erreur lors de la lecture du numéro client.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -263,24 +263,24 @@ namespace TailorSoft.Customer.Controls
         {
             if (cbFindBy.SelectedIndex == -1)
             {
-                MessageBox.Show("يرجى اختيار طريقة البحث", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Veuillez choisir une méthode de recherche", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
 
-            if (cbFindBy.SelectedIndex == 0) // By Phone
+            if (cbFindBy.SelectedIndex == 0) // Par téléphone
             {
                 txtSearch.Text = string.Empty;
                 txtSearch.Visible = true;
                 txtSearch.Focus();
             }
-            else if (cbFindBy.SelectedIndex == 1) // By First Name
+            else if (cbFindBy.SelectedIndex == 1) // Par prénom
             {
                 txtSearch.Text = string.Empty;
                 txtSearch.Visible = true;
                 txtSearch.Focus();
             }
-            else if (cbFindBy.SelectedIndex == 2) // By Last Name
+            else if (cbFindBy.SelectedIndex == 2) // Par nom de famille
             {
                 txtSearch.Text = string.Empty;
                 txtSearch.Visible = true;
@@ -297,17 +297,17 @@ namespace TailorSoft.Customer.Controls
         {
             switch (cbFindBy.SelectedIndex)
             {
-                case 0: // By Phone
+                case 0: // Par téléphone
                     LoadAndRefreshData(
                         clsCustomer.GetAll().Select(c => c).Where(c => c?.Person?.Phone != null && c.Person.Phone.Contains(txtSearch.Text.Trim())).ToList()
                         );
                     break;
-                case 1: // By First Name
+                case 1: // Par prénom
                     LoadAndRefreshData(
                         clsCustomer.GetAll().Select(c => c).Where(c => c?.Person?.FirstName != null && c.Person.FirstName.Contains(txtSearch.Text.Trim())).ToList()
                         );
                     break;
-                case 2: // By Last Name
+                case 2: // Par nom de famille
                     LoadAndRefreshData(
                         clsCustomer.GetAll().Select(c => c).Where(c => c?.Person?.LastName != null && c.Person.LastName.Contains(txtSearch.Text.Trim())).ToList()
                         );

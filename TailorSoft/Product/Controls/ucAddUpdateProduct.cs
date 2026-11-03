@@ -32,16 +32,17 @@ namespace HFS.Product.Controls
         public ucAddUpdateProduct()
         {
             InitializeComponent();
+            LoadUserControl();
             InitializeTextBoxProductCategory();
         }
 
-        // Methodes
+        // Méthodes
         private void InitializeTextBoxProductCategory()
         {
-            // Your custom list
-            string[] suggestions = { "متروز", "بروكار" };
+            // Votre liste personnalisée
+            string[] suggestions = { "Velours", "Brocart" };
 
-            // Assign to AutoCompleteCustomSource
+            // Affecter à AutoCompleteCustomSource
             AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
             collection.AddRange(suggestions);
 
@@ -58,7 +59,7 @@ namespace HFS.Product.Controls
         {
             Product = new clsProduct();
             _Mode = enMode.AddNew;
-            lblTitle.Text = "إضافت منتج جديد";
+            lblTitle.Text = "Ajouter un nouveau produit";
             lblProductID.Text = "[???]";
             cbProductType.SelectedIndex = -1;
             txtProductCategory.Text = string.Empty;
@@ -76,7 +77,7 @@ namespace HFS.Product.Controls
             if (Product != null)
             {
                 _Mode = enMode.Update;
-                lblTitle.Text = "تحديث المنتج";
+                lblTitle.Text = "Mettre à jour le produit";
                 lblProductID.Text = Product?.Id.ToString();
                 cbProductType.SelectedIndex = int.Parse(Product?.TypeID?.ToString() ?? "0") - 1; // Assuming TypeID is 1-based index
                 txtProductCategory.Text = Product?.Category;
@@ -93,7 +94,8 @@ namespace HFS.Product.Controls
         }
         private void LoadUserControl()
         {
-
+            cbProductType.Items.Clear();
+            cbProductType.Items.AddRange(clsProductType.GetAll().Select(pt => pt.Name).ToArray());
         }
         private void LoadImageToPictureBox(string filePath)
         {
@@ -109,12 +111,12 @@ namespace HFS.Product.Controls
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Failed to load image: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Échec du chargement de l'image: " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("File does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Le fichier n'existe pas.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private bool LoadImageFromFile()
@@ -123,8 +125,8 @@ namespace HFS.Product.Controls
             {
                 using (OpenFileDialog openFileDialog = new OpenFileDialog())
                 {
-                    openFileDialog.Title = "Select an Image for product";
-                    openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                    openFileDialog.Title = "Sélectionner une image pour le produit";
+                    openFileDialog.Filter = "Fichiers image|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
                     openFileDialog.Multiselect = false;
 
                     if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -137,7 +139,7 @@ namespace HFS.Product.Controls
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error to load image: {ex.Message}");
+                MessageBox.Show($"Erreur lors du chargement de l'image: {ex.Message}");
             }
             return false;
         }
@@ -145,7 +147,7 @@ namespace HFS.Product.Controls
         {
             if (Product == null)
             {
-                MessageBox.Show("لازم إنشاء منتج أولاً قبل الحفظ.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vous devez créer un produit d'abord avant d'enregistrer.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Product.TypeID = (byte)(cbProductType.SelectedIndex + 1);
@@ -168,37 +170,37 @@ namespace HFS.Product.Controls
         {
             if (cbProductType.SelectedIndex == -1)
             {
-                errorProvider1.SetError(cbProductType, "من فضلك, قم باختيار نوع المنتج");
+                errorProvider1.SetError(cbProductType, "S'il vous plaît, sélectionnez le type de produit");
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtProductCategory.Text))
             {
-                errorProvider1.SetError(txtProductCategory, "من فضلك, قم بإدخال فئة المنتج");
+                errorProvider1.SetError(txtProductCategory, "S'il vous plaît, entrez la catégorie du produit");
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtProductColor.Text))
             {
-                errorProvider1.SetError(txtProductColor, "من فضلك, قم بإدخال لون المنتج");
+                errorProvider1.SetError(txtProductColor, "S'il vous plaît, entrez la couleur du produit");
                 return false;
             }
             if (!decimal.TryParse(txtProductInitialLength.Text, out decimal initialLength) || initialLength <= 0)
             {
-                errorProvider1.SetError(txtProductInitialLength, "من فضلك, قم بإدخال طول المنتج الأولي بشكل صحيح");
+                errorProvider1.SetError(txtProductInitialLength, "S'il vous plaît, entrez la longueur initiale du produit correctement");
                 return false;
             }
             if (!decimal.TryParse(txtProductStockLength.Text, out decimal stockLength) || stockLength < 0)
             {
-                errorProvider1.SetError(txtProductStockLength, "من فضلك, قم بإدخال طول المنتج المخزن بشكل صحيح");
+                errorProvider1.SetError(txtProductStockLength, "S'il vous plaît, entrez la longueur du stock du produit correctement");
                 return false;
             }
             if (!decimal.TryParse(txtProductPrice.Text, out decimal price) || price < 0)
             {
-                errorProvider1.SetError(txtProductPrice, "من فضلك, قم بإدخال سعر المنتج بشكل صحيح");
+                errorProvider1.SetError(txtProductPrice, "S'il vous plaît, entrez le prix du produit correctement");
                 return false;
             }
             if (pbProductImage.Image == null || _pbProductImage == enPbProductImage.InitialImage)
             {
-                errorProvider1.SetError(pbProductImage, "من فضلك, قم بإضافة صورة للمنتج");
+                errorProvider1.SetError(pbProductImage, "S'il vous plaît, ajoutez une image pour le produit");
                 return false;
             }
             return true;
@@ -211,13 +213,13 @@ namespace HFS.Product.Controls
             }
             if (!this.ValidateChildren())
             {
-                MessageBox.Show("من فضلك, قم بتصحيح الأخطاء قبل الحفظ", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("S'il vous plaît, corrigez les erreurs avant d'enregistrer", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             FillProductDataFromControls();
             if (Product != null && Product.Save())
             {
-                MessageBox.Show($"تم حفظ المنتج بنجاح مع رقم المنتج: {Product.Id}", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Le produit a été enregistré avec succès avec le numéro de produit: {Product.Id}", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (_Mode == enMode.AddNew)
                 {
 
@@ -272,7 +274,7 @@ namespace HFS.Product.Controls
             if (cbProductType.SelectedIndex == -1)
             {
                 e.Cancel = true;
-                errorProvider1.SetError(cbProductType, "من فضلك, قم باختيار نوع المنتج");
+                errorProvider1.SetError(cbProductType, "S'il vous plaît, sélectionnez le type de produit");
             }
             else
             {
@@ -285,7 +287,7 @@ namespace HFS.Product.Controls
             if (txtProductCategory.Text.Trim() == string.Empty)
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtProductCategory, "من فضلك, قم بإدخال فئة المنتج");
+                errorProvider1.SetError(txtProductCategory, "S'il vous plaît, entrez la catégorie du produit");
             }
             else
             {
@@ -298,7 +300,7 @@ namespace HFS.Product.Controls
             if (txtProductColor.Text.Trim() == string.Empty)
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtProductColor, "من فضلك, قم بإدخال لون المنتج");
+                errorProvider1.SetError(txtProductColor, "S'il vous plaît, entrez la couleur du produit");
             }
             else
             {
@@ -311,7 +313,7 @@ namespace HFS.Product.Controls
             if (!decimal.TryParse(txtProductInitialLength.Text, out decimal initialLength) || initialLength <= 0)
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtProductInitialLength, "من فضلك, قم بإدخال طول المنتج الأولي بشكل صحيح");
+                errorProvider1.SetError(txtProductInitialLength, "S'il vous plaît, entrez la longueur initiale du produit correctement");
             }
             else
             {
@@ -324,7 +326,7 @@ namespace HFS.Product.Controls
             if (!decimal.TryParse(txtProductStockLength.Text, out decimal stockLength) || stockLength < 0)
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtProductStockLength, "من فضلك, قم بإدخال طول المخزون للمنتج بشكل صحيح");
+                errorProvider1.SetError(txtProductStockLength, "S'il vous plaît, entrez la longueur du stock du produit correctement");
             }
             else
             {
@@ -337,7 +339,7 @@ namespace HFS.Product.Controls
             if (!decimal.TryParse(txtProductPrice.Text, out decimal price) || price < 0)
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtProductPrice, "من فضلك, قم بإدخال سعر المنتج بشكل صحيح");
+                errorProvider1.SetError(txtProductPrice, "S'il vous plaît, entrez le prix du produit correctement");
             }
             else
             {
@@ -350,7 +352,7 @@ namespace HFS.Product.Controls
             if (pbProductImage.Image == null || _pbProductImage == enPbProductImage.InitialImage)
             {
                 e.Cancel = true;
-                errorProvider1.SetError(pbProductImage, "من فضلك, قم بإضافة صورة للمنتج");
+                errorProvider1.SetError(pbProductImage, "S'il vous plaît, ajoutez une image pour le produit");
 
             }
             else
@@ -362,6 +364,11 @@ namespace HFS.Product.Controls
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.OnCloseButtonClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void txtProductInitialLength_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

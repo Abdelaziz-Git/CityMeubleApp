@@ -9,8 +9,8 @@ namespace TailorSoft.Dashbord.Controls
         private readonly Series series;
 
         private readonly string[] months = {
-        "يناير", "فبراير", "مارس", "أبريل", "ماي", "يونيو",
-        "يوليوز", "غشت", "شتنبر", "أكتوبر", "نونبر", "دجنبر" };
+        "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+        "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre" };
 
         private readonly Random random = new Random();
 
@@ -40,14 +40,14 @@ namespace TailorSoft.Dashbord.Controls
             var chart = new Chart
             {
                 Dock = DockStyle.Fill,
-                RightToLeft = RightToLeft.Yes
+                RightToLeft = RightToLeft.No
             };
 
             var chartArea = new ChartArea("MainArea")
             {
                 AxisX =
             {
-                Title = "الأشهر",
+                Title = "Mois",
                 Interval = 1,
                 TitleFont = new Font("Tahoma", 12),
                 LabelStyle = { Font = new Font("Tahoma", 10) },
@@ -55,7 +55,7 @@ namespace TailorSoft.Dashbord.Controls
             },
                 AxisY =
             {
-                Title = "الدخل بالدرهم",
+                Title = "Revenu en Dirham",
                 TitleFont = new Font("Tahoma", 12),
                 LabelStyle = { Font = new Font("Tahoma", 10) },
                 MajorGrid={LineDashStyle = ChartDashStyle.Dash, LineColor = Color.LightGray, LineWidth = 1 }
@@ -65,7 +65,7 @@ namespace TailorSoft.Dashbord.Controls
             chart.ChartAreas.Add(chartArea);
 
             chart.Titles.Add(new Title(
-                "إحصائيات الدخل الشهري بالدرهم",
+                "Statistiques des revenus mensuels en Dirham",
                 Docking.Top,
                 new Font("Tahoma", 12, FontStyle.Bold),
                 Color.Black));
@@ -75,7 +75,7 @@ namespace TailorSoft.Dashbord.Controls
 
         private Series CreateSeries()
         {
-            return new Series("الدخل الشهري")
+            return new Series("Revenu mensuel")
             {
                 ChartType = SeriesChartType.Column,
                 IsValueShownAsLabel = true,

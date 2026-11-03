@@ -10,7 +10,7 @@ namespace TailorSoft.Customer.Controls
         {
             InitializeComponent();
             ucCustomerCard1.OnCustomerSelected += UcCustomerCard1_OnCustomerSelected;
-            cbFindBy.SelectedIndex = 0; // Default to "رقم الهاتف"  
+            cbFindBy.SelectedIndex = 0; // Par défaut sur "Numéro de téléphone"
         }
         private void FinnByCustomerID()
         {
@@ -23,7 +23,7 @@ namespace TailorSoft.Customer.Controls
                 }
                 else
                 {
-                    MessageBox.Show("لا يوجد عميل بهذا الرقم", "خطأ",
+                    MessageBox.Show("Aucun client avec ce numéro", "Erreur",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     ucCustomerCard1.ClearCustomerData();
                 }
@@ -31,7 +31,7 @@ namespace TailorSoft.Customer.Controls
             }
             else
             {
-                MessageBox.Show("الرجاء إدخال رقم العميل بشكل صحيح", "خطأ",
+                MessageBox.Show("Veuillez entrer le numéro de client correctement", "Erreur",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ucCustomerCard1.ClearCustomerData();
             }
@@ -46,7 +46,7 @@ namespace TailorSoft.Customer.Controls
             }
             else
             {
-                MessageBox.Show("لا يوجد عميل بهذا الهاتف", "خطأ",
+                MessageBox.Show("Aucun client avec ce téléphone", "Erreur",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -58,22 +58,22 @@ namespace TailorSoft.Customer.Controls
         {
             if (string.IsNullOrWhiteSpace(txtSearch.Text.Trim()))
             {
-                MessageBox.Show("الرجاء إدخال قيمة للبحث", "خطأ",
+                MessageBox.Show("Veuillez entrer une valeur de recherche", "Erreur",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ucCustomerCard1.ClearCustomerData();
                 return;
             }
-            if (cbFindBy.SelectedIndex == 0) // "رقم الهاتف"
+            if (cbFindBy.SelectedIndex == 0) // "Numéro de téléphone"
             {
                 FinnByPhone();
             }
-            else if (cbFindBy.SelectedIndex == 1) // "رقم الزبون"
+            else if (cbFindBy.SelectedIndex == 1) // "Numéro de client"
             {
                 FinnByCustomerID();
             }
             else
             {
-                MessageBox.Show("الرجاء اختيار طريقة البحث", "خطأ",
+                MessageBox.Show("Veuillez sélectionner une méthode de recherche", "Erreur",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ucCustomerCard1.ClearCustomerData();
             }
@@ -84,7 +84,7 @@ namespace TailorSoft.Customer.Controls
             {
                 frm.OnCustomerSaved += (newCustomer) =>
                 {
-                    cbFindBy.SelectedIndex = 0;// Reset to "رقم الهاتف"
+                    cbFindBy.SelectedIndex = 0;// Réinitialiser sur "Numéro de téléphone"
                     txtSearch.Text = newCustomer.Person?.Phone ?? string.Empty;
                     btnSearch.PerformClick();
                 };
@@ -119,7 +119,7 @@ namespace TailorSoft.Customer.Controls
             {
                 frm.OnCustomerSaved += (newCustomer) =>
                 {
-                    cbFindBy.SelectedIndex = 0; // Reset to "رقم الهاتف"
+                    cbFindBy.SelectedIndex = 0; // Reset to "Phone Number"
                     txtSearch.Text = newCustomer.Person?.Phone ?? string.Empty;
                     btnSearch.PerformClick();
                 };

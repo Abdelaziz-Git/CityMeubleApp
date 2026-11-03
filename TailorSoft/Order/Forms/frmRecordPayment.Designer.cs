@@ -42,10 +42,9 @@
             lblTitle.ForeColor = Color.Black;
             lblTitle.Location = new Point(0, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.RightToLeft = RightToLeft.Yes;
             lblTitle.Size = new Size(800, 87);
             lblTitle.TabIndex = 25;
-            lblTitle.Text = "أكتب الطول الذي تريد بيعه من هذا الثوب:";
+            lblTitle.Text = "Enregistrement du paiement pour cette commande";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnClose
@@ -54,15 +53,13 @@
             btnClose.BackColor = Color.Red;
             btnClose.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClose.Image = Properties.Resources.Close_icon_32;
-            btnClose.ImageAlign = ContentAlignment.MiddleLeft;
-            btnClose.Location = new Point(164, 256);
+            btnClose.Location = new Point(124, 256);
             btnClose.Name = "btnClose";
             btnClose.Padding = new Padding(5);
-            btnClose.RightToLeft = RightToLeft.Yes;
-            btnClose.Size = new Size(133, 51);
+            btnClose.Size = new Size(159, 51);
             btnClose.TabIndex = 23;
-            btnClose.Text = "إغلاق";
-            btnClose.TextAlign = ContentAlignment.MiddleRight;
+            btnClose.Text = "Fermer";
+            btnClose.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
@@ -72,15 +69,13 @@
             btnSave.BackColor = Color.DarkGreen;
             btnSave.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.Image = Properties.Resources.Save_icon_32;
-            btnSave.ImageAlign = ContentAlignment.MiddleLeft;
             btnSave.Location = new Point(499, 256);
             btnSave.Name = "btnSave";
             btnSave.Padding = new Padding(5);
-            btnSave.RightToLeft = RightToLeft.Yes;
-            btnSave.Size = new Size(133, 51);
+            btnSave.Size = new Size(185, 51);
             btnSave.TabIndex = 24;
-            btnSave.Text = "تأكيد";
-            btnSave.TextAlign = ContentAlignment.MiddleRight;
+            btnSave.Text = "Confirmer";
+            btnSave.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
             // 
@@ -105,6 +100,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmRecordPayment";
+            RightToLeft = RightToLeft.No;
             StartPosition = FormStartPosition.CenterScreen;
             ResumeLayout(false);
             PerformLayout();

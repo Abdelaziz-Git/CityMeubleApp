@@ -18,7 +18,7 @@ namespace TailorSoft.OrderItem.Controls
             dgvOrderItemsList.Rows.Clear();
             if (orderID <= 0)
             {
-                MessageBox.Show($"رقم الطلب غير صحيح {orderID}");
+                MessageBox.Show($"Le numéro de commande est invalide {orderID}");
             }
             _OrderID = orderID;
             foreach (var item in clsOrderItem.GetItems(_OrderID))
@@ -28,8 +28,8 @@ namespace TailorSoft.OrderItem.Controls
                     item.ProductID,
                     item.ProductName,
                     item.Quantity % 1 == 0 ? item.Quantity.ToString("0") : item.Quantity.ToString("0.0"),
-                    item.UnitPrice % 1 == 0 ? item.UnitPrice.ToString("0") + " درهم" : item.UnitPrice.ToString("0.0") + " درهم",
-                    item.TotalPrice % 1 == 0 ? item.TotalPrice.ToString("0") + " درهم" : item.TotalPrice.ToString("0.0") + " درهم",
+                    item.UnitPrice % 1 == 0 ? item.UnitPrice.ToString("0") + " MAD" : item.UnitPrice.ToString("0.0") + " MAD",
+                    item.TotalPrice % 1 == 0 ? item.TotalPrice.ToString("0") + " MAD" : item.TotalPrice.ToString("0.0") + " MAD",
                     item.Notes
                 );
             }
@@ -50,7 +50,6 @@ namespace TailorSoft.OrderItem.Controls
             dgvOrderItemsList.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgvOrderItemsList.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             dgvOrderItemsList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvOrderItemsList.ColumnHeadersHeight = 35;
 
             // Row style
             dgvOrderItemsList.DefaultCellStyle.BackColor = Color.White;
@@ -65,8 +64,8 @@ namespace TailorSoft.OrderItem.Controls
             dgvOrderItemsList.RowHeadersVisible = false;
             // Default
             dgvOrderItemsList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvOrderItemsList.RightToLeft = RightToLeft.Yes;
-            dgvOrderItemsList.ColumnHeadersHeight = 40;
+            dgvOrderItemsList.RightToLeft = RightToLeft.No;
+            dgvOrderItemsList.ColumnHeadersHeight = 50;
             dgvOrderItemsList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvOrderItemsList.Columns.AddRange(GetColumns());
             dgvOrderItemsList.AllowUserToAddRows = false;
@@ -86,17 +85,17 @@ namespace TailorSoft.OrderItem.Controls
         private DataGridViewColumn[] GetColumns()
         {
             DataGridViewColumn[] Columns = new DataGridViewColumn[8];
-            Columns[0] = new DataGridViewTextBoxColumn { Name = "clmnID", HeaderText = "رقم العنصر" };
-            Columns[1] = new DataGridViewTextBoxColumn { Name = "clmnProductID", HeaderText = "رقم المنتج" };
-            Columns[2] = new DataGridViewTextBoxColumn { Name = "clmnProductName", HeaderText = "اسم المنتج" };
-            Columns[3] = new DataGridViewTextBoxColumn { Name = "clmnQuantity", HeaderText = " الكمية" };
-            Columns[4] = new DataGridViewTextBoxColumn { Name = "clmnUnitPrice", HeaderText = "ثمن الوحدة" };
-            Columns[5] = new DataGridViewTextBoxColumn { Name = "clmnTotalPrice", HeaderText = "المجموع" };
-            Columns[6] = new DataGridViewTextBoxColumn { Name = "clmnNotes", HeaderText = "ملاحظات" };
+            Columns[0] = new DataGridViewTextBoxColumn { Name = "clmnID", HeaderText = "Numéro d'article" };
+            Columns[1] = new DataGridViewTextBoxColumn { Name = "clmnProductID", HeaderText = "Numéro du produit" };
+            Columns[2] = new DataGridViewTextBoxColumn { Name = "clmnProductName", HeaderText = "Nom du produit" };
+            Columns[3] = new DataGridViewTextBoxColumn { Name = "clmnQuantity", HeaderText = "Quantité" };
+            Columns[4] = new DataGridViewTextBoxColumn { Name = "clmnUnitPrice", HeaderText = "Prix unitaire" };
+            Columns[5] = new DataGridViewTextBoxColumn { Name = "clmnTotalPrice", HeaderText = "Total" };
+            Columns[6] = new DataGridViewTextBoxColumn { Name = "clmnNotes", HeaderText = "Notes" };
             Columns[7] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnActions",
-                HeaderText = "الإجراءات",
+                HeaderText = "Actions",
             };
             return Columns;
         }
@@ -170,7 +169,7 @@ namespace TailorSoft.OrderItem.Controls
                     }
                     else
                     {
-                        MessageBox.Show("العنصر غير موجود.");
+                        MessageBox.Show("L'article n'existe pas.");
                     }
                 }
                 else
@@ -182,23 +181,23 @@ namespace TailorSoft.OrderItem.Controls
             {
                 if (int.TryParse(dgvOrderItemsList.Rows[e.RowIndex].Cells["clmnID"].Value.ToString(), out int itemID))
                 {
-                    if (MessageBox.Show($"هل أنت متأكد من حذف العنصر رقم {itemID}؟", "تأكيد الحذف", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                    if (MessageBox.Show($"Êtes-vous sûr de vouloir supprimer l'article numéro {itemID}?", "Confirmation de suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                         return;
                     if (clsOrderItem.Delete(itemID))
                     {
                         // Remove the row from the DataGridView
                         dgvOrderItemsList.Rows.RemoveAt(e.RowIndex);
                         this.OnItemsChanged?.Invoke(this._OrderID);
-                        MessageBox.Show("تم حذف العنصر بنجاح.");
+                        MessageBox.Show("L'article a été supprimé avec succès.");
                     }
                     else
                     {
-                        MessageBox.Show("فشل حذف العنصر.");
+                        MessageBox.Show("Échec de la suppression de l'article.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("رقم العنصر غير صحيح.");
+                    MessageBox.Show("Le numéro d'article est invalide.");
                 }
             }
         }
@@ -208,7 +207,7 @@ namespace TailorSoft.OrderItem.Controls
         {
             if (_OrderID <= 0)
             {
-                MessageBox.Show("يرجى تحديد طلب قبل إضافة عنصر.");
+                MessageBox.Show("Veuillez sélectionner une commande avant d'ajouter un article.");
                 return;
             }
             using (frmAddUpdateItem frmItem = new frmAddUpdateItem(_OrderID))

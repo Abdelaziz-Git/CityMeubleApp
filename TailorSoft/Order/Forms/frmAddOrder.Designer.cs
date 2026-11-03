@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddOrder));
             pnlSelectCustomer = new Panel();
             ucCustomerCardWithFilter1 = new TailorSoft.Customer.Controls.ucCustomerCardWithFilter();
             btnNext = new Button();
@@ -44,7 +45,6 @@
             pnlSelectCustomer.Location = new Point(0, 0);
             pnlSelectCustomer.Margin = new Padding(4);
             pnlSelectCustomer.Name = "pnlSelectCustomer";
-            pnlSelectCustomer.RightToLeft = RightToLeft.Yes;
             pnlSelectCustomer.Size = new Size(1195, 710);
             pnlSelectCustomer.TabIndex = 0;
             // 
@@ -54,7 +54,7 @@
             ucCustomerCardWithFilter1.Location = new Point(143, 99);
             ucCustomerCardWithFilter1.Margin = new Padding(4, 5, 4, 5);
             ucCustomerCardWithFilter1.Name = "ucCustomerCardWithFilter1";
-            ucCustomerCardWithFilter1.RightToLeft = RightToLeft.Yes;
+            ucCustomerCardWithFilter1.RightToLeft = RightToLeft.No;
             ucCustomerCardWithFilter1.Size = new Size(908, 426);
             ucCustomerCardWithFilter1.TabIndex = 20;
             ucCustomerCardWithFilter1.OnCustomerSelected += ucCustomerCardWithFilter1_OnCustomerSelected;
@@ -63,17 +63,17 @@
             // 
             btnNext.Anchor = AnchorStyles.Bottom;
             btnNext.BackColor = Color.Gainsboro;
-            btnNext.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold);
-            btnNext.Image = Properties.Resources.Next_Icon_White_32;
+            btnNext.Font = new Font("Segoe UI Semibold", 17F, FontStyle.Bold);
+            btnNext.Image = (Image)resources.GetObject("btnNext.Image");
             btnNext.ImageAlign = ContentAlignment.MiddleRight;
-            btnNext.Location = new Point(484, 552);
+            btnNext.Location = new Point(504, 571);
             btnNext.Margin = new Padding(4);
             btnNext.Name = "btnNext";
             btnNext.Padding = new Padding(15, 0, 30, 0);
-            btnNext.Size = new Size(227, 53);
+            btnNext.Size = new Size(214, 57);
             btnNext.TabIndex = 19;
-            btnNext.Text = "التالي";
-            btnNext.TextAlign = ContentAlignment.MiddleLeft;
+            btnNext.Text = "Suivant";
+            btnNext.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnNext.UseVisualStyleBackColor = false;
             btnNext.Click += btnNext_Click;
             // 
@@ -86,9 +86,10 @@
             lblTitle.Location = new Point(0, 0);
             lblTitle.Margin = new Padding(4, 0, 4, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(1195, 43);
+            lblTitle.RightToLeft = RightToLeft.No;
+            lblTitle.Size = new Size(1195, 71);
             lblTitle.TabIndex = 0;
-            lblTitle.Text = "من فضلك, قم باختيار الزبون اولا.";
+            lblTitle.Text = "Veuillez d'abord sélectionner le client.";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // frmAddOrder
@@ -100,7 +101,6 @@
             Controls.Add(pnlSelectCustomer);
             Margin = new Padding(4);
             Name = "frmAddOrder";
-            RightToLeft = RightToLeft.Yes;
             StartPosition = FormStartPosition.CenterScreen;
             FormClosing += frmAddOrder_FormClosing;
             KeyPress += frmAddOrder_KeyPress;

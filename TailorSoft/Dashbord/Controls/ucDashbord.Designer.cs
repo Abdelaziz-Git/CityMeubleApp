@@ -54,7 +54,6 @@
             Controls.Add(tableLayoutPanel1);
             Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "ucDashbord";
-            RightToLeft = RightToLeft.Yes;
             Size = new Size(1136, 699);
             ResumeLayout(false);
         }

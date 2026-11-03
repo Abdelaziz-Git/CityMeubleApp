@@ -42,24 +42,24 @@ namespace TailorSoft.OrderItem.Forms
             if (decimal.TryParse(txtQuantity.Text, out decimal quantity) && decimal.TryParse(txtUnitPrice.Text, out decimal unitPrice))
             {
                 decimal TotalPrice = quantity * unitPrice;
-                lblTotalPrice.Text = TotalPrice % 1 == 0 ? TotalPrice.ToString("0") + " درهم" : TotalPrice.ToString("0.0") + " درهم";
+                lblTotalPrice.Text = TotalPrice % 1 == 0 ? TotalPrice.ToString("0") + " DH" : TotalPrice.ToString("0.0") + " DH";
                 errorProvider1.SetError(txtQuantity, string.Empty);
                 errorProvider1.SetError(txtUnitPrice, string.Empty);
                 return true;
             }
             else
             {
-                lblTotalPrice.Text = "0" + " درهم";
+                lblTotalPrice.Text = "0" + " DH";
                 return false;
             }
         }
         private void InAddNewMode()
         {
-            lblTitle.Text = "إضافة عنصر طلب جديد";
+            lblTitle.Text = "Ajouter un nouvel article de commande";
         }
         private void InUpdateMode()
         {
-            lblTitle.Text = "تحديث عنصر الطلب";
+            lblTitle.Text = "Mettre à jour l’article de commande";
             if (_OrderItem != null)
             {
                 txtProductID.Text = _OrderItem?.ProductID?.ToString();
@@ -78,7 +78,7 @@ namespace TailorSoft.OrderItem.Forms
             }
             else if (!int.TryParse(txtProductID.Text.Trim(), out int ProductId))
             {
-                MessageBox.Show("رقم المنتج غير صحيح", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("L’identifiant du produit n’est pas valide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
@@ -103,12 +103,12 @@ namespace TailorSoft.OrderItem.Forms
                     _OrderItem = newOrderItem;
                     this._Mode = enMode.Update;
                     this.OnItemAddedOrUpdatedSuccessfully?.Invoke(_OrderItem);
-                    MessageBox.Show("تم إضافة العنصر الى الطلب بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("L’article a été ajouté à la commande avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("فشل في إضافة عنصر الطلب، يرجى المحاولة مرة أخرى", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Échec de l’ajout de l’article à la commande. Veuillez réessayer.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if (_Mode == enMode.Update)
@@ -123,12 +123,12 @@ namespace TailorSoft.OrderItem.Forms
                     if (_OrderItem.Save())
                     {
                         this.OnItemAddedOrUpdatedSuccessfully?.Invoke(_OrderItem);
-                        MessageBox.Show("تم تحديث عنصر الطلب بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("L’article de la commande a été mis à jour avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("فشل في تحديث عنصر الطلب، يرجى المحاولة مرة أخرى", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Échec de la mise à jour de l’article de la commande. Veuillez réessayer.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
@@ -141,7 +141,7 @@ namespace TailorSoft.OrderItem.Forms
                 InAddNewMode();
                 if (_OrderID <= 0)
                 {
-                    MessageBox.Show("رقم الطلب غير صحيح", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("L’identifiant de la commande n’est pas valide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                     return;
                 }
@@ -155,7 +155,7 @@ namespace TailorSoft.OrderItem.Forms
                 }
                 else
                 {
-                    MessageBox.Show("لا يمكن تحديث عنصر الطلب، العنصر غير موجود", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Impossible de mettre à jour l’article de la commande, l’article est introuvable.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                     return;
                 }
@@ -167,12 +167,12 @@ namespace TailorSoft.OrderItem.Forms
             {
                 if (!int.TryParse(txtProductID.Text.Trim(), out int ProductId))
                 {
-                    MessageBox.Show("رقم المنتج غير صحيح", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("L’identifiant du produit n’est pas valide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 if (!clsProduct.Exist(ProductId))
                 {
-                    MessageBox.Show("رقم المنتج غير موجود", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("L’identifiant du produit est introuvable.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
 
@@ -182,34 +182,34 @@ namespace TailorSoft.OrderItem.Forms
             {
                 if (_OrderID <= 0)
                 {
-                    MessageBox.Show("رقم الطلب غير صحيح", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("L’identifiant de la commande n’est pas valide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
             if (_Mode == enMode.Update && _OrderItem == null)
             {
-                MessageBox.Show("لا يمكن تحديث عنصر الطلب، العنصر غير موجود", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Impossible de mettre à jour l’article de la commande, l’article est introuvable.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (string.IsNullOrWhiteSpace(txtProductName.Text) || txtProductName.Text.Length < 3)
             {
-                MessageBox.Show("اسم المنتج مطلوب و يجب أن يكون أكثر من 3 أحرف", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                errorProvider1.SetError(txtProductName, "اسم المنتج مطلوب و يجب أن يكون أكثر من 3 أحرف");
+                MessageBox.Show("Le nom du produit est requis et doit contenir plus de 3 caractères.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                errorProvider1.SetError(txtProductName, "Le nom du produit est requis et doit contenir plus de 3 caractères.");
                 return false;
             }
 
             if (string.IsNullOrWhiteSpace(txtQuantity.Text) || !decimal.TryParse(txtQuantity.Text, out decimal quantity) || quantity <= 0)
             {
-                MessageBox.Show("الكمية او الطول مطلوبة و يجب أن تكون رقم صحيح و أكبر من صفر", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                errorProvider1.SetError(txtQuantity, "الكمية او الطول مطلوبة و يجب أن تكون رقم صحيح و أكبر من صفر");
+                MessageBox.Show("La quantité (ou la longueur) est requise et doit être un nombre supérieur à zéro.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                errorProvider1.SetError(txtQuantity, "La quantité (ou la longueur) est requise et doit être un nombre supérieur à zéro.");
                 return false;
             }
 
             if (string.IsNullOrWhiteSpace(txtUnitPrice.Text) || !decimal.TryParse(txtUnitPrice.Text, out decimal unitPrice) || unitPrice < 0)
             {
-                MessageBox.Show("ثمن الوحدة مطلوب و يجب أن يكون رقم صحيح و أكبر من صفر", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                errorProvider1.SetError(txtUnitPrice, "ثمن الوحدة مطلوب و يجب أن يكون رقم صحيح و أكبر من صفر");
+                MessageBox.Show("Le prix unitaire est requis et doit être un nombre supérieur ou égal à zéro.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                errorProvider1.SetError(txtUnitPrice, "Le prix unitaire est requis et doit être un nombre supérieur ou égal à zéro.");
                 return false;
             }
 
@@ -230,19 +230,19 @@ namespace TailorSoft.OrderItem.Forms
                 }
                 else
                 {
-                    errorProvider1.SetError(txtProductID, "رقم المنتج غير موجود");
+                    errorProvider1.SetError(txtProductID, "Identifiant du produit introuvable.");
                 }
             }
             else
             {
-                errorProvider1.SetError(txtProductID, "رقم المنتج غير صحيح");
+                errorProvider1.SetError(txtProductID, "Identifiant du produit non valide.");
             }
         }
         private void txtProductName_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtProductName.Text))
             {
-                errorProvider1.SetError(txtProductName, "اسم المنتج مطلوب");
+                errorProvider1.SetError(txtProductName, "Le nom du produit est requis.");
             }
             else
             {
@@ -254,7 +254,7 @@ namespace TailorSoft.OrderItem.Forms
             CalculateTotalPrice();
             if (string.IsNullOrWhiteSpace(txtQuantity.Text))
             {
-                errorProvider1.SetError(txtQuantity, "الكمية او الطول مطلوبة");
+                errorProvider1.SetError(txtQuantity, "La quantité (ou la longueur) est requise.");
             }
             else if (decimal.TryParse(txtQuantity.Text, out decimal quantity) && quantity >= 0)
             {
@@ -262,7 +262,7 @@ namespace TailorSoft.OrderItem.Forms
             }
             else
             {
-                errorProvider1.SetError(txtQuantity, "الكمية يجب أن تكون رقم صحيح و أكبر من صفر");
+                errorProvider1.SetError(txtQuantity, "La quantité doit être un nombre supérieur à zéro.");
             }
         }
         private void txtUnitPrice_TextChanged(object sender, EventArgs e)
@@ -270,7 +270,7 @@ namespace TailorSoft.OrderItem.Forms
             CalculateTotalPrice();
             if (string.IsNullOrWhiteSpace(txtUnitPrice.Text))
             {
-                errorProvider1.SetError(txtUnitPrice, "ثمن الوحدة مطلوب");
+                errorProvider1.SetError(txtUnitPrice, "Le prix unitaire est requis.");
             }
             else if (decimal.TryParse(txtUnitPrice.Text, out decimal unitPrice) && unitPrice >= 0)
             {
@@ -278,7 +278,7 @@ namespace TailorSoft.OrderItem.Forms
             }
             else
             {
-                errorProvider1.SetError(txtUnitPrice, "ثمن الوحدة يجب أن يكون رقم صحيح و أكبر من صفر");
+                errorProvider1.SetError(txtUnitPrice, "Le prix unitaire doit être un nombre supérieur ou égal à zéro.");
             }
         }
 

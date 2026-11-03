@@ -55,7 +55,7 @@ namespace TailorSoft
             msMain.Name = "msMain";
             msMain.Padding = new Padding(0);
             msMain.RenderMode = ToolStripRenderMode.Professional;
-            msMain.RightToLeft = RightToLeft.Yes;
+            msMain.RightToLeft = RightToLeft.No;
             msMain.Size = new Size(979, 79);
             msMain.TabIndex = 3;
             msMain.Text = "menuStrip1";
@@ -69,8 +69,8 @@ namespace TailorSoft
             tsmiDashbord.Margin = new Padding(0, 0, 20, 0);
             tsmiDashbord.Name = "tsmiDashbord";
             tsmiDashbord.ShortcutKeys = Keys.Control | Keys.D3;
-            tsmiDashbord.Size = new Size(167, 79);
-            tsmiDashbord.Text = "الصفحة الرئيسية";
+            tsmiDashbord.Size = new Size(174, 79);
+            tsmiDashbord.Text = "Tableau de bord";
             tsmiDashbord.TextImageRelation = TextImageRelation.ImageAboveText;
             tsmiDashbord.Click += tsmiDashbord_Click;
             // 
@@ -82,10 +82,10 @@ namespace TailorSoft
             tsmiProducts.ImageTransparentColor = Color.Transparent;
             tsmiProducts.Margin = new Padding(0, 0, 20, 0);
             tsmiProducts.Name = "tsmiProducts";
-            tsmiProducts.RightToLeft = RightToLeft.Yes;
+            tsmiProducts.RightToLeft = RightToLeft.No;
             tsmiProducts.ShortcutKeys = Keys.Control | Keys.D1;
-            tsmiProducts.Size = new Size(99, 79);
-            tsmiProducts.Text = "المنتجات";
+            tsmiProducts.Size = new Size(101, 79);
+            tsmiProducts.Text = "Produits";
             tsmiProducts.TextImageRelation = TextImageRelation.ImageAboveText;
             tsmiProducts.Click += tsmiProducts_Click;
             // 
@@ -97,10 +97,10 @@ namespace TailorSoft
             tsmiCustomers.ImageTransparentColor = Color.Transparent;
             tsmiCustomers.Margin = new Padding(0, 0, 20, 0);
             tsmiCustomers.Name = "tsmiCustomers";
-            tsmiCustomers.RightToLeft = RightToLeft.Yes;
+            tsmiCustomers.RightToLeft = RightToLeft.No;
             tsmiCustomers.ShortcutKeys = Keys.Control | Keys.D2;
-            tsmiCustomers.Size = new Size(82, 79);
-            tsmiCustomers.Text = "العملاء";
+            tsmiCustomers.Size = new Size(87, 79);
+            tsmiCustomers.Text = "Clients";
             tsmiCustomers.TextImageRelation = TextImageRelation.ImageAboveText;
             tsmiCustomers.Click += tsmiCustomers_Click;
             // 
@@ -112,8 +112,8 @@ namespace TailorSoft
             tsmiOrders.Margin = new Padding(0, 0, 20, 0);
             tsmiOrders.Name = "tsmiOrders";
             tsmiOrders.ShortcutKeys = Keys.Control | Keys.D3;
-            tsmiOrders.Size = new Size(93, 79);
-            tsmiOrders.Text = "الطلبات";
+            tsmiOrders.Size = new Size(141, 79);
+            tsmiOrders.Text = "Commandes";
             tsmiOrders.TextImageRelation = TextImageRelation.ImageAboveText;
             tsmiOrders.Click += tsmiOrders_Click;
             // 
@@ -125,8 +125,8 @@ namespace TailorSoft
             tsmiUsers.Margin = new Padding(0, 0, 20, 0);
             tsmiUsers.Name = "tsmiUsers";
             tsmiUsers.ShortcutKeys = Keys.Control | Keys.D3;
-            tsmiUsers.Size = new Size(130, 79);
-            tsmiUsers.Text = "المستخدمين";
+            tsmiUsers.Size = new Size(127, 79);
+            tsmiUsers.Text = "Utilisateurs";
             tsmiUsers.TextImageRelation = TextImageRelation.ImageAboveText;
             tsmiUsers.Click += tsmiUsers_Click;
             // 
@@ -140,10 +140,10 @@ namespace TailorSoft
             tsmiSettings.ImageTransparentColor = Color.White;
             tsmiSettings.Margin = new Padding(0, 0, 20, 0);
             tsmiSettings.Name = "tsmiSettings";
-            tsmiSettings.RightToLeft = RightToLeft.Yes;
+            tsmiSettings.RightToLeft = RightToLeft.No;
             tsmiSettings.ShortcutKeys = Keys.Control | Keys.A;
-            tsmiSettings.Size = new Size(105, 79);
-            tsmiSettings.Text = "الإعدادات";
+            tsmiSettings.Size = new Size(128, 79);
+            tsmiSettings.Text = "Paramètres";
             tsmiSettings.TextImageRelation = TextImageRelation.ImageAboveText;
             // 
             // tsmiEditStoreInfo
@@ -152,8 +152,8 @@ namespace TailorSoft
             tsmiEditStoreInfo.Image = Resources.edit_icon_blue_32;
             tsmiEditStoreInfo.ImageScaling = ToolStripItemImageScaling.None;
             tsmiEditStoreInfo.Name = "tsmiEditStoreInfo";
-            tsmiEditStoreInfo.Size = new Size(274, 38);
-            tsmiEditStoreInfo.Text = "تعديل معلومات المحل";
+            tsmiEditStoreInfo.Size = new Size(416, 38);
+            tsmiEditStoreInfo.Text = "Modifier les informations du magasin";
             tsmiEditStoreInfo.Click += tsmiEditStoreInfo_Click;
             // 
             // tsmiChangePassword
@@ -162,8 +162,8 @@ namespace TailorSoft
             tsmiChangePassword.Image = (Image)resources.GetObject("tsmiChangePassword.Image");
             tsmiChangePassword.ImageScaling = ToolStripItemImageScaling.None;
             tsmiChangePassword.Name = "tsmiChangePassword";
-            tsmiChangePassword.Size = new Size(274, 38);
-            tsmiChangePassword.Text = "تغيير كلمة الملرور";
+            tsmiChangePassword.Size = new Size(416, 38);
+            tsmiChangePassword.Text = "Changer le mot de passe";
             tsmiChangePassword.Click += tsmiChangePassword_Click;
             // 
             // tsmiSignOut
@@ -174,8 +174,8 @@ namespace TailorSoft
             tsmiSignOut.Margin = new Padding(0, 0, 20, 0);
             tsmiSignOut.Name = "tsmiSignOut";
             tsmiSignOut.ShortcutKeys = Keys.Control | Keys.D3;
-            tsmiSignOut.Size = new Size(145, 79);
-            tsmiSignOut.Text = "تسجيل الخروج";
+            tsmiSignOut.Size = new Size(168, 79);
+            tsmiSignOut.Text = "Se déconnecter";
             tsmiSignOut.TextImageRelation = TextImageRelation.ImageAboveText;
             tsmiSignOut.Click += tsmiSignOut_Click;
             // 

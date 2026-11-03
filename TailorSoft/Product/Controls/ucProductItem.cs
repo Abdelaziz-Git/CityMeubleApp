@@ -25,7 +25,7 @@ namespace HFS.Product.Controls
         {
             if (product?.Id <= 0)
             {
-                MessageBox.Show("رقم المنتج غير صحيح", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Le numéro de produit est incorrect", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             txtProductID.Text = product?.Id.ToString();
@@ -34,13 +34,13 @@ namespace HFS.Product.Controls
             txtProductColor.Text = product?.Color ?? "N/A";
 
             txtProductInitialLength.Text = product?.InitialLength % 1 == 0 ?
-                $"{product?.InitialLength.GetValueOrDefault():F0} متر" : $"{product?.InitialLength.GetValueOrDefault():F1} متر";
+                $"{product?.InitialLength.GetValueOrDefault():F0} m" : $"{product?.InitialLength.GetValueOrDefault():F1} m";
 
             txtProductStockLength.Text = product?.StockLength % 1 == 0 ?
-                $"{product?.StockLength.GetValueOrDefault():F0} متر" : $"{product?.StockLength.GetValueOrDefault():F1} متر";
+                $"{product?.StockLength.GetValueOrDefault():F0} m" : $"{product?.StockLength.GetValueOrDefault():F1} m";
 
             txtProductPrice.Text = product?.Price % 1 == 0 ?
-                $"{product?.Price.GetValueOrDefault():F0} درهم" : $"{product?.Price.GetValueOrDefault():F1} درهم";
+                $"{product?.Price.GetValueOrDefault():F0} DH" : $"{product?.Price.GetValueOrDefault():F1} DH";
 
             lblProductDate.Text = product?.CreatedDate?.ToString("dd/MM/yyyy") ?? "N/A";
 
@@ -87,7 +87,7 @@ namespace HFS.Product.Controls
             if (product?.Id is null or <= 0)
             {
                 ClearProduct();
-                ShowError("يرجى تحديد منتج صحيح");
+                ShowError("Veuillez sélectionner un produit correct");
                 return;
             }
             SetProduct(product);
@@ -97,7 +97,7 @@ namespace HFS.Product.Controls
         {
             if (Product?.Id is null or <= 0)
             {
-                ShowError("يرجى تحديد منتج صحيح للتعديل");
+                ShowError("Veuillez sélectionner un produit correct à modifier");
                 return;
             }
 
@@ -110,11 +110,11 @@ namespace HFS.Product.Controls
         {
             if (Product == null || Product.Id == null || Product.Id <= 0)
             {
-                MessageBox.Show("يرجى تحديد منتج صحيح للحذف", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Veuillez sélectionner un produit correct à supprimer", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            var result = MessageBox.Show("هل أنت متأكد أنك تريد حذف هذا المنتج؟", "تأكيد الحذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var result = MessageBox.Show("Êtes-vous sûr de vouloir supprimer ce produit ?", "Confirmation de suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
@@ -123,17 +123,17 @@ namespace HFS.Product.Controls
                     bool success = clsProduct.Delete(Product.Id.Value);
                     if (success)
                     {
-                        MessageBox.Show("تم حذف المنتج بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Produit supprimé avec succès", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         OnProductItemDeleted?.Invoke();
                     }
                     else
                     {
-                        MessageBox.Show("حدث خطأ أثناء حذف المنتج", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Une erreur s'est produite lors de la suppression du produit", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"حدث خطأ أثناء حذف المنتج: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Une erreur s'est produite lors de la suppression du produit : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -145,7 +145,7 @@ namespace HFS.Product.Controls
         {
             if (Product == null || Product.Id == null || Product.Id <= 0)
             {
-                MessageBox.Show("يرجى تحديد منتج صحيح للبيع", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Veuillez sélectionner un produit correct à vendre", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             using (var frm = new frmSetSellingLength(Product))

@@ -38,7 +38,6 @@
             ucUpdateUser1.Font = new Font("Times New Roman", 9F);
             ucUpdateUser1.Location = new Point(0, 0);
             ucUpdateUser1.Name = "ucUpdateUser1";
-            ucUpdateUser1.RightToLeft = RightToLeft.Yes;
             ucUpdateUser1.Size = new Size(1044, 534);
             ucUpdateUser1.TabIndex = 0;
             // 

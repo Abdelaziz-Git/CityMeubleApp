@@ -58,7 +58,7 @@ namespace TailorSoft.Product.Controls
             dgvProductsList.RowHeadersVisible = false;
 
             dgvProductsList.Dock = DockStyle.Fill;
-            dgvProductsList.RightToLeft = RightToLeft.Yes;
+            dgvProductsList.RightToLeft = RightToLeft.No;
             dgvProductsList.ColumnHeadersHeight = 40;
             dgvProductsList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvProductsList.Columns.AddRange(GetProductColumns());
@@ -84,7 +84,7 @@ namespace TailorSoft.Product.Controls
             columns[0] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnID",
-                HeaderText = "الرقم",
+                HeaderText = "Numéro",
                 DataPropertyName = "Id",
                 ReadOnly = true
             };
@@ -92,7 +92,7 @@ namespace TailorSoft.Product.Controls
             columns[1] = new DataGridViewImageColumn
             {
                 Name = "clmnImage",
-                HeaderText = "الصورة",
+                HeaderText = "Image",
                 DataPropertyName = "ImagePath",
                 ImageLayout = DataGridViewImageCellLayout.Zoom,
 
@@ -101,41 +101,41 @@ namespace TailorSoft.Product.Controls
             columns[2] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnType",
-                HeaderText = "النوع",
+                HeaderText = "Type",
                 DataPropertyName = "ProductType"
             };
 
             columns[3] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnCategory",
-                HeaderText = "الفئة",
+                HeaderText = "Catégorie",
                 DataPropertyName = "Category"
             };
 
             columns[4] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnColor",
-                HeaderText = "اللون",
+                HeaderText = "Couleur",
                 DataPropertyName = "Color"
             };
             columns[5] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnInitialLength",
-                HeaderText = "الطول الأولي",
+                HeaderText = "Longueur initiale",
                 DataPropertyName = "InitialLength"
             };
 
             columns[6] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnStockLength",
-                HeaderText = "الكمية المتاحة",
+                HeaderText = "Quantité disponible",
                 DataPropertyName = "StockLength"
             };
 
             columns[7] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnPrice",
-                HeaderText = "السعر",
+                HeaderText = "Prix",
                 DataPropertyName = "Price"
             };
 
@@ -144,7 +144,7 @@ namespace TailorSoft.Product.Controls
             columns[8] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnCreatedDate",
-                HeaderText = "تاريخ الإضافة",
+                HeaderText = "Date d'ajout",
                 DataPropertyName = "CreatedDate",
                 ReadOnly = true
             };
@@ -152,7 +152,7 @@ namespace TailorSoft.Product.Controls
             columns[9] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnActions",
-                HeaderText = "الإجراءات",
+                HeaderText = "Actions",
                 ReadOnly = true
             };
 
@@ -175,7 +175,7 @@ namespace TailorSoft.Product.Controls
                     product?.Color,
 
                     (product?.InitialLength % 1 == 0 ?
-                    product?.InitialLength?.ToString("F0") : product?.InitialLength?.ToString("F1")) + " متر",
+                    product?.InitialLength?.ToString("F0") : product?.InitialLength?.ToString("F1")) + " m",
 
                     (product?.StockLength % 1 == 0 ?
                     product?.StockLength?.ToString("F0") : product?.StockLength?.ToString("F1")) + " متر",
@@ -209,9 +209,9 @@ namespace TailorSoft.Product.Controls
                     product?.ProductType?.Name,
                     product?.Category,
                     product?.Color,
-                    (product?.InitialLength % 1 == 0 ? product?.InitialLength?.ToString("F0") : product?.InitialLength?.ToString("F1")) + " متر",
-                    (product?.StockLength % 1 == 0 ? product?.StockLength?.ToString("F0") : product?.StockLength?.ToString("F1")) + " متر",
-                    (product?.Price % 1 == 0 ? product?.Price?.ToString("F0") : product?.Price?.ToString("F1")) + " درهم",
+                    (product?.InitialLength % 1 == 0 ? product?.InitialLength?.ToString("F0") : product?.InitialLength?.ToString("F1")) + " m",
+                    (product?.StockLength % 1 == 0 ? product?.StockLength?.ToString("F0") : product?.StockLength?.ToString("F1")) + " m",
+                    (product?.Price % 1 == 0 ? product?.Price?.ToString("F0") : product?.Price?.ToString("F1")) + " DH",
                     product?.CreatedDate?.ToString("dd-MM-yyyy"),
                     ""); // Actions column will be handled in CellPainting
             }
@@ -308,15 +308,15 @@ namespace TailorSoft.Product.Controls
 
                                 dgvProductsList.Rows[e.RowIndex].Cells["clmnInitialLength"].Value =
                                 (product?.InitialLength % 1 == 0 ?
-                                product?.InitialLength?.ToString("F0") : product?.InitialLength?.ToString("F1")) + " متر";
+                                product?.InitialLength?.ToString("F0") : product?.InitialLength?.ToString("F1")) + " m";
 
                                 dgvProductsList.Rows[e.RowIndex].Cells["clmnStockLength"].Value =
                                 (product?.StockLength % 1 == 0 ?
-                                product?.StockLength?.ToString("F0") : product?.StockLength?.ToString("F1")) + " متر";
+                                product?.StockLength?.ToString("F0") : product?.StockLength?.ToString("F1")) + " m";
 
                                 dgvProductsList.Rows[e.RowIndex].Cells["clmnPrice"].Value =
                                 (product?.Price % 1 == 0 ?
-                                product?.Price?.ToString("F0") : product?.Price?.ToString("F1")) + " درهم";
+                                product?.Price?.ToString("F0") : product?.Price?.ToString("F1")) + " DH";
 
                             }
                         };
@@ -332,11 +332,11 @@ namespace TailorSoft.Product.Controls
             {
                 if (dgvProductsList.Rows.Count == 0 || e.RowIndex < 0)
                 {
-                    MessageBox.Show("لا يوجد منتجات لحذفهم.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Aucun produit à supprimer.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                if (MessageBox.Show("هل أنت متأكد من حذف هذا المنتج؟", "تأكيد الحذف", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                if (MessageBox.Show("Êtes-vous sûr de vouloir supprimer ce produit ?", "Confirmer la suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                     return;
 
                 if (int.TryParse(dgvProductsList.Rows[e.RowIndex].Cells["clmnID"].Value?.ToString(), out int productID))
@@ -353,23 +353,23 @@ namespace TailorSoft.Product.Controls
                             }
                             else
                             {
-                                MessageBox.Show("خطأ في حذف المنتج.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Erreur lors de la suppression du produit.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
 
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show($"حدث خطأ أثناء حذف المنتج: {ex.Message}", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show($"Une erreur s'est produite lors de la suppression du produit : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("رقم المنتج غير صالح.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Le numéro du produit n'est pas valide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("خطأ في قراءة رقم المنتج.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erreur lors de la lecture du numéro du produit.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if (saleRect.Contains(mouse))
@@ -380,7 +380,7 @@ namespace TailorSoft.Product.Controls
                     clsProduct? product = clsProduct.Find(productId);
                     if (product == null)
                     {
-                        MessageBox.Show("المنتج غير موجود.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Le produit n'existe pas.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     using (frmSetSellingLength saleForm = new frmSetSellingLength(product))
@@ -392,7 +392,7 @@ namespace TailorSoft.Product.Controls
                                 // Update the product in the DataGridView
 
                                 dgvProductsList.Rows[e.RowIndex].Cells["clmnStockLength"].Value = (product?.StockLength % 1 == 0 ?
-                                product?.StockLength?.ToString("F0") : product?.StockLength?.ToString("F1")) + " متر";
+                                product?.StockLength?.ToString("F0") : product?.StockLength?.ToString("F1")) + " m";
                             }
                         };
                         saleForm.ShowDialog();
@@ -400,7 +400,7 @@ namespace TailorSoft.Product.Controls
                 }
                 else
                 {
-                    MessageBox.Show("خطأ في قراءة رقم المنتج.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erreur lors de la lecture du numéro du produit.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -415,7 +415,7 @@ namespace TailorSoft.Product.Controls
                 clsProduct? product = clsProduct.Find(productId);
                 if (product == null)
                 {
-                    MessageBox.Show("المنتج غير موجود.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Le produit n'existe pas.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 using (var editForm = new frmProductCard(product))
@@ -441,7 +441,7 @@ namespace TailorSoft.Product.Controls
             }
             else
             {
-                MessageBox.Show("خطأ في قراءة رقم المنتج.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erreur lors de la lecture du numéro du produit.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

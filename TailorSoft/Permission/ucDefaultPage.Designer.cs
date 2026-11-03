@@ -43,7 +43,7 @@
             label4.Name = "label4";
             label4.Size = new Size(940, 49);
             label4.TabIndex = 10;
-            label4.Text = "المفروشات المنزلية";
+            label4.Text = "City Meuble";
             label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
@@ -65,7 +65,7 @@
             Controls.Add(label4);
             Controls.Add(pictureBox1);
             Name = "ucDefaultPage";
-            RightToLeft = RightToLeft.Yes;
+            RightToLeft = RightToLeft.No;
             Size = new Size(809, 489);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

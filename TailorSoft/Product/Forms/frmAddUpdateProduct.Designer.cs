@@ -51,7 +51,6 @@
             clsProduct1.StockLength = null;
             clsProduct1.TypeID = null;
             ucAddUpdateProduct1.Product = clsProduct1;
-            ucAddUpdateProduct1.RightToLeft = RightToLeft.Yes;
             ucAddUpdateProduct1.Size = new Size(848, 652);
             ucAddUpdateProduct1.TabIndex = 0;
             ucAddUpdateProduct1.OnCloseButtonClicked += ucAddUpdateProduct1_OnCloseButtonClicked;

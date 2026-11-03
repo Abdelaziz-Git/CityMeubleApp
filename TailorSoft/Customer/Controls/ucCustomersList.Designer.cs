@@ -29,9 +29,9 @@ namespace TailorSoft.Customer.Controls
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             dgvCustomersList = new CustomDataGridView();
             btnAddNewCustomer = new Button();
             txtSearch = new TextBox();
@@ -46,30 +46,30 @@ namespace TailorSoft.Customer.Controls
             dgvCustomersList.AllowUserToDeleteRows = false;
             dgvCustomersList.AllowUserToOrderColumns = true;
             dgvCustomersList.AlternateRowBackColor = Color.FromArgb(240, 240, 240);
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(240, 240, 240);
-            dgvCustomersList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(240, 240, 240);
+            dgvCustomersList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvCustomersList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvCustomersList.BackgroundColor = Color.White;
             dgvCustomersList.BorderStyle = BorderStyle.Fixed3D;
             dgvCustomersList.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(52, 152, 219);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvCustomersList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(52, 152, 219);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvCustomersList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgvCustomersList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.Padding = new Padding(5, 2, 5, 2);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(41, 128, 185);
-            dataGridViewCellStyle3.SelectionForeColor = Color.White;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgvCustomersList.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.Padding = new Padding(5, 2, 5, 2);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(41, 128, 185);
+            dataGridViewCellStyle6.SelectionForeColor = Color.White;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvCustomersList.DefaultCellStyle = dataGridViewCellStyle6;
             dgvCustomersList.EnableHeadersVisualStyles = false;
             dgvCustomersList.GridColor = Color.FromArgb(230, 230, 230);
             dgvCustomersList.HeaderBackColor = Color.FromArgb(52, 152, 219);
@@ -85,18 +85,18 @@ namespace TailorSoft.Customer.Controls
             // 
             // btnAddNewCustomer
             // 
+            btnAddNewCustomer.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAddNewCustomer.BackColor = Color.WhiteSmoke;
-            btnAddNewCustomer.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 178);
+            btnAddNewCustomer.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAddNewCustomer.Image = Properties.Resources.add_icon_32;
-            btnAddNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddNewCustomer.Location = new Point(40, 56);
+            btnAddNewCustomer.Location = new Point(917, 45);
             btnAddNewCustomer.Name = "btnAddNewCustomer";
             btnAddNewCustomer.Padding = new Padding(10);
-            btnAddNewCustomer.RightToLeft = RightToLeft.Yes;
-            btnAddNewCustomer.Size = new Size(175, 53);
+            btnAddNewCustomer.RightToLeft = RightToLeft.No;
+            btnAddNewCustomer.Size = new Size(207, 63);
             btnAddNewCustomer.TabIndex = 14;
-            btnAddNewCustomer.Text = "إضافة زبون جديد";
-            btnAddNewCustomer.TextAlign = ContentAlignment.MiddleRight;
+            btnAddNewCustomer.Text = "Ajouter un client";
+            btnAddNewCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddNewCustomer.UseVisualStyleBackColor = false;
             btnAddNewCustomer.Click += btnAddNewCustomer_Click;
             // 
@@ -104,42 +104,40 @@ namespace TailorSoft.Customer.Controls
             // 
             txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtSearch.Font = new Font("Segoe UI Light", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtSearch.Location = new Point(329, 65);
+            txtSearch.Location = new Point(362, 60);
             txtSearch.Name = "txtSearch";
-            txtSearch.PlaceholderText = "ابحث ...";
-            txtSearch.RightToLeft = RightToLeft.Yes;
-            txtSearch.Size = new Size(535, 33);
+            txtSearch.PlaceholderText = "Rechercher ...";
+            txtSearch.RightToLeft = RightToLeft.No;
+            txtSearch.Size = new Size(422, 33);
             txtSearch.TabIndex = 17;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // cbFindBy
             // 
-            cbFindBy.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cbFindBy.AutoCompleteMode = AutoCompleteMode.Suggest;
             cbFindBy.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbFindBy.DropDownHeight = 120;
             cbFindBy.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbFindBy.FormattingEnabled = true;
             cbFindBy.IntegralHeight = false;
-            cbFindBy.Items.AddRange(new object[] { "رقم الهاتف", "الاسم الشخصي", "الاسم العائلي" });
-            cbFindBy.Location = new Point(885, 69);
+            cbFindBy.Items.AddRange(new object[] { "Par téléphone", "Par prénom", "Par nom de famille" });
+            cbFindBy.Location = new Point(164, 64);
             cbFindBy.Name = "cbFindBy";
-            cbFindBy.RightToLeft = RightToLeft.Yes;
+            cbFindBy.RightToLeft = RightToLeft.No;
             cbFindBy.Size = new Size(173, 25);
             cbFindBy.TabIndex = 16;
             cbFindBy.SelectedIndexChanged += cbFindBy_SelectedIndexChanged;
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(1066, 72);
+            label2.Location = new Point(40, 67);
             label2.Name = "label2";
-            label2.RightToLeft = RightToLeft.Yes;
-            label2.Size = new Size(58, 19);
+            label2.RightToLeft = RightToLeft.No;
+            label2.Size = new Size(118, 19);
             label2.TabIndex = 15;
-            label2.Text = "البحث ب:";
+            label2.Text = "Rechercher par:";
             // 
             // ucCustomersList
             // 

@@ -35,7 +35,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(768, 479);
+            ClientSize = new Size(733, 370);
             Name = "frmAddUpdateCustomer";
             StartPosition = FormStartPosition.CenterScreen;
             ResumeLayout(false);

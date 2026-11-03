@@ -22,23 +22,23 @@ namespace TailorSoft.Customer.Controls
             if (customer == null)
             {
                 lblCustomerID.Text = "[???]";
-                lblName.Text = "غير معروف";
-                lblPhone.Text = "غير معروف";
-                lblEmail.Text = "غير معروف";
-                lblAdress.Text = "غير معروف";
-                lblCreatedDate.Text = "غير معروف";
-                MessageBox.Show("لا يوجد عميل لعرض بياناته", "خطأ",
+                lblName.Text = "Inconnu";
+                lblPhone.Text = "Inconnu";
+                lblEmail.Text = "Inconnu";
+                lblAdress.Text = "Inconnu";
+                lblCreatedDate.Text = "Inconnu";
+                MessageBox.Show("Aucun client à afficher", "Erreur",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.OnCustomerSelected?.Invoke(null);
             }
             else
             {
                 lblCustomerID.Text = _Customer.Id?.ToString() ?? "[???]";
-                lblName.Text = _Customer.Person?.FullName ?? "غير معروف";
-                lblPhone.Text = _Customer.Person?.Phone ?? "غير معروف";
-                lblEmail.Text = _Customer.Person?.Email ?? "غير معروف";
-                lblAdress.Text = _Customer.Person?.Address ?? "غير معروف";
-                lblCreatedDate.Text = _Customer.CreatedDate?.ToString("yyyy-MM-dd") ?? "غير معروف";
+                lblName.Text = _Customer.Person?.FullName ?? "Inconnu";
+                lblPhone.Text = _Customer.Person?.Phone ?? "Inconnu";
+                lblEmail.Text = _Customer.Person?.Email ?? "Inconnu";
+                lblAdress.Text = _Customer.Person?.Address ?? "Inconnu";
+                lblCreatedDate.Text = _Customer.CreatedDate?.ToString("yyyy-MM-dd") ?? "Inconnu";
                 this.OnCustomerSelected?.Invoke(_Customer);
             }
         }
@@ -46,12 +46,17 @@ namespace TailorSoft.Customer.Controls
         {
             _Customer = null;
             lblCustomerID.Text = "[???]";
-            lblName.Text = "غير معروف";
-            lblPhone.Text = "غير معروف";
-            lblEmail.Text = "غير معروف";
-            lblAdress.Text = "غير معروف";
-            lblCreatedDate.Text = "غير معروف";
+            lblName.Text = "Inconnu";
+            lblPhone.Text = "Inconnu";
+            lblEmail.Text = "Inconnu";
+            lblAdress.Text = "Inconnu";
+            lblCreatedDate.Text = "Inconnu";
             this.OnCustomerSelected?.Invoke(null);
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

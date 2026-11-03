@@ -25,7 +25,7 @@ namespace TailorSoft.Product.Controls
             cbProductType.BeginUpdate();
             cbProductType.Items.Clear();
             cbProductType.Items.AddRange(Enum.GetNames(typeof(clsProductType.enProductType)));
-            cbProductType.SelectedIndex = 1; // Default to "طلامط"
+            cbProductType.SelectedIndex = 1; // Default to "Armoire"
             cbProductType.EndUpdate();
         }
 
@@ -33,11 +33,11 @@ namespace TailorSoft.Product.Controls
         {
             cbFindBy.BeginUpdate();
             cbFindBy.Items.Clear();
-            cbFindBy.Items.Add("لا شيء");
-            cbFindBy.Items.Add("رقم المنتج");
-            cbFindBy.Items.Add("فئة المنتج");
-            cbFindBy.Items.Add("لون المنتج");
-            cbFindBy.SelectedIndex = 0; // Default to "لا None"
+            cbFindBy.Items.Add("Rien");
+            cbFindBy.Items.Add("Numéro de produit");
+            cbFindBy.Items.Add("Catégorie de produit");
+            cbFindBy.Items.Add("Couleur du produit");
+            cbFindBy.SelectedIndex = 0; // Default to "Rien"
             cbFindBy.EndUpdate();
         }
         #endregion
@@ -46,9 +46,9 @@ namespace TailorSoft.Product.Controls
 
         private async Task LoadProductsByTypeAsync(clsProductType.enProductType productType, CancellationToken token)
         {
-            if (productType == clsProductType.enProductType.الكل)
+            if (productType == clsProductType.enProductType.Toute)
             {
-                cbFindBy.SelectedIndex = 0; // Reset to "لا None"
+                cbFindBy.SelectedIndex = 0; // Reset to "Rien"
                 cbFindBy.Enabled = false;
 
                 await ucProductList1.SetProductsAsync(clsProduct.GetAllActiveProductsAsync(token), token);
@@ -57,7 +57,7 @@ namespace TailorSoft.Product.Controls
             {
                 cbFindBy.Enabled = true;
                 if (cbFindBy.Items.Count > 0)
-                    cbFindBy.SelectedIndex = 0; // Reset to "لا None"
+                    cbFindBy.SelectedIndex = 0; // Reset to "Rien"
 
                 await ucProductList1.SetProductsAsync(clsProduct.GetProductsByTypeAsync(productType, token), token);
             }
@@ -80,7 +80,7 @@ namespace TailorSoft.Product.Controls
 
         private async void cbProductType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbProductType.SelectedIndex < 0 || cbProductType.SelectedIndex > 5) return;
+            if (cbProductType.SelectedIndex < 0) return;
 
             // Cancel any previous operation
             _cts?.Cancel();
@@ -113,9 +113,9 @@ namespace TailorSoft.Product.Controls
             _cts = new CancellationTokenSource();
             var token = _cts.Token;
 
-            if (productType == clsProductType.enProductType.الكل)
+            if (productType == clsProductType.enProductType.Toute)
             {
-                cbFindBy.SelectedIndex = 0; // Reset to "لا None"
+                cbFindBy.SelectedIndex = 0; // Reset to "Rien"
                 cbFindBy.Enabled = false;
                 try
                 {
@@ -162,13 +162,22 @@ namespace TailorSoft.Product.Controls
 
 
         }
-        private void cbFindBy_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cbFindBy_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _cts?.Cancel();
+            _cts = new CancellationTokenSource();
+            var token = _cts.Token;
+
+            if (cbFindBy.SelectedIndex < 0) return;
+            if(cbFindBy.SelectedIndex == 0) // "Rien" selected
+            {
+                await ucProductList1.SetProductsAsync(clsProduct.GetProductsByTypeAsync((clsProductType.enProductType)cbProductType.SelectedIndex, token), token);
+            }
             txtSearch.Visible = cbFindBy.SelectedIndex != 0;
-            pbIconSearch.Visible = txtSearch.Visible;
 
             if (txtSearch.Visible)
             {
+                txtSearch.Text = string.Empty;
                 txtSearch.Focus();
             }
             else
@@ -191,11 +200,10 @@ namespace TailorSoft.Product.Controls
         }
         private void txtSearch_VisibleChanged(object sender, EventArgs e)
         {
-            pbIconSearch.Visible = txtSearch.Visible;
         }
         private void ucProductList1_OnProductItemsCountChanged(int obj)
         {
-            lblNumberOfProductItems.Text = $"عدد المنتجات: {obj}";
+            lblNumberOfProductItems.Text = $"Nombre de produits: {obj}";
         }
         private void ucProductListWithFilter_SizeChanged(object sender, EventArgs e)
         {

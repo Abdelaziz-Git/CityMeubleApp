@@ -22,27 +22,27 @@ namespace TailorSoft.Order.Controls
 
         private void SetDeffaultValues()
         {
-            lblOrderID.Text = "غير معروف";
-            lblCustomerID.Text = "غير معروف";
+            lblOrderID.Text = "Inconnu";
+            lblCustomerID.Text = "Inconnu";
             dtpRequiredDate.Value = DateTime.Now;
             cbOrderStatus.SelectedIndex = 0; // Default to Pending
-            txtNotes.Text = "لا توجذد ملاحضات";
-            lblInitialAmount.Text = "0 درهم";
-            lblRemainingAmount.Text = "0 درهم";
-            lblTotalAmount.Text = "0 درهم";
+            txtNotes.Text = "Pas de notes";
+            lblInitialAmount.Text = "0 DH";
+            lblRemainingAmount.Text = "0 DH";
+            lblTotalAmount.Text = "0 DH";
         }
         private void InitializeComboBoxOrderStatus()
         {
             cbOrderStatus.Items.Clear();
             var statusTranslations = new Dictionary<clsOrder.enStatus, string>
             {
-                    { enStatus.Pending, "قيد الانتظار" },
-                    { enStatus.Measuring, "قياس" },
-                    { enStatus.InProgress, "قيد التنفيذ" },
-                    { enStatus.ReadyforDelivery, "جاهز للتسليم" },
-                    { enStatus.Delivered, "تم التسليم" },
-                    { enStatus.DeliveredAndPaid, "تم التسليم والدفع" },
-                    { enStatus.Cancelled, "ملغى" }
+                    { enStatus.Pending, "En attente" },
+                    { enStatus.Measuring, "Mesure" },
+                    { enStatus.InProgress, "En cours" },
+                    { enStatus.ReadyforDelivery, "Prêt pour livraison" },
+                    { enStatus.Delivered, "Livré" },
+                    { enStatus.DeliveredAndPaid, "Livré et payé" },
+                    { enStatus.Cancelled, "Annulé" }
             };
 
             // Fill ComboBox with enum values
@@ -58,12 +58,12 @@ namespace TailorSoft.Order.Controls
         {
             if (dtpRequiredDate.Value < DateTime.Now.AddYears(-1))
             {
-                MessageBox.Show("الرجاء اختيار تاريخ صحيح", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Veuillez sélectionner une date valide", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (cbOrderStatus.SelectedIndex == -1)
             {
-                MessageBox.Show("الرجاء اختيار حالة الطلب", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Veuillez sélectionner l'état de la commande", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -73,7 +73,7 @@ namespace TailorSoft.Order.Controls
             if (order == null || order.Id <= 0 || order.CustomerID <= 0)
             {
                 SetDeffaultValues();
-                MessageBox.Show("رقم طلب غير صحيح", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Numéro de commande invalide", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             // Set Order Information
@@ -83,9 +83,9 @@ namespace TailorSoft.Order.Controls
             dtpRequiredDate.Value = _Order.RequiredDate;
             cbOrderStatus.SelectedValue = _Order.Status;
             txtNotes.Text = _Order.Notes;
-            lblInitialAmount.Text = $"{_Order.InitialAmount} درهم";
-            lblRemainingAmount.Text = $"{_Order.RemainingAmount} درهم";
-            lblTotalAmount.Text = $"{_Order.TotalAmount} درهم";
+            lblInitialAmount.Text = $"{_Order.InitialAmount} DH";
+            lblRemainingAmount.Text = $"{_Order.RemainingAmount} DH";
+            lblTotalAmount.Text = $"{_Order.TotalAmount} DH";
 
             // Set Items list
             this.ucOrderItemList1.SetItems(_Order.Id);
@@ -99,7 +99,7 @@ namespace TailorSoft.Order.Controls
             _Order = clsOrder.Find(orderID);
             if (_Order == null)
             {
-                MessageBox.Show("حدث خطأ أثناء تحميل الطلب من جديد بعد تغيير عناصر الطلب", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Une erreur s'est produite lors du rechargement de la commande après modification des articles", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             // Update Order Information
@@ -118,7 +118,7 @@ namespace TailorSoft.Order.Controls
 
             if (_Order == null)
             {
-                MessageBox.Show("الرجاء تحميل الطلب قبل الحفظ", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Veuillez charger la commande avant d'enregistrer", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             // Update Order Information
@@ -128,13 +128,23 @@ namespace TailorSoft.Order.Controls
             if (_Order.Save())
             {
                 this.OnOrderSavedSuccessfully?.Invoke(_Order);
-                MessageBox.Show("تم تحديث الطلب بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("La commande a été mise à jour avec succès", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 OnButtonCloseClicked?.Invoke();
             }
             else
             {
-                MessageBox.Show("حدث خطأ أثناء تحديث الطلب", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Une erreur s'est produite lors de la mise à jour de la commande", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        }
+
+        private void lblOrderID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblInitialAmount_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -40,10 +40,11 @@
             button1.Name = "button1";
             button1.Size = new Size(996, 562);
             button1.TabIndex = 0;
-            button1.Text = "عذرا ليست لديك صلاحية الدخول";
+            button1.Text = "Désolé, vous n'avez pas l'autorisation d'accéder.";
             button1.TextAlign = ContentAlignment.BottomCenter;
             button1.TextImageRelation = TextImageRelation.ImageAboveText;
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // ucNoPermissionPage
             // 
@@ -52,7 +53,7 @@
             BackColor = Color.White;
             Controls.Add(button1);
             Name = "ucNoPermissionPage";
-            RightToLeft = RightToLeft.Yes;
+            RightToLeft = RightToLeft.No;
             Size = new Size(996, 562);
             ResumeLayout(false);
         }

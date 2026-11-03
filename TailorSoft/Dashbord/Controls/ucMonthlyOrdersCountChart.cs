@@ -8,10 +8,10 @@ namespace TailorSoft.Dashbord.Controls
         private  Chart chart1 = new Chart
         {
             Dock = DockStyle.Fill,
-            RightToLeft = RightToLeft.Yes
+            RightToLeft = RightToLeft.No
         };
 
-        private  Series  series = new Series("عدد الطلبات")
+        private  Series  series = new Series("Nombre de commandes")
         {
             ChartType = SeriesChartType.Column,
             IsValueShownAsLabel = true,
@@ -20,10 +20,10 @@ namespace TailorSoft.Dashbord.Controls
             IsXValueIndexed = true
         };
 
-        ChartArea chartArea1 = new ChartArea("الطلبات_الشهرية");
-        Title chartTitle1 = new Title("إحصائيات الطلبات الشهرية", Docking.Top, new Font("Tahoma", 14, FontStyle.Bold), Color.Black);
+        ChartArea chartArea1 = new ChartArea("Commandes_mensuelles");
+        Title chartTitle1 = new Title("Statistiques des commandes mensuelles", Docking.Top, new Font("Tahoma", 14, FontStyle.Bold), Color.Black);
 
-        private  string[] months = { "يناير", "فبراير", "مارس", "أبريل", "ماي", "يونيو", "يوليوز", "غشت", "شتنبر", "أكتوبر", "نونبر", "دجنبر" };
+        private  string[] months = { "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre" };
 
         private readonly Random random = new Random();
 
@@ -47,8 +47,8 @@ namespace TailorSoft.Dashbord.Controls
         private void ShowMonthlyOrdersChart(int year)
         {
 
-            chartArea1.AxisX.Title = "الأشهر";
-            chartArea1.AxisY.Title = "عدد الطلبات";
+            chartArea1.AxisX.Title = "Mois";
+            chartArea1.AxisY.Title = "Nombre de commandes";
 
             chartArea1.AxisX.TitleFont = new Font("Tahoma", 12);
             chartArea1.AxisY.TitleFont = new Font("Tahoma", 12);

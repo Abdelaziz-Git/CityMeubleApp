@@ -31,7 +31,7 @@ namespace TailorSoft.User.Controls
             dgvUsersList.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.Black;
             dgvUsersList.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             dgvUsersList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvUsersList.ColumnHeadersHeight = 35;
+            dgvUsersList.ColumnHeadersHeight = 50;
 
             // Row style
             dgvUsersList.DefaultCellStyle.BackColor = Color.White;
@@ -46,7 +46,7 @@ namespace TailorSoft.User.Controls
             // Grid configuration
             dgvUsersList.RowHeadersVisible = false;
             dgvUsersList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvUsersList.RightToLeft = RightToLeft.Yes;
+            dgvUsersList.RightToLeft = RightToLeft.No;
             dgvUsersList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvUsersList.AllowUserToAddRows = false;
             dgvUsersList.AllowUserToDeleteRows = false;
@@ -71,24 +71,24 @@ namespace TailorSoft.User.Controls
         private DataGridViewColumn[] GetColumns()
         {
             DataGridViewColumn[] columns = new DataGridViewColumn[9];
-            columns[0] = new DataGridViewTextBoxColumn { Name = "clmnID", HeaderText = "الرقم" };
-            columns[1] = new DataGridViewTextBoxColumn { Name = "clmnFirstName", HeaderText = "الاسم الشخصي" };
-            columns[2] = new DataGridViewTextBoxColumn { Name = "clmnLastName", HeaderText = "الاسم العائلي" };
-            columns[3] = new DataGridViewTextBoxColumn { Name = "clmnPhone", HeaderText = "الهاتف" };
-            columns[4] = new DataGridViewTextBoxColumn { Name = "clmnEmail", HeaderText = "البريد الإلكتروني" };
-            columns[5] = new DataGridViewTextBoxColumn { Name = "clmnCity", HeaderText = "المدينة" };
-            columns[6] = new DataGridViewTextBoxColumn { Name = "clmnUsername", HeaderText = "اسم المستخدم" };
+            columns[0] = new DataGridViewTextBoxColumn { Name = "clmnID", HeaderText = "N°" };
+            columns[1] = new DataGridViewTextBoxColumn { Name = "clmnFirstName", HeaderText = "Prénom" };
+            columns[2] = new DataGridViewTextBoxColumn { Name = "clmnLastName", HeaderText = "Nom" };
+            columns[3] = new DataGridViewTextBoxColumn { Name = "clmnPhone", HeaderText = "Téléphone" };
+            columns[4] = new DataGridViewTextBoxColumn { Name = "clmnEmail", HeaderText = "E-mail" };
+            columns[5] = new DataGridViewTextBoxColumn { Name = "clmnCity", HeaderText = "Ville" };
+            columns[6] = new DataGridViewTextBoxColumn { Name = "clmnUsername", HeaderText = "Nom d'utilisateur" };
             columns[7] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnStatus",
-                HeaderText = "الحالة",
+                HeaderText = "Statut",
                 ReadOnly = true
             };
             columns[8] = new DataGridViewTextBoxColumn
             {
                 Name = "clmnActions",
-                HeaderText = "الإجراءات",
-                FillWeight = 50f,
+                HeaderText = "Actions",
+                //FillWeight = 100f,
                 ReadOnly = true
             };
             return columns;
@@ -101,7 +101,7 @@ namespace TailorSoft.User.Controls
 
             foreach (var user in users)
             {
-                string statusText = user.Status.HasValue ? (user.Status.Value ? "نشط" : "غير نشط") : "---";
+                string statusText = user.Status.HasValue ? (user.Status.Value ? "Actif" : "Inactif") : "---";
 
                 dgvUsersList?.Rows.Add(
                     user?.Id.HasValue == true ? user.Id.Value : "???",
@@ -127,7 +127,7 @@ namespace TailorSoft.User.Controls
 
             foreach (var user in users)
             {
-                string statusText = user.Status.HasValue ? (user.Status.Value ? "نشط" : "غير نشط") : "---";
+                string statusText = user.Status.HasValue ? (user.Status.Value ? "Actif" : "Inactif") : "---";
 
                 dgvUsersList?.Rows.Add(
                     user?.Id.HasValue == true ? user.Id.Value : "???",
@@ -239,23 +239,23 @@ namespace TailorSoft.User.Controls
                     }
                     else
                     {
-                        MessageBox.Show("المستخدم غير موجود.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("L'utilisateur n'existe pas.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("خطأ في قراءة رقم المستخدم.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erreur de lecture de l'identifiant utilisateur.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if (deleteRect.Contains(mouse))
             {
                 if (dgvUsersList.Rows.Count == 0 || e.RowIndex < 0)
                 {
-                    MessageBox.Show("لا يوجد مستخدمين لحذفهم.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Aucun utilisateur à supprimer.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                if (MessageBox.Show("هل أنت متأكد من حذف هذا المستخدم؟", "تأكيد الحذف", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                if (MessageBox.Show("Êtes-vous sûr de vouloir supprimer cet utilisateur ?", "Confirmation de suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 {
                     return;
                 }
@@ -268,32 +268,32 @@ namespace TailorSoft.User.Controls
                         {
                             if(userId == 1)
                             {
-                                MessageBox.Show("لا يمكن حذف المستخدم الرئيسي", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Impossible de supprimer l'utilisateur principal.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
                             if (clsUser.Delete(userId))
                             {
                                 dgvUsersList.Rows.RemoveAt(e.RowIndex);
-                                MessageBox.Show("تم حذف المستخدم بنجاح", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("L'utilisateur a été supprimé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                             {
-                                MessageBox.Show("فشل في حذف المستخدم.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Échec de la suppression de l'utilisateur.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show($"حدث خطأ أثناء حذف المستخدم: {ex.Message}", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show($"Une erreur s'est produite lors de la suppression de l'utilisateur : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("المستخدم غير موجود", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("L'utilisateur n'existe pas.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("خطأ في قراءة رقم المستخدم.", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erreur de lecture de l'identifiant utilisateur.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -302,7 +302,7 @@ namespace TailorSoft.User.Controls
         {
             if (cbFindBy.SelectedIndex == -1)
             {
-                MessageBox.Show("يرجى اختيار طريقة البحث", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Veuillez sélectionner un critère de recherche.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

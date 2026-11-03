@@ -81,15 +81,15 @@
             // 
             // btnAddItem
             // 
-            btnAddItem.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnAddItem.BackColor = Color.Gainsboro;
-            btnAddItem.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddItem.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAddItem.Image = Properties.Resources.add_icon_32;
-            btnAddItem.Location = new Point(762, 3);
+            btnAddItem.Location = new Point(0, 0);
             btnAddItem.Name = "btnAddItem";
-            btnAddItem.Size = new Size(151, 45);
+            btnAddItem.RightToLeft = RightToLeft.No;
+            btnAddItem.Size = new Size(213, 45);
             btnAddItem.TabIndex = 2;
-            btnAddItem.Text = "اضافة عنصر جديد";
+            btnAddItem.Text = "Ajouter un élément";
             btnAddItem.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddItem.UseVisualStyleBackColor = false;
             btnAddItem.Click += btnAddItem_Click;
@@ -102,7 +102,6 @@
             Controls.Add(btnAddItem);
             Controls.Add(dgvOrderItemsList);
             Name = "ucOrderItemList";
-            RightToLeft = RightToLeft.Yes;
             Size = new Size(916, 353);
             Load += ucOrderItemList_Load;
             ((System.ComponentModel.ISupportInitialize)dgvOrderItemsList).EndInit();
