@@ -12,6 +12,8 @@ namespace HFS.Product.Controls
             AddNew = 0,
             Update = 1
         }
+
+        // Enums
         enum enPbProductImage
         {
             InitialImage = 0,
