@@ -32,8 +32,8 @@
             txtProductType = new Label();
             txtProductCategory = new Label();
             txtProductPrice = new Label();
-            txtProductStockLength = new Label();
-            txtProductInitialLength = new Label();
+            txtProductQuantity = new Label();
+            txtProductDimensions = new Label();
             txtProductColor = new Label();
             txtProductID = new Label();
             label1 = new Label();
@@ -66,8 +66,8 @@
             splitContainer1.Panel1.Controls.Add(txtProductType);
             splitContainer1.Panel1.Controls.Add(txtProductCategory);
             splitContainer1.Panel1.Controls.Add(txtProductPrice);
-            splitContainer1.Panel1.Controls.Add(txtProductStockLength);
-            splitContainer1.Panel1.Controls.Add(txtProductInitialLength);
+            splitContainer1.Panel1.Controls.Add(txtProductQuantity);
+            splitContainer1.Panel1.Controls.Add(txtProductDimensions);
             splitContainer1.Panel1.Controls.Add(txtProductColor);
             splitContainer1.Panel1.Controls.Add(txtProductID);
             splitContainer1.Panel1.Controls.Add(label1);
@@ -96,9 +96,9 @@
             txtProductType.BackColor = Color.White;
             txtProductType.BorderStyle = BorderStyle.Fixed3D;
             txtProductType.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtProductType.Location = new Point(86, 59);
+            txtProductType.Location = new Point(132, 59);
             txtProductType.Name = "txtProductType";
-            txtProductType.Size = new Size(244, 23);
+            txtProductType.Size = new Size(198, 23);
             txtProductType.TabIndex = 28;
             txtProductType.Text = "00";
             // 
@@ -120,35 +120,35 @@
             txtProductPrice.BackColor = Color.White;
             txtProductPrice.BorderStyle = BorderStyle.Fixed3D;
             txtProductPrice.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtProductPrice.Location = new Point(80, 281);
+            txtProductPrice.Location = new Point(132, 281);
             txtProductPrice.Name = "txtProductPrice";
-            txtProductPrice.Size = new Size(250, 23);
+            txtProductPrice.Size = new Size(198, 23);
             txtProductPrice.TabIndex = 26;
             txtProductPrice.Text = "00";
             // 
-            // txtProductStockLength
+            // txtProductQuantity
             // 
-            txtProductStockLength.AutoEllipsis = true;
-            txtProductStockLength.BackColor = Color.White;
-            txtProductStockLength.BorderStyle = BorderStyle.Fixed3D;
-            txtProductStockLength.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtProductStockLength.Location = new Point(193, 235);
-            txtProductStockLength.Name = "txtProductStockLength";
-            txtProductStockLength.Size = new Size(137, 23);
-            txtProductStockLength.TabIndex = 25;
-            txtProductStockLength.Text = "00";
+            txtProductQuantity.AutoEllipsis = true;
+            txtProductQuantity.BackColor = Color.White;
+            txtProductQuantity.BorderStyle = BorderStyle.Fixed3D;
+            txtProductQuantity.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtProductQuantity.Location = new Point(132, 235);
+            txtProductQuantity.Name = "txtProductQuantity";
+            txtProductQuantity.Size = new Size(198, 23);
+            txtProductQuantity.TabIndex = 25;
+            txtProductQuantity.Text = "00";
             // 
-            // txtProductInitialLength
+            // txtProductDimensions
             // 
-            txtProductInitialLength.AutoEllipsis = true;
-            txtProductInitialLength.BackColor = Color.White;
-            txtProductInitialLength.BorderStyle = BorderStyle.Fixed3D;
-            txtProductInitialLength.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtProductInitialLength.Location = new Point(188, 189);
-            txtProductInitialLength.Name = "txtProductInitialLength";
-            txtProductInitialLength.Size = new Size(142, 23);
-            txtProductInitialLength.TabIndex = 24;
-            txtProductInitialLength.Text = "00";
+            txtProductDimensions.AutoEllipsis = true;
+            txtProductDimensions.BackColor = Color.White;
+            txtProductDimensions.BorderStyle = BorderStyle.Fixed3D;
+            txtProductDimensions.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtProductDimensions.Location = new Point(132, 189);
+            txtProductDimensions.Name = "txtProductDimensions";
+            txtProductDimensions.Size = new Size(198, 23);
+            txtProductDimensions.TabIndex = 24;
+            txtProductDimensions.Text = "00";
             // 
             // txtProductColor
             // 
@@ -156,9 +156,9 @@
             txtProductColor.BackColor = Color.White;
             txtProductColor.BorderStyle = BorderStyle.Fixed3D;
             txtProductColor.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtProductColor.Location = new Point(117, 146);
+            txtProductColor.Location = new Point(132, 146);
             txtProductColor.Name = "txtProductColor";
-            txtProductColor.Size = new Size(213, 23);
+            txtProductColor.Size = new Size(198, 23);
             txtProductColor.TabIndex = 23;
             txtProductColor.Text = "00";
             // 
@@ -168,9 +168,9 @@
             txtProductID.BackColor = Color.White;
             txtProductID.BorderStyle = BorderStyle.Fixed3D;
             txtProductID.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtProductID.Location = new Point(117, 17);
+            txtProductID.Location = new Point(132, 17);
             txtProductID.Name = "txtProductID";
-            txtProductID.Size = new Size(213, 23);
+            txtProductID.Size = new Size(198, 23);
             txtProductID.TabIndex = 22;
             txtProductID.Text = "00";
             // 
@@ -197,9 +197,9 @@
             label2.Location = new Point(20, 235);
             label2.Name = "label2";
             label2.RightToLeft = RightToLeft.No;
-            label2.Size = new Size(167, 22);
+            label2.Size = new Size(91, 22);
             label2.TabIndex = 13;
-            label2.Text = "Longueur actuelle :";
+            label2.Text = "Quantité :";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label3
@@ -210,9 +210,9 @@
             label3.Location = new Point(20, 189);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.No;
-            label3.Size = new Size(164, 22);
+            label3.Size = new Size(119, 22);
             label3.TabIndex = 12;
-            label3.Text = "Longueur initiale : ";
+            label3.Text = "Dimensions : ";
             label3.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label4
@@ -273,7 +273,7 @@
             // 
             lblProductDate.AutoSize = true;
             lblProductDate.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblProductDate.Location = new Point(20, 309);
+            lblProductDate.Location = new Point(3, 319);
             lblProductDate.Name = "lblProductDate";
             lblProductDate.RightToLeft = RightToLeft.No;
             lblProductDate.Size = new Size(85, 20);
@@ -379,8 +379,8 @@
         private Label txtProductType;
         private Label txtProductCategory;
         private Label txtProductPrice;
-        private Label txtProductStockLength;
-        private Label txtProductInitialLength;
+        private Label txtProductQuantity;
+        private Label txtProductDimensions;
         private Label txtProductColor;
     }
 }

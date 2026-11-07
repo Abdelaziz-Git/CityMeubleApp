@@ -41,8 +41,8 @@
             cbProductType = new ComboBox();
             lblProductID = new Label();
             txtProductColor = new TextBox();
-            txtProductInitialLength = new TextBox();
-            txtProductStockLength = new TextBox();
+            txtProductDimensions = new TextBox();
+            txtProductQuantity = new TextBox();
             txtProductPrice = new TextBox();
             pbProductImage = new PictureBox();
             btnAddImage = new Button();
@@ -73,7 +73,7 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(28, 38);
+            label1.Location = new Point(40, 38);
             label1.Name = "label1";
             label1.RightToLeft = RightToLeft.No;
             label1.Size = new Size(33, 21);
@@ -85,7 +85,7 @@
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(28, 87);
+            label2.Location = new Point(40, 87);
             label2.Name = "label2";
             label2.RightToLeft = RightToLeft.No;
             label2.Size = new Size(53, 21);
@@ -97,7 +97,7 @@
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(317, 87);
+            label3.Location = new Point(357, 87);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.No;
             label3.Size = new Size(90, 21);
@@ -109,7 +109,7 @@
             label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(375, 134);
+            label4.Location = new Point(357, 134);
             label4.Name = "label4";
             label4.RightToLeft = RightToLeft.No;
             label4.Size = new Size(75, 21);
@@ -121,43 +121,43 @@
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(28, 132);
+            label5.Location = new Point(40, 132);
             label5.Name = "label5";
             label5.RightToLeft = RightToLeft.No;
-            label5.Size = new Size(168, 21);
+            label5.Size = new Size(102, 21);
             label5.TabIndex = 5;
-            label5.Text = "Longueur initiale (m) :";
+            label5.Text = "Dimensions :";
             // 
             // label6
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(317, 183);
+            label6.Location = new Point(357, 183);
             label6.Name = "label6";
             label6.RightToLeft = RightToLeft.No;
-            label6.Size = new Size(181, 21);
+            label6.Size = new Size(81, 21);
             label6.TabIndex = 6;
-            label6.Text = "Longueur en stock (m) :";
+            label6.Text = "Quantité :";
             // 
             // label7
             // 
             label7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(28, 180);
+            label7.Location = new Point(40, 180);
             label7.Name = "label7";
             label7.RightToLeft = RightToLeft.No;
-            label7.Size = new Size(89, 21);
+            label7.Size = new Size(82, 21);
             label7.TabIndex = 7;
-            label7.Text = "Prix (AED) :";
+            label7.Text = "Prix (DH) :";
             // 
             // txtProductCategory
             // 
             txtProductCategory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtProductCategory.Location = new Point(413, 89);
+            txtProductCategory.Location = new Point(447, 89);
             txtProductCategory.Name = "txtProductCategory";
-            txtProductCategory.Size = new Size(222, 23);
+            txtProductCategory.Size = new Size(176, 23);
             txtProductCategory.TabIndex = 8;
             txtProductCategory.Validating += txtProductCategory_Validating;
             // 
@@ -166,9 +166,9 @@
             cbProductType.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cbProductType.FormattingEnabled = true;
             cbProductType.Items.AddRange(new object[] { "Costume", "Oreiller", "Rideaux", "Échantillon", "Accessoires" });
-            cbProductType.Location = new Point(87, 89);
+            cbProductType.Location = new Point(143, 89);
             cbProductType.Name = "cbProductType";
-            cbProductType.Size = new Size(191, 23);
+            cbProductType.Size = new Size(176, 23);
             cbProductType.TabIndex = 9;
             cbProductType.Validating += cbProductType_Validating;
             // 
@@ -177,7 +177,7 @@
             lblProductID.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblProductID.AutoSize = true;
             lblProductID.ForeColor = Color.Red;
-            lblProductID.Location = new Point(68, 43);
+            lblProductID.Location = new Point(80, 43);
             lblProductID.Name = "lblProductID";
             lblProductID.Size = new Size(30, 15);
             lblProductID.TabIndex = 10;
@@ -186,37 +186,37 @@
             // txtProductColor
             // 
             txtProductColor.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtProductColor.Location = new Point(456, 132);
+            txtProductColor.Location = new Point(447, 132);
             txtProductColor.Name = "txtProductColor";
-            txtProductColor.Size = new Size(179, 23);
+            txtProductColor.Size = new Size(176, 23);
             txtProductColor.TabIndex = 11;
             txtProductColor.Validating += txtProductColor_Validating;
             // 
-            // txtProductInitialLength
+            // txtProductDimensions
             // 
-            txtProductInitialLength.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtProductInitialLength.Location = new Point(202, 134);
-            txtProductInitialLength.Name = "txtProductInitialLength";
-            txtProductInitialLength.Size = new Size(133, 23);
-            txtProductInitialLength.TabIndex = 12;
-            txtProductInitialLength.TextChanged += txtProductInitialLength_TextChanged;
-            txtProductInitialLength.Validating += txtProductInitialLength_Validating;
+            txtProductDimensions.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtProductDimensions.Location = new Point(143, 134);
+            txtProductDimensions.Name = "txtProductDimensions";
+            txtProductDimensions.Size = new Size(176, 23);
+            txtProductDimensions.TabIndex = 12;
+            txtProductDimensions.TextChanged += txtProductDimensions_TextChanged;
+            txtProductDimensions.Validating += txtProductDimensions_Validating;
             // 
-            // txtProductStockLength
+            // txtProductQuantity
             // 
-            txtProductStockLength.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtProductStockLength.Location = new Point(504, 185);
-            txtProductStockLength.Name = "txtProductStockLength";
-            txtProductStockLength.Size = new Size(131, 23);
-            txtProductStockLength.TabIndex = 13;
-            txtProductStockLength.Validating += txtProductStockLength_Validating;
+            txtProductQuantity.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtProductQuantity.Location = new Point(447, 185);
+            txtProductQuantity.Name = "txtProductQuantity";
+            txtProductQuantity.Size = new Size(176, 23);
+            txtProductQuantity.TabIndex = 13;
+            txtProductQuantity.Validating += txtProductStockLength_Validating;
             // 
             // txtProductPrice
             // 
             txtProductPrice.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtProductPrice.Location = new Point(123, 180);
+            txtProductPrice.Location = new Point(143, 180);
             txtProductPrice.Name = "txtProductPrice";
-            txtProductPrice.Size = new Size(145, 23);
+            txtProductPrice.Size = new Size(176, 23);
             txtProductPrice.TabIndex = 14;
             txtProductPrice.Validating += txtProductPrice_Validating;
             // 
@@ -225,9 +225,9 @@
             pbProductImage.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pbProductImage.Image = TailorSoft.Properties.Resources.empty_image_icon_512;
             pbProductImage.InitialImage = TailorSoft.Properties.Resources.empty_image_icon_512;
-            pbProductImage.Location = new Point(28, 239);
+            pbProductImage.Location = new Point(40, 239);
             pbProductImage.Name = "pbProductImage";
-            pbProductImage.Size = new Size(607, 153);
+            pbProductImage.Size = new Size(583, 153);
             pbProductImage.SizeMode = PictureBoxSizeMode.Zoom;
             pbProductImage.TabIndex = 15;
             pbProductImage.TabStop = false;
@@ -239,7 +239,7 @@
             btnAddImage.BackColor = Color.RoyalBlue;
             btnAddImage.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAddImage.Image = TailorSoft.Properties.Resources.add_icon_32;
-            btnAddImage.Location = new Point(244, 398);
+            btnAddImage.Location = new Point(234, 398);
             btnAddImage.Name = "btnAddImage";
             btnAddImage.Padding = new Padding(0, 0, 5, 0);
             btnAddImage.Size = new Size(195, 51);
@@ -260,9 +260,9 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(txtProductPrice);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(txtProductStockLength);
+            groupBox1.Controls.Add(txtProductQuantity);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(txtProductInitialLength);
+            groupBox1.Controls.Add(txtProductDimensions);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(txtProductColor);
             groupBox1.Controls.Add(label7);
@@ -347,8 +347,8 @@
         private ComboBox cbProductType;
         private Label lblProductID;
         private TextBox txtProductColor;
-        private TextBox txtProductInitialLength;
-        private TextBox txtProductStockLength;
+        private TextBox txtProductDimensions;
+        private TextBox txtProductQuantity;
         private TextBox txtProductPrice;
         private PictureBox pbProductImage;
         private Button btnAddImage;

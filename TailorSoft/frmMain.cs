@@ -134,6 +134,7 @@ namespace TailorSoft
             else
             {
                 _ucProductListWithFilter1.BringToFront();
+                _ucProductListWithFilter1.UpdateProductList();
             }
         }
 

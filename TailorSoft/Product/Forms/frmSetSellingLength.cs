@@ -18,19 +18,19 @@ namespace TailorSoft.Product.Forms
                 MessageBox.Show("Le numéro du produit est incorrect", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (_productToSell.StockLength <= 0)
+            if (_productToSell.Quantity <= 0)
             {
-                MessageBox.Show("Aucune longueur disponible pour la vente", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Aucune quantité disponible pour la vente", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 nudSellingLength.ResetText();
                 return;
             }
-            if (_productToSell.StockLength < (double)nudSellingLength.Value)
+            if (_productToSell.Quantity < (int)nudSellingLength.Value)
             {
                 MessageBox.Show("Le nombre requise pour la vente est supérieure à la quantité disponible", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 nudSellingLength.ResetText();
                 return;
             }
-            if (_productToSell.Sell((double)nudSellingLength.Value))
+            if (_productToSell.Sell((int)nudSellingLength.Value))
             {
                 OnSellingCompletedSuccessfully?.Invoke(_productToSell);
                 MessageBox.Show("Le quantité a été déduite avec succès", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -57,7 +57,6 @@ namespace TailorSoft.Product.Forms
         {
             SubstrackSellingLength();
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();

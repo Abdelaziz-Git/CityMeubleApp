@@ -44,11 +44,11 @@
             clsProduct1.CreatedByUserID = null;
             clsProduct1.CreatedDate = new DateTime(2025, 7, 12, 17, 9, 8, 781);
             clsProduct1.ImagePath = null;
-            clsProduct1.InitialLength = null;
+            clsProduct1.Dimensions = null;
             clsProduct1.IsActive = null;
             clsProduct1.LastUpdate = new DateTime(2025, 7, 12, 17, 9, 8, 795);
             clsProduct1.Price = null;
-            clsProduct1.StockLength = null;
+            clsProduct1.Quantity = null;
             clsProduct1.TypeID = null;
             ucAddUpdateProduct1.Product = clsProduct1;
             ucAddUpdateProduct1.Size = new Size(848, 652);

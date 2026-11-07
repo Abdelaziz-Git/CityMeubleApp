@@ -34,9 +34,10 @@ namespace TailorSoft.Product.Controls
             cbFindBy.BeginUpdate();
             cbFindBy.Items.Clear();
             cbFindBy.Items.Add("Rien");
-            cbFindBy.Items.Add("Numéro de produit");
-            cbFindBy.Items.Add("Catégorie de produit");
-            cbFindBy.Items.Add("Couleur du produit");
+            cbFindBy.Items.Add("Numéro");
+            cbFindBy.Items.Add("Catégorie");
+            cbFindBy.Items.Add("Couleur");
+            cbFindBy.Items.Add("Dimensions");
             cbFindBy.SelectedIndex = 0; // Default to "Rien"
             cbFindBy.EndUpdate();
         }
@@ -82,7 +83,6 @@ namespace TailorSoft.Product.Controls
         {
             if (cbProductType.SelectedIndex < 0) return;
 
-            // Cancel any previous operation
             _cts?.Cancel();
             _cts = new CancellationTokenSource();
             var token = _cts.Token;
@@ -95,12 +95,14 @@ namespace TailorSoft.Product.Controls
             }
             catch (OperationCanceledException)
             {
-                // Ignore cancellation (user switched quickly)
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Une erreur s'est produite lors du chargement des produits : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)
         {
-
             var searchText = txtSearch.Text.Trim();
             var productType = (clsProductType.enProductType)cbProductType.SelectedIndex;
 
@@ -109,58 +111,65 @@ namespace TailorSoft.Product.Controls
                 ucProductList1.ClearProducts();
                 return;
             }
+
             _cts?.Cancel();
             _cts = new CancellationTokenSource();
             var token = _cts.Token;
 
-            if (productType == clsProductType.enProductType.Toute)
+            try
             {
-                cbFindBy.SelectedIndex = 0; // Reset to "Rien"
-                cbFindBy.Enabled = false;
-                try
+                if (productType == clsProductType.enProductType.Toute)
                 {
+                    cbFindBy.SelectedIndex = 0;
+                    cbFindBy.Enabled = false;
                     await ucProductList1.SetProductsAsync(clsProduct.GetAllActiveProductsAsync(token), token);
                 }
-                catch (OperationCanceledException)
+                else
                 {
-                    // Ignore cancellation (user switched quickly)
+                    cbFindBy.Enabled = true;
+
+                    switch (cbFindBy.SelectedIndex)
+                    {
+                        case 1:
+                            if (int.TryParse(searchText, out int productId))
+                            {
+                                ucProductList1.SetProduct(clsProduct.Find(productId));
+                            }
+                            else
+                            {
+                                ucProductList1.ClearProducts();
+                            }
+                            break;
+
+                        case 2:
+                            await ucProductList1.SetProductsAsync(
+                                clsProduct.GetProductsByTypeIdAndCategoryAsync(productType, searchText), token);
+                            break;
+
+                        case 3:
+                            await ucProductList1.SetProductsAsync(
+                                clsProduct.GetProductsByTypeIdAndColorAsync(productType, searchText), token);
+                            break;
+
+                        case 4:
+                            await ucProductList1.SetProductsAsync(
+                                clsProduct.GetProductsByTypeIdAndDimensionsAsync(productType, searchText), token);
+                            break;
+
+                        default:
+                            await ucProductList1.SetProductsAsync(
+                                clsProduct.GetProductsByTypeAsync(productType), token);
+                            break;
+                    }
                 }
             }
-            else
+            catch (OperationCanceledException)
             {
-                cbFindBy.Enabled = true;
-
-                switch (cbFindBy.SelectedIndex)
-                {
-                    case 1: // ID
-                        if (int.TryParse(searchText, out int productId))
-                        {
-                            ucProductList1.SetProduct(clsProduct.Find(productId));
-                        }
-                        else
-                        {
-                            ucProductList1.ClearProducts();
-                        }
-                        break;
-
-                    case 2: // Category
-                        await ucProductList1.SetProductsAsync(
-                            clsProduct.GetProductsByTypeIdAndCategoryAsync(productType, searchText), token);
-                        break;
-
-                    case 3: // Color
-                        await ucProductList1.SetProductsAsync(
-                            clsProduct.GetProductsByTypeIdAndColorAsync(productType, searchText), token);
-                        break;
-
-                    default: // Type only
-                        await ucProductList1.SetProductsAsync(
-                            clsProduct.GetProductsByTypeAsync(productType), token);
-                        break;
-                }
             }
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Une erreur s'est produite lors de la recherche des produits : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private async void cbFindBy_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -169,10 +178,22 @@ namespace TailorSoft.Product.Controls
             var token = _cts.Token;
 
             if (cbFindBy.SelectedIndex < 0) return;
-            if(cbFindBy.SelectedIndex == 0) // "Rien" selected
+
+            try
             {
-                await ucProductList1.SetProductsAsync(clsProduct.GetProductsByTypeAsync((clsProductType.enProductType)cbProductType.SelectedIndex, token), token);
+                if (cbFindBy.SelectedIndex == 0)
+                {
+                    await ucProductList1.SetProductsAsync(clsProduct.GetProductsByTypeAsync((clsProductType.enProductType)cbProductType.SelectedIndex, token), token);
+                }
             }
+            catch (OperationCanceledException)
+            {
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Une erreur s'est produite lors de l'application du filtre : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             txtSearch.Visible = cbFindBy.SelectedIndex != 0;
 
             if (txtSearch.Visible)
@@ -211,5 +232,9 @@ namespace TailorSoft.Product.Controls
         }
         #endregion
 
+        public void UpdateProductList()
+        {
+            cbProductType_SelectedIndexChanged(null, null);
+        }
     }
 }

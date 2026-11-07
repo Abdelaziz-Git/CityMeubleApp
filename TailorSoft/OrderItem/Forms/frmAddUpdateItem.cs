@@ -63,6 +63,8 @@ namespace TailorSoft.OrderItem.Forms
             if (_OrderItem != null)
             {
                 txtProductID.Text = _OrderItem?.ProductID?.ToString();
+                txtProductID.Enabled = false; // Disable editing of ProductID in update mode
+                txtProductID.BackColor = Color.LightGray; // Change background color to indicate it's disabled
                 txtProductName.Text = _OrderItem?.ProductName;
                 txtQuantity.Text = _OrderItem?.Quantity % 1 == 0 ? _OrderItem?.Quantity.ToString("0") : _OrderItem?.Quantity.ToString("0.0");
                 txtUnitPrice.Text = _OrderItem?.UnitPrice % 1 == 0 ? _OrderItem?.UnitPrice.ToString("0") : _OrderItem?.UnitPrice.ToString("0.0");
@@ -145,7 +147,7 @@ namespace TailorSoft.OrderItem.Forms
                     this.Close();
                     return;
                 }
-                txtProductName.Select();
+                txtProductID.Select();
             }
             else if (_Mode == enMode.Update)
             {

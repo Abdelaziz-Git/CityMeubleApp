@@ -37,10 +37,11 @@ namespace TailorSoft.Order.Controls
             var statusTranslations = new Dictionary<clsOrder.enStatus, string>
             {
                     { enStatus.Pending, "En attente" },
-                    { enStatus.Measuring, "Mesure" },
-                    { enStatus.InProgress, "En cours" },
-                    { enStatus.ReadyforDelivery, "Prêt pour livraison" },
-                    { enStatus.Delivered, "Livré" },
+                    //{ enStatus.Measuring, "Mesure" },
+                    //{ enStatus.InProgress, "En cours" },
+                    //{ enStatus.ReadyforDelivery, "Prêt pour livraison" },
+                    { enStatus.DeliveredAndNotPaid, "Livré et non payé" },
+                    { enStatus.DeliveredAndPartiallyPaid, "Livré et part payé" },
                     { enStatus.DeliveredAndPaid, "Livré et payé" },
                     { enStatus.Cancelled, "Annulé" }
             };

@@ -66,8 +66,8 @@ namespace HFS.Product.Controls
             cbProductType.SelectedIndex = -1;
             txtProductCategory.Text = string.Empty;
             txtProductColor.Text = string.Empty;
-            txtProductInitialLength.Text = string.Empty;
-            txtProductStockLength.Text = string.Empty;
+            txtProductDimensions.Text = string.Empty;
+            txtProductQuantity.Text = string.Empty;
             txtProductPrice.Text = string.Empty;
             pbProductImage.Image = Resources.empty_image_icon_512;
             _pbProductImage = enPbProductImage.InitialImage;
@@ -84,8 +84,8 @@ namespace HFS.Product.Controls
                 cbProductType.SelectedIndex = int.Parse(Product?.TypeID?.ToString() ?? "0") - 1; // Assuming TypeID is 1-based index
                 txtProductCategory.Text = Product?.Category;
                 txtProductColor.Text = Product?.Color;
-                txtProductInitialLength.Text = Product?.InitialLength?.ToString("0.00");
-                txtProductStockLength.Text = Product?.StockLength?.ToString("0.00");
+                txtProductDimensions.Text = Product?.Dimensions;
+                txtProductQuantity.Text = Product?.Quantity?.ToString();
                 txtProductPrice.Text = Product?.Price?.ToString("0.00");
                 pbProductImage.ImageLocation = Product?.ImagePath != null && File.Exists(Product.ImagePath)
                     ? Product.ImagePath
@@ -155,8 +155,8 @@ namespace HFS.Product.Controls
             Product.TypeID = (byte)(cbProductType.SelectedIndex + 1);
             Product.Category = txtProductCategory.Text.Trim();
             Product.Color = txtProductColor.Text.Trim();
-            Product.InitialLength = double.TryParse(txtProductInitialLength.Text, out double initialLength) ? initialLength : (double?)null;
-            Product.StockLength = double.TryParse(txtProductStockLength.Text, out double stockLength) ? stockLength : (double?)null;
+            Product.Dimensions = txtProductDimensions.Text.Trim();
+            Product.Quantity = int.TryParse(txtProductQuantity.Text, out int quantity) ? quantity : (int?)null;
             Product.Price = double.TryParse(txtProductPrice.Text, out double price) ? price : (double?)null;
             if (_pbProductImage == enPbProductImage.ProductImage && pbProductImage.Image != null)
             {
@@ -185,14 +185,16 @@ namespace HFS.Product.Controls
                 errorProvider1.SetError(txtProductColor, "S'il vous plaît, entrez la couleur du produit");
                 return false;
             }
-            if (!decimal.TryParse(txtProductInitialLength.Text, out decimal initialLength) || initialLength <= 0)
+            if (string.IsNullOrWhiteSpace(txtProductDimensions.Text))
             {
-                errorProvider1.SetError(txtProductInitialLength, "S'il vous plaît, entrez la longueur initiale du produit correctement");
+                errorProvider1.SetError(txtProductDimensions, "S'il vous plaît, entrez les dimensions du produit correctement\n" +
+                    "Si nécessaire, utilisez le format LxWxH\n" +
+                    "si le produit est de forme irrégulière, tapez N/A");
                 return false;
             }
-            if (!decimal.TryParse(txtProductStockLength.Text, out decimal stockLength) || stockLength < 0)
+            if (!int.TryParse(txtProductQuantity.Text, out int stockLength) || stockLength < 0)
             {
-                errorProvider1.SetError(txtProductStockLength, "S'il vous plaît, entrez la longueur du stock du produit correctement");
+                errorProvider1.SetError(txtProductQuantity, "S'il vous plaît, entrez la quantité du stock du produit correctement");
                 return false;
             }
             if (!decimal.TryParse(txtProductPrice.Text, out decimal price) || price < 0)
@@ -237,7 +239,7 @@ namespace HFS.Product.Controls
             }
             else
             {
-                MessageBox.Show("فشل في حفظ المنتج. يرجى المحاولة مرة أخرى", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Échec de l'enregistrement du produit. Veuillez réessayer.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -250,7 +252,7 @@ namespace HFS.Product.Controls
         }
         private void ucAddProduct_Load(object sender, EventArgs e)
         {
-            LoadUserControl();
+            
         }
 
         private void btnAddImage_Click(object sender, EventArgs e)
@@ -310,29 +312,31 @@ namespace HFS.Product.Controls
             }
         }
 
-        private void txtProductInitialLength_Validating(object sender, CancelEventArgs e)
+        private void txtProductDimensions_Validating(object sender, CancelEventArgs e)
         {
-            if (!decimal.TryParse(txtProductInitialLength.Text, out decimal initialLength) || initialLength <= 0)
+            if (string.IsNullOrWhiteSpace(txtProductDimensions.Text))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtProductInitialLength, "S'il vous plaît, entrez la longueur initiale du produit correctement");
+                errorProvider1.SetError(txtProductDimensions, "S'il vous plaît, entrez les dimensions du produit correctement\n" +
+                    "Si nécessaire, utilisez le format LxWxH\n" +
+                    "si le produit est de forme irrégulière, tapez N/A");
             }
             else
             {
-                errorProvider1.SetError(txtProductInitialLength, string.Empty);
+                errorProvider1.SetError(txtProductDimensions, string.Empty);
             }
         }
 
         private void txtProductStockLength_Validating(object sender, CancelEventArgs e)
         {
-            if (!decimal.TryParse(txtProductStockLength.Text, out decimal stockLength) || stockLength < 0)
+            if (!int.TryParse(txtProductQuantity.Text, out int stockLength) || stockLength < 0)
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtProductStockLength, "S'il vous plaît, entrez la longueur du stock du produit correctement");
+                errorProvider1.SetError(txtProductQuantity, "S'il vous plaît, entrez la quantité du stock du produit correctement");
             }
             else
             {
-                errorProvider1.SetError(txtProductStockLength, string.Empty);
+                errorProvider1.SetError(txtProductQuantity, string.Empty);
             }
         }
 
@@ -368,9 +372,9 @@ namespace HFS.Product.Controls
             this.OnCloseButtonClicked?.Invoke(this, EventArgs.Empty);
         }
 
-        private void txtProductInitialLength_TextChanged(object sender, EventArgs e)
+        private void txtProductDimensions_TextChanged(object sender, EventArgs e)
         {
-
+            //errorProvider1.SetError(txtProductDimensions, string.Empty);
         }
     }
 }

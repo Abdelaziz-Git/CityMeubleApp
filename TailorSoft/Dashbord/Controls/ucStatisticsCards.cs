@@ -1,6 +1,4 @@
-﻿using Microsoft.Identity.Client;
-using TailorSoft_Business_Layer;
-using TailorSoft_Data_Layer;
+﻿using TailorSoft_Business_Layer;
 using TailorSoft_Models;
 
 namespace TailorSoft.Dashbord.Controls

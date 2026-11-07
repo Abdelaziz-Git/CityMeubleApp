@@ -1,61 +1,57 @@
 ﻿using System.Drawing.Printing;
+using System.Globalization;
 using TailorSoft.Store.Classes;
 using TailorSoft_Business_Layer;
 
 namespace TailorSoft.Order.Classes
 {
-    public class clsOrderPrinter
+    public class clsOrderPrinter : IDisposable
     {
         private clsOrder _order = null!;
-        private Font _font;
-        private int _lineH;
-        private StringFormat _rtlFormat;
-        // Add a field for the logo image
         private Image? _logo;
+        private List<clsOrderItem> _items = new();
+        private int _currentItemIndex;
+        private readonly string _fontFamily;
+        private readonly float _fontSize;
 
-        public clsOrderPrinter(string fontFamily = "Arial", float fontSize = 10f)
+        public clsOrderPrinter(string fontFamily = "Arial", float fontSize = 10f, string? logoPath = null)
         {
-            // خط يدعم العربية
-            _font = new Font(fontFamily, fontSize, FontStyle.Regular, GraphicsUnit.Point);
+            _fontFamily = fontFamily;
+            _fontSize = fontSize;
 
-            using var bmp = new Bitmap(1, 1);
-            using var g = Graphics.FromImage(bmp);
-            _lineH = (int)Math.Ceiling(g.MeasureString("A", _font).Height);
-            if (_lineH < 14)
-                _lineH = 14;
-
-            // إعداد المحاذاة RTL
-            _rtlFormat = new StringFormat
+            string configuredLogoPath = string.IsNullOrWhiteSpace(logoPath)
+                ? clsStore.Load().LogoImagePath
+                : logoPath;
+            if (!string.IsNullOrWhiteSpace(configuredLogoPath) && File.Exists(configuredLogoPath))
             {
-                Alignment = StringAlignment.Near, // من اليمين
-                LineAlignment = StringAlignment.Near,
-                FormatFlags = StringFormatFlags.DirectionRightToLeft
-            };
+                using var sourceImage = Image.FromFile(configuredLogoPath);
+                _logo = new Bitmap(sourceImage);
+            }
         }
 
-        public void Preview(clsOrder order, int paperWidthMm = 80, string? printerName = null)
-            => Print(order, paperWidthMm, printerName, preview: true);
+        public void Preview(clsOrder order, string? printerName = null)
+            => Print(order, printerName, preview: true);
 
-        public void PrintDirect(clsOrder order, int paperWidthMm = 80, string? printerName = null)
-            => Print(order, paperWidthMm, printerName, preview: false);
+        public void PrintDirect(clsOrder order, string? printerName = null)
+            => Print(order, printerName, preview: false);
 
-        private void Print(clsOrder order, int paperWidthMm, string? printerName, bool preview)
+        private void Print(clsOrder order, string? printerName, bool preview)
         {
             _order = order ?? throw new ArgumentNullException(nameof(order));
+            _items = _order.Items ?? new List<clsOrderItem>();
+            _currentItemIndex = 0;
 
-            var doc = new PrintDocument
+            using var doc = new PrintDocument
             {
-                OriginAtMargins = true
+                OriginAtMargins = false
             };
 
             if (!string.IsNullOrWhiteSpace(printerName))
                 doc.PrinterSettings.PrinterName = printerName;
 
-            doc.DefaultPageSettings.Margins = new Margins(1, 1, 5, 5);
-
-            int targetWidth = MmToHundredthInch(paperWidthMm);
-            int targetHeight = 2000;
-            doc.DefaultPageSettings.PaperSize = GetSupportedPaperSize(doc.PrinterSettings, targetWidth, targetHeight);
+            doc.DefaultPageSettings.Margins = new Margins(35, 35, 35, 35);
+            doc.DefaultPageSettings.Landscape = false;
+            doc.DefaultPageSettings.PaperSize = GetA4PaperSize(doc.PrinterSettings);
 
             doc.PrintPage += OnPrintPage;
 
@@ -77,190 +73,236 @@ namespace TailorSoft.Order.Classes
         private void OnPrintPage(object? sender, PrintPageEventArgs e)
         {
             var g = e.Graphics;
-            var left = e.MarginBounds.Left - 35;
-            var right = e.MarginBounds.Right - 35;
-            var width = e.MarginBounds.Width;
-            int y = e.MarginBounds.Top;
+            var bounds = e.MarginBounds;
+            var store = clsStore.Load();
+            var customer = _order.Customer?.Person;
+            var culture = CultureInfo.GetCultureInfo("fr-FR");
+            string Money(decimal amount) => $"{amount.ToString("N2", culture)} DH";
+            bool isFirstPage = _currentItemIndex == 0;
+            int left = bounds.Left;
+            int top = bounds.Top;
+            int width = bounds.Width;
+            int y = top;
+            int signatureWidth = Math.Min(205, width / 3);
+            int headerHeight = 115;
+            int rowHeight = 31;
+            int quantityWidth = 65;
+            int unitPriceWidth = 125;
+            int totalWidth = 125;
+            int nameWidth = width - quantityWidth - unitPriceWidth - totalWidth;
 
-            void Line()
+            using var titleFont = new Font(_fontFamily, _fontSize * 2.5f, FontStyle.Bold);
+            using var subtitleFont = new Font(_fontFamily, _fontSize + 1, FontStyle.Bold);
+            using var labelFont = new Font(_fontFamily, _fontSize, FontStyle.Bold);
+            using var bodyFont = new Font(_fontFamily, Math.Max(8f, _fontSize - 0.5f), FontStyle.Regular);
+            using var tableFont = new Font(_fontFamily, _fontSize, FontStyle.Bold);
+            using var borderPen = new Pen(Color.Black, 1.5f);
+            using var goldBrush = new SolidBrush(Color.FromArgb(245, 196, 0));
+            using var blackBrush = new SolidBrush(Color.Black);
+            using var whiteBrush = new SolidBrush(Color.White);
+            using var textBrush = new SolidBrush(Color.Black);
+            using var whatsAppBrush = new SolidBrush(Color.FromArgb(37, 145, 92));
+            using var footerBackgroundBrush = new SolidBrush(Color.FromArgb(248, 248, 248));
+            using var footerBorderPen = new Pen(Color.FromArgb(190, 190, 190), 1f);
+            using var contactBorderPen = new Pen(Color.FromArgb(155, 155, 155), 1f);
+            using var centeredFormat = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+            using var leftFormat = new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center, Trimming = StringTrimming.EllipsisCharacter };
+            using var rightFormat = new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center, Trimming = StringTrimming.EllipsisCharacter };
+
+            void DrawCell(string text, RectangleF rect, Font font, Brush brush, StringFormat format)
             {
-                g.DrawString(new string('-', Math.Max(20, width / 4)), new Font("Arial", 9), Brushes.Black,
-                    new RectangleF(left, y, width, _lineH), _rtlFormat);
-                y += _lineH;
+                g.DrawString(text ?? string.Empty, font, brush, rect, format);
             }
 
-            void Center(string text, bool bold = false)
+            void DrawField(string label, string value, float x, float fieldY, float fieldWidth)
             {
-                using var font = bold ? new Font(new Font("Arial", 9), FontStyle.Bold) : new Font("Arial", 9);
-                var fmt = (StringFormat)_rtlFormat.Clone();
-                fmt.Alignment = StringAlignment.Center;
-                g.DrawString(text ?? "", font, Brushes.Black,
-                    new RectangleF(left + 20, y, width, _lineH), fmt);
-                y += _lineH;
+                float labelWidth = g.MeasureString(label, labelFont).Width + 4;
+                DrawCell(label, new RectangleF(x, fieldY, labelWidth, 24), labelFont, textBrush, leftFormat);
+                float valueX = x + labelWidth;
+                g.DrawLine(borderPen, valueX, fieldY + 22, x + fieldWidth, fieldY + 22);
+                DrawCell(value, new RectangleF(valueX + 3, fieldY, Math.Max(0, fieldWidth - labelWidth - 6), 22), bodyFont, textBrush, leftFormat);
             }
 
-            void R(string text) // الكتابة من اليمين
+            void DrawLocationIcon(Rectangle bounds)
             {
-                g.DrawString(text ?? "", new Font("Arial", 9), Brushes.Black,
-                    new RectangleF(left, y, width, _lineH), _rtlFormat);
-                y += _lineH;
+                float centerX = bounds.X + bounds.Width / 2f;
+                using var pinPath = new System.Drawing.Drawing2D.GraphicsPath();
+                pinPath.AddBezier(centerX, bounds.Bottom, bounds.X + bounds.Width * 0.12f, bounds.Y + bounds.Height * 0.54f, bounds.X + bounds.Width * 0.12f, bounds.Y, centerX, bounds.Y);
+                pinPath.AddBezier(centerX, bounds.Y, bounds.Right - bounds.Width * 0.12f, bounds.Y, bounds.Right - bounds.Width * 0.12f, bounds.Y + bounds.Height * 0.54f, centerX, bounds.Bottom);
+                pinPath.CloseFigure();
+                g.FillPath(goldBrush, pinPath);
+                float holeSize = bounds.Width * 0.28f;
+                g.FillEllipse(whiteBrush, centerX - holeSize / 2f, bounds.Y + bounds.Height * 0.24f, holeSize, holeSize);
             }
 
-            string Nm(string s, int max) => string.IsNullOrEmpty(s) ? "" : (s.Length <= max ? s : s[..max]);
+            void DrawPhoneIcon(Rectangle bounds)
+            {
+                g.FillEllipse(whatsAppBrush, bounds);
+                using var phonePath = new System.Drawing.Drawing2D.GraphicsPath();
+                phonePath.AddBezier(
+                    bounds.X + bounds.Width * 0.28f, bounds.Y + bounds.Height * 0.24f,
+                    bounds.X + bounds.Width * 0.12f, bounds.Y + bounds.Height * 0.42f,
+                    bounds.X + bounds.Width * 0.58f, bounds.Y + bounds.Height * 0.88f,
+                    bounds.X + bounds.Width * 0.76f, bounds.Y + bounds.Height * 0.72f);
+                using var phonePen = new Pen(Color.White, Math.Max(2f, bounds.Width * 0.14f))
+                {
+                    StartCap = System.Drawing.Drawing2D.LineCap.Round,
+                    EndCap = System.Drawing.Drawing2D.LineCap.Round,
+                    LineJoin = System.Drawing.Drawing2D.LineJoin.Round
+                };
+                g.DrawPath(phonePen, phonePath);
+            }
 
-            clsStore? StoreInfo = clsStore.Load();
+            int signatureX = left + width - signatureWidth;
+            g.DrawRectangle(borderPen, signatureX, y, signatureWidth, headerHeight);
+            DrawCell("Signature / Cachet", new RectangleF(signatureX + 4, y + 3, signatureWidth - 8, 24), labelFont, textBrush, centeredFormat);
 
-            // Draw logo at the top center before the header
+            int logoAreaWidth = width - signatureWidth - 20;
             if (_logo != null)
             {
-                // Set desired logo height (e.g., 60px) and maintain aspect ratio
-                int logoHeight = 60;
-                int logoWidth = _logo.Width * logoHeight / _logo.Height;
-                int logoX = left + (width - logoWidth) / 2;
-                g.DrawImage(_logo, logoX + 20, y, logoWidth, logoHeight);
-                y += logoHeight + 8; // Add some space after the logo
+                var logoBounds = new RectangleF(left, y + 6, Math.Min(145, logoAreaWidth / 3), headerHeight - 12);
+                float scale = Math.Min(logoBounds.Width / _logo.Width, logoBounds.Height / _logo.Height);
+                float logoWidth = _logo.Width * scale;
+                float logoHeight = _logo.Height * scale;
+                g.DrawImage(_logo, logoBounds.X, logoBounds.Y + (logoBounds.Height - logoHeight) / 2, logoWidth, logoHeight);
             }
 
-            // ======= الهيدر =======
-            Center(StoreInfo?.Name ?? "", true);
-            Center(StoreInfo?.Address ?? "", true);
-            Center(StoreInfo?.Phone ?? "", true);
-            Center(DateTime.Now.ToString("hh-mm dd-MM-yyyy"));
+            int titleX = left + 150;
+            int titleWidth = Math.Max(100, signatureX - titleX - 10);
+            DrawCell(store.Name.ToUpperInvariant(), new RectangleF(titleX, y + 15, titleWidth, 43), titleFont, goldBrush, centeredFormat);
+            g.FillRectangle(blackBrush, titleX, y + 61, titleWidth, 29);
+            DrawCell("Vente d’ameublement", new RectangleF(titleX, y + 62, titleWidth, 27), subtitleFont, whiteBrush, centeredFormat);
 
-            y += _lineH;
-            y += _lineH;
-
-
-            R($"رقم الطلب: {_order.Id}");
-            R($"اسم الزبون: {(_order.Customer?.Person?.FullName ?? "غير محدد")}");
-            R($"تاريخ الطلب: {_order.OrderDate:mm-hh yyyy-MM-dd}");
-            R($"تاريخ التسليم: {_order.RequiredDate:yyyy-MM-dd}");
-            Line();
-
-            // Define column widths (in pixels)
-            int colNameWidth = 100;
-            int colQtyWidth = 30;
-            int colXWidth = 15;
-            int colPriceWidth = 40;
-            int colTotalWidth = 200;
-
-            // Calculate rightmost position (start from right for RTL)
-            int xName = right - colNameWidth;
-            int xQty = xName - colQtyWidth;
-            int xX = xQty - colXWidth;
-            int xPrice = xX - colPriceWidth;
-            int xTotal = xPrice - colTotalWidth;
-            // Draw each field at its position
-            var rtlFormat = (StringFormat)_rtlFormat.Clone();
-            rtlFormat.Alignment = StringAlignment.Near; // محاذاة من اليمين
-            rtlFormat.LineAlignment = StringAlignment.Far;
-
-            // ======= العناوين =======
-            //R("اسم المنتج           الكمية               السعر           المجموع");
-
-
-            g.DrawString("اسم المنتج", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new RectangleF(xName, y, colNameWidth, _lineH), rtlFormat);
-            g.DrawString("الكمية", new Font("Arial", 9, FontStyle.Bold), Brushes.Black, new RectangleF(xQty, y, colQtyWidth, _lineH), rtlFormat);
-            g.DrawString(" ", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new RectangleF(xX, y, colXWidth, _lineH), rtlFormat);
-            g.DrawString("السعر", new Font("Arial", 9, FontStyle.Bold), Brushes.Black, new RectangleF(xPrice, y, colPriceWidth, _lineH), rtlFormat);
-            g.DrawString("المجموع", new Font("Arial", 10, FontStyle.Bold), Brushes.Black, new RectangleF(xTotal, y, colTotalWidth, _lineH), rtlFormat);
-            y += _lineH;
-
-            Line();
-
-            var items = _order.Items ?? new List<clsOrderItem>();
-            foreach (var it in items)
+            y += headerHeight + 14;
+            if (isFirstPage)
             {
-                string name = Nm(it.ProductName ?? "", 25);
-                string qty = it.Quantity % 1 == 0
-                    ? it.Quantity.ToString("0")
-                    : it.Quantity.ToString("0.0");
-                qty = Nm(qty, 6);
-                string X = "X";
-                string price = it.UnitPrice % 1 == 0
-                    ? it.UnitPrice.ToString("0")
-                    : it.UnitPrice.ToString("0.0");
-                price = Nm(price, 6);
-                string total = it.TotalPrice % 1 == 0 ? it.TotalPrice.ToString("0") + " د.م" : it.TotalPrice.ToString("0.0") + " د.م";
-
-                // Draw the strings in their respective positions
-                g.DrawString(name, new Font("Arial", 7, FontStyle.Bold), Brushes.Black, new RectangleF(xName, y, colNameWidth, _lineH), rtlFormat);
-                g.DrawString(qty, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, new RectangleF(xQty, y, colQtyWidth, _lineH), rtlFormat);
-
-                g.DrawString(X, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, new RectangleF(xX, y, colXWidth, _lineH), rtlFormat);
-                g.DrawString(price, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, new RectangleF(xPrice, y, colPriceWidth, _lineH), rtlFormat);
-                g.DrawString(total, new Font("Arial", 7, FontStyle.Regular), Brushes.Black, new RectangleF(xTotal, y, colTotalWidth, _lineH), rtlFormat);
-
-
-                y += _lineH;
+                int halfWidth = (width - 20) / 2;
+                DrawField("Nom du client :", customer?.FullName ?? string.Empty, left, y, halfWidth);
+                DrawField("Nador, le :", _order.OrderDate.ToString("dd/MM/yyyy", culture), left + halfWidth + 20, y, halfWidth);
+                y += 38;
+                DrawField("Tél. :", customer?.Phone ?? string.Empty, left, y, halfWidth);
+                DrawField("N° de commande :", _order.Id.ToString("D5", culture), left + halfWidth + 20, y, halfWidth);
+                y += 38;
+                DrawField("Lieu de livraison :", customer?.Address ?? string.Empty, left, y, width);
+                y += 44;
             }
 
-            Line();
+            int x = left;
+            int tableWidth = width;
+            int[] columnWidths = [quantityWidth, nameWidth, unitPriceWidth, totalWidth];
+            string[] headings = ["QT", "DÉSIGNATION", "PRIX UNITÉ", "TOTAL"];
+            for (int i = 0; i < columnWidths.Length; i++)
+            {
+                var cell = new Rectangle(x, y, columnWidths[i], rowHeight);
+                g.FillRectangle(i == 0 ? goldBrush : blackBrush, cell);
+                DrawCell(headings[i], cell, tableFont, i == 0 ? blackBrush : whiteBrush, centeredFormat);
+                g.DrawRectangle(borderPen, cell);
+                x += columnWidths[i];
+            }
+            y += rowHeight;
 
-            // ======= المجاميع =======
-            string TotalAmount = _order.TotalAmount % 1 == 0
-                ? _order.TotalAmount.ToString("0") + " درهم"
-                : _order.TotalAmount.ToString("0.00") + " درهم";
-            string InitialAmount = _order.InitialAmount % 1 == 0 ?
-                _order.InitialAmount.ToString("0") + " درهم"
-                : _order.InitialAmount.ToString("0.00") + " درهم";
-            string RemainingAmount = _order.RemainingAmount % 1 == 0 ?
-                _order.RemainingAmount.ToString("0") + " درهم"
-                : _order.RemainingAmount.ToString("0.00") + " درهم";
+            int totalBoxWidth = Math.Min(285, tableWidth / 2);
+            int footerY = bounds.Bottom - 98;
+            int tableBottom = footerY - 8;
+            int rowsPerPage = Math.Max(1, (tableBottom - y) / rowHeight);
+            int rowsToDraw = Math.Min(rowsPerPage, _items.Count - _currentItemIndex);
+            for (int rowIndex = 0; rowIndex < rowsToDraw; rowIndex++)
+            {
+                var item = _items[_currentItemIndex++];
+                int[] widths = [quantityWidth, nameWidth, unitPriceWidth, totalWidth];
+                string[] values =
+                [
+                    item.Quantity.ToString("0.##", culture),
+                    item.ProductName,
+                    Money(item.UnitPrice),
+                    Money(item.TotalPrice)
+                ];
+                x = left;
+                for (int i = 0; i < widths.Length; i++)
+                {
+                    var cell = new Rectangle(x, y, widths[i], rowHeight);
+                    g.DrawRectangle(borderPen, cell);
+                    DrawCell(values[i], new RectangleF(cell.X + 4, cell.Y, cell.Width - 8, cell.Height), bodyFont, textBrush, i == 1 ? leftFormat : centeredFormat);
+                    x += widths[i];
+                }
+                y += rowHeight;
+            }
 
-            g.DrawString($"المبلغ الإجمالي: {TotalAmount}", new Font("Arial", 9, FontStyle.Bold), Brushes.Black,
-                   new RectangleF(left, y, width, _lineH), _rtlFormat);
-            y += _lineH;
-            g.DrawString($"المبلغ المدفوع: {InitialAmount}", new Font("Arial", 9, FontStyle.Regular), Brushes.Black,
-                    new RectangleF(left, y, width, _lineH), _rtlFormat);
-            y += _lineH;
-            g.DrawString($"المبلغ المتبقي: {RemainingAmount}", new Font("Arial", 9, FontStyle.Bold), Brushes.Black,
-                    new RectangleF(left, y, width, _lineH), _rtlFormat);
-            y += _lineH;
+            bool hasMorePages = _currentItemIndex < _items.Count;
+            if (!hasMorePages)
+            {
+                while (y < tableBottom)
+                {
+                    int emptyRowHeight = Math.Min(rowHeight, tableBottom - y);
+                    x = left;
+                    foreach (int columnWidth in columnWidths)
+                    {
+                        g.DrawRectangle(borderPen, x, y, columnWidth, emptyRowHeight);
+                        x += columnWidth;
+                    }
+                    y += emptyRowHeight;
+                }
 
-            Line();
-            Center("شكرا لتعاملكم معنا", true);
-            Center((StoreInfo?.Name ?? "") + " ترحب بكم", true);
+                int totalX = left + tableWidth - totalBoxWidth;
+                int amountRowHeight = 26;
+                int contactRowHeight = amountRowHeight + 6;
+                int footerGap = 14;
+                int iconColumnWidth = 38;
+                int contactPadding = 10;
+                int iconSize = 20;
+                string[] amountLabels = ["TOTAL À PAYER", "ACOMPTE VERSÉ", "RESTE À PAYER"];
+                decimal[] amounts = [_order.TotalAmount, _order.InitialAmount, _order.RemainingAmount];
+                int amountLabelWidth = (int)(totalBoxWidth * 0.56f);
+                for (int i = 0; i < amountLabels.Length; i++)
+                {
+                    var row = new Rectangle(totalX, footerY + i * amountRowHeight, totalBoxWidth, amountRowHeight);
+                    var labelBounds = new RectangleF(row.X + 10, row.Y, amountLabelWidth - 14, row.Height);
+                    var amountBounds = new RectangleF(row.X + amountLabelWidth + 2, row.Y, totalBoxWidth - amountLabelWidth - 12, row.Height);
+                    g.FillRectangle(blackBrush, row);
+                    g.FillRectangle(whiteBrush, row.X + amountLabelWidth, row.Y, totalBoxWidth - amountLabelWidth, row.Height);
+                    DrawCell(amountLabels[i], labelBounds, tableFont, whiteBrush, leftFormat);
+                    DrawCell(Money(amounts[i]), amountBounds, i == 0 || i == amountLabels.Length - 1 ? tableFont : bodyFont, textBrush, rightFormat);
+                }
+                var amountsBounds = new Rectangle(totalX, footerY, totalBoxWidth, amountRowHeight * amountLabels.Length);
+                g.DrawRectangle(contactBorderPen, amountsBounds);
+                for (int i = 1; i < amountLabels.Length; i++)
+                    g.DrawLine(footerBorderPen, totalX, footerY + i * amountRowHeight, totalX + totalBoxWidth, footerY + i * amountRowHeight);
 
-            e.HasMorePages = false;
+                int contactWidth = Math.Max(170, totalX - left - footerGap);
+                int contactTextX = left + iconColumnWidth + contactPadding;
+                int contactTextWidth = Math.Max(0, contactWidth - iconColumnWidth - (contactPadding * 2));
+                int contactBlockHeight = contactRowHeight * 2;
+                int contactTop = footerY + (amountLabels.Length * amountRowHeight - contactBlockHeight) / 2;
+                var contactBounds = new Rectangle(left, contactTop, contactWidth, contactBlockHeight);
+                int firstIconY = contactTop + (contactRowHeight - iconSize) / 2;
+                int secondIconY = contactTop + contactRowHeight + (contactRowHeight - iconSize) / 2;
+                g.FillRectangle(footerBackgroundBrush, contactBounds);
+                g.DrawRectangle(contactBorderPen, contactBounds);
+                g.DrawLine(footerBorderPen, contactTextX, contactTop + contactRowHeight, left + contactWidth - contactPadding, contactTop + contactRowHeight);
+                g.FillRectangle(goldBrush, left, contactTop, 4, contactBlockHeight);
+
+                DrawLocationIcon(new Rectangle(left + 9, firstIconY, iconSize, iconSize));
+                DrawCell(store.Address, new RectangleF(contactTextX, contactTop, contactTextWidth, contactRowHeight), bodyFont, textBrush, leftFormat);
+                DrawPhoneIcon(new Rectangle(left + 9, secondIconY, iconSize, iconSize));
+                DrawCell(store.Phone, new RectangleF(contactTextX, contactTop + contactRowHeight, contactTextWidth, contactRowHeight), bodyFont, textBrush, leftFormat);
+            }
+
+            e.HasMorePages = hasMorePages;
         }
 
-        private static PaperSize GetSupportedPaperSize(PrinterSettings ps, int targetWidth, int targetHeight)
+        private static PaperSize GetA4PaperSize(PrinterSettings printerSettings)
         {
-            var all = ps.PaperSizes.Cast<PaperSize>().ToList();
-            var match = all.OrderBy(p => Math.Abs(p.Width - targetWidth)).FirstOrDefault();
+            var a4 = printerSettings.PaperSizes
+                .Cast<PaperSize>()
+                .FirstOrDefault(paper => paper.Kind == PaperKind.A4);
 
-            if (match != null)
-                return new PaperSize(match.PaperName, match.Width, targetHeight);
-
-            return new PaperSize("Custom", targetWidth, targetHeight);
+            return a4 ?? new PaperSize("A4", 827, 1169);
         }
 
-        private static int MmToHundredthInch(int mm)
-            => (int)Math.Round(mm * 100.0 / 25.4);
-
-        // Optionally, add a constructor overload to accept a logo path
-        public clsOrderPrinter(string fontFamily = "Arial", float fontSize = 10f, string? logoPath = null)
+        public void Dispose()
         {
-            _font = new Font(fontFamily, fontSize, FontStyle.Regular, GraphicsUnit.Point);
-
-            using var bmp = new Bitmap(1, 1);
-            using var g = Graphics.FromImage(bmp);
-            _lineH = (int)Math.Ceiling(g.MeasureString("A", _font).Height);
-            if (_lineH < 14)
-                _lineH = 14;
-
-            _rtlFormat = new StringFormat
-            {
-                Alignment = StringAlignment.Near,
-                LineAlignment = StringAlignment.Near,
-                FormatFlags = StringFormatFlags.DirectionRightToLeft
-            };
-
-            if (!string.IsNullOrWhiteSpace(logoPath) && System.IO.File.Exists(logoPath))
-            {
-                _logo = Image.FromFile(logoPath);
-            }
+            _logo?.Dispose();
+            _logo = null;
         }
     }
 }

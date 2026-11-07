@@ -33,12 +33,9 @@ namespace HFS.Product.Controls
             txtProductCategory.Text = product?.Category ?? "N/A";
             txtProductColor.Text = product?.Color ?? "N/A";
 
-            txtProductInitialLength.Text = product?.InitialLength % 1 == 0 ?
-                $"{product?.InitialLength.GetValueOrDefault():F0} m" : $"{product?.InitialLength.GetValueOrDefault():F1} m";
+            txtProductDimensions.Text = product?.Dimensions ?? "N/A";
 
-            txtProductStockLength.Text = product?.StockLength % 1 == 0 ?
-                $"{product?.StockLength.GetValueOrDefault():F0} m" : $"{product?.StockLength.GetValueOrDefault():F1} m";
-
+            txtProductQuantity.Text = product?.Quantity.ToString() ?? "N/A";
             txtProductPrice.Text = product?.Price % 1 == 0 ?
                 $"{product?.Price.GetValueOrDefault():F0} DH" : $"{product?.Price.GetValueOrDefault():F1} DH";
 
@@ -55,8 +52,8 @@ namespace HFS.Product.Controls
             txtProductType.Text = "N/A";
             txtProductCategory.Text = "N/A";
             txtProductColor.Text = "N/A";
-            txtProductInitialLength.Text = "N/A";
-            txtProductStockLength.Text = "N/A";
+            txtProductDimensions.Text = "N/A";
+            txtProductQuantity.Text = "N/A";
             txtProductPrice.Text = "N/A";
             lblProductDate.Text = "N/A";
             pbProduct.Image = TailorSoft.Properties.Resources.empty_image_icon_512;

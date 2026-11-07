@@ -29,6 +29,7 @@ namespace TailorSoft.Order.Controls
             cbFindBy.Items.Add("Date de la commande");
             cbFindBy.Items.Add("Date de livraison");
             cbFindBy.Items.Add("Nom du client");
+            cbFindBy.Items.Add("Tél du client");
             cbFindBy.SelectedIndex = 0;
 
         }
@@ -38,10 +39,8 @@ namespace TailorSoft.Order.Controls
             var statusTranslations = new Dictionary<clsOrder.enStatus, string>
             {
                     { enStatus.Pending, "En attente" },
-                    { enStatus.Measuring, "Mesure" },
-                    { enStatus.InProgress, "En cours" },
-                    { enStatus.ReadyforDelivery, "Prêt pour la livraison" },
-                    { enStatus.Delivered, "Livré" },
+                    { enStatus.DeliveredAndNotPaid, "Livré et non payé" },
+                    { enStatus.DeliveredAndPartiallyPaid, "Livré et part payé" },
                     { enStatus.DeliveredAndPaid, "Livré et payé" },
                     { enStatus.Cancelled, "Annulé" }
             };
@@ -59,7 +58,7 @@ namespace TailorSoft.Order.Controls
         }
         private void InitializeDateTimePicker()
         {
-            dtpDate.RightToLeft = RightToLeft.Yes;
+            dtpDate.RightToLeft = RightToLeft.No;
             dtpDate.Value = DateTime.Now;
             dtpDate.Format = DateTimePickerFormat.Short;
             dtpDate.Visible = false;
@@ -102,6 +101,15 @@ namespace TailorSoft.Order.Controls
                 return;
             }
             ucOrdersList1.SetOrders(clsOrder.GetByCustomerName(txtSearch.Text.Trim()));
+        }
+        private void FilterOrdersListCustomerPhone()
+        {
+            if (string.IsNullOrWhiteSpace(txtSearch.Text))
+            {
+                txtSearch.Focus();
+                return;
+            }
+            ucOrdersList1.SetOrders(clsOrder.GetByCustomerPhone(txtSearch.Text.Trim()));
         }
         private void HandelControlsSearchVisibility(enControlsSearchVisibility enVisibility)
         {
@@ -186,6 +194,12 @@ namespace TailorSoft.Order.Controls
                         FilterOrdersListCustomerName();
                         break;
                     }
+                case 6: // Customer phone
+                    {
+                        HandelControlsSearchVisibility(enControlsSearchVisibility.txtSearch);
+                        FilterOrdersListCustomerPhone();
+                        break;
+                    }
 
             }
         }
@@ -262,11 +276,16 @@ namespace TailorSoft.Order.Controls
                 FilterOrdersListCustomerName();
                 return;
             }
+            if (cbFindBy.SelectedIndex == 6) // Customer phone
+            {
+                FilterOrdersListCustomerPhone();
+                return;
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            cbFindBy.SelectedIndex = 0;
+            cbFindBy_SelectedIndexChanged(null, null);
         }
     }
 }
