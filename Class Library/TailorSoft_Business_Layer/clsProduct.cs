@@ -20,8 +20,8 @@ namespace TailorSoft_Business_Layer
         }
         public string? Category { get; set; }
         public string? Color { get; set; }
-        public double? InitialLength { get; set; }
-        public double? StockLength { get; set; }
+        public string? Dimensions { get; set; }
+        public int? Quantity { get; set; }
         public double? Price { get; set; }
         public string? ImagePath { get; set; }
         public DateTime? CreatedDate { get; set; }
@@ -38,8 +38,8 @@ namespace TailorSoft_Business_Layer
             TypeID = null;
             Category = null;
             Color = null;
-            InitialLength = null;
-            StockLength = null;
+            Dimensions = null;
+            Quantity = null;
             Price = null;
             ImagePath = null;
             CreatedDate = DateTime.Now;
@@ -54,8 +54,8 @@ namespace TailorSoft_Business_Layer
             TypeID = productDTO.TypeID;
             Category = productDTO.Category;
             Color = productDTO.Color;
-            InitialLength = productDTO.InitialLength;
-            StockLength = productDTO.StockLength;
+            Dimensions = productDTO.Dimensions;
+            Quantity = productDTO.Quantity;
             Price = productDTO.Price;
             ImagePath = productDTO.ImagePath;
             CreatedDate = productDTO.CreatedDate;
@@ -67,16 +67,16 @@ namespace TailorSoft_Business_Layer
         #endregion
 
         // Methods
-        public bool Sell(double sellingLength)
+        public bool Sell(int sellingLength)
         {
             if (Id == null || Id <= 0)
                 throw new InvalidOperationException("Cannot sell product without a valid Id.");
             if (sellingLength < 0)
                 throw new ArgumentException("Selling length must be greater than zero.", nameof(sellingLength));
-            if (StockLength == null || StockLength < sellingLength)
+            if (Quantity == null || Quantity < sellingLength)
                 throw new InvalidOperationException("Insufficient stock length for sale.");
             // Update stock length
-            StockLength -= sellingLength;
+            Quantity -= sellingLength;
             LastUpdate = DateTime.Now;
             // Save changes
             return Save();
@@ -110,9 +110,7 @@ namespace TailorSoft_Business_Layer
             return _MapProductsDTOsToProducts(productDTOs);
         }
 
-        public static async Task<List<clsProduct>> GetProductsByTypeAsync(
-            clsProductType.enProductType type,
-            CancellationToken token)
+        public static async Task<List<clsProduct>> GetProductsByTypeAsync(clsProductType.enProductType type,CancellationToken token)
         {
             var productDTOs = await clsProductData.GetProductsByProductTypeIdAsync((byte)type, token);
             return _MapProductsDTOsToProducts(productDTOs);
@@ -146,8 +144,8 @@ namespace TailorSoft_Business_Layer
                 TypeID ?? 0,
                 Category ?? string.Empty,
                 Color ?? string.Empty,
-                InitialLength ?? 0,
-                StockLength ?? 0,
+                Dimensions ?? string.Empty,
+                Quantity ?? 0,
                 Price ?? 0,
                 ImagePath ?? string.Empty,
                 CreatedDate ?? DateTime.Now,
@@ -191,8 +189,8 @@ namespace TailorSoft_Business_Layer
                 TypeID ?? 0,
                 Category ?? string.Empty,
                 Color ?? string.Empty,
-                InitialLength ?? 0,
-                StockLength ?? 0,
+                Dimensions ?? string.Empty,
+                Quantity ?? 0,
                 Price ?? 0,
                 ImagePath ?? string.Empty,
                 CreatedDate ?? DateTime.Now,
@@ -238,58 +236,32 @@ namespace TailorSoft_Business_Layer
             return _MapProductsDTOsToProducts(productDTOs);
         }
 
-        public static async Task<List<clsProduct>> GetProductsByTypeAsync(
-            clsProductType.enProductType type)
+        public static async Task<List<clsProduct>> GetProductsByTypeAsync(clsProductType.enProductType type)
         {
             var productDTOs = await clsProductData.GetProductsByProductTypeIdAsync((byte)type);
             return _MapProductsDTOsToProducts(productDTOs);
         }
 
-        public static async Task<List<clsProduct>> GetProductsByTypeIdAndCategoryAsync(
-            clsProductType.enProductType type,
-            string category)
+        public static async Task<List<clsProduct>> GetProductsByTypeIdAndCategoryAsync(clsProductType.enProductType type,string category)
         {
             var productDTOs = await clsProductData.GetProductsByTypeIdAndCategoryAsync((byte)type, category);
             return _MapProductsDTOsToProducts(productDTOs);
         }
 
-        public static async Task<List<clsProduct>> GetProductsByTypeIdAndColorAsync(
-            clsProductType.enProductType type,
-            string color)
+        public static async Task<List<clsProduct>> GetProductsByTypeIdAndColorAsync(clsProductType.enProductType type,string color)
         {
             var productDTOs = await clsProductData.GetProductsByTypeIdAndColorAsync((byte)type, color);
             return _MapProductsDTOsToProducts(productDTOs);
         }
 
+        public static async Task<List<clsProduct>> GetProductsByTypeIdAndDimensionsAsync(clsProductType.enProductType type, string dimensions)
+        {
+            var productDTOs = await clsProductData.GetProductsByTypeIdAndDimensionsAsync((byte)type, dimensions);
+            return _MapProductsDTOsToProducts(productDTOs);
+        }
+
         #endregion
 
-        #region Factory Methods
-        public static clsProduct CreateInstanceForAddNew(
-            clsProductType.enProductType productType,
-            string category,
-            string color,
-            double initialLength,
-            double stockLength,
-            double price,
-            string imagePath,
-            int currentUserID)
-        {
-            return new clsProduct
-            {
-                TypeID = (byte)productType,
-                Category = category,
-                Color = color,
-                InitialLength = initialLength,
-                StockLength = stockLength,
-                Price = price,
-                ImagePath = imagePath,
-                CreatedDate = DateTime.Now,
-                LastUpdate = DateTime.Now,
-                CreatedByUserID = currentUserID,
-                IsActive = true,
-                _Mode = enMode.AddNew
-            };
-        }
-        #endregion
+
     }
 }

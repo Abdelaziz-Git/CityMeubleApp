@@ -1,4 +1,5 @@
 ﻿using TailorSoft_Business_Layer;
+using TailorSoft_Data_Layer;
 using TailorSoft_Models;
 
 public class clsOrder
@@ -7,10 +8,11 @@ public class clsOrder
     public enum enStatus
     {
         Pending,
-        Measuring,
-        InProgress,
-        ReadyforDelivery,
-        Delivered,
+        //Measuring,
+        //InProgress,
+        //ReadyforDelivery,
+        DeliveredAndNotPaid,
+        DeliveredAndPartiallyPaid,
         DeliveredAndPaid,
         Cancelled
     }
@@ -97,6 +99,26 @@ public class clsOrder
         }
         return false;
     }
+    public async Task< bool> SaveAsync()
+    {
+        clsOrderDTO orderDTO = new clsOrderDTO(
+            Id, CustomerID, UserID, OrderDate, RequiredDate, DeliveryDate, Status,
+            TotalAmount, InitialAmount, RemainingAmount, PaymentDate, Notes
+        );
+        if (!_Validate())
+            return false;
+        if (_Mode == enMode.Update)
+        {
+            if (Id <= 0)
+                throw new InvalidOperationException("Cannot update an order with Id less than or equal to 0.");
+            return await _UpdateAsync(orderDTO);
+        }
+        else if (_Mode == enMode.AddNew)
+        {
+            return await _AddNewAsync(orderDTO);
+        }
+        return false;
+    }
     #endregion
 
     #region Static Methods
@@ -106,7 +128,13 @@ public class clsOrder
             return null;
         return _MapDTObjToOrder(clsOrderData.GetByID(orderId));
     }
-    public static List<clsOrder> GetByCustomer(int customerId)
+    public static async Task<clsOrder?> FindAsync(int orderId)
+    {
+        if (orderId <= 0)
+            return null;
+        return _MapDTObjToOrder(await Task.Run(() => clsOrderData.GetByID(orderId)));
+    }
+    public static List<clsOrder> GetByCustomerId(int customerId)
     {
         if (customerId <= 0)
             return new List<clsOrder>();
@@ -173,8 +201,8 @@ public class clsOrder
             throw new InvalidOperationException("TotalAmount cannot be negative.");
         if (InitialAmount < 0)
             throw new InvalidOperationException("InitialAmount cannot be negative.");
-        if (RemainingAmount < 0)
-            throw new InvalidOperationException("RemainingAmount cannot be negative.");
+        //if (RemainingAmount < 0)
+            //throw new InvalidOperationException("RemainingAmount cannot be negative.");
         return true;
     }
     private bool _Update(clsOrderDTO orderDTO)
@@ -183,11 +211,30 @@ public class clsOrder
             throw new InvalidOperationException("Cannot update an order that is not in Update mode.");
         return clsOrderData.Update(orderDTO);
     }
+    private async Task<bool> _UpdateAsync(clsOrderDTO orderDTO)
+    {
+        if (_Mode != enMode.Update)
+            throw new InvalidOperationException("Cannot update an order that is not in Update mode.");
+        return await Task.Run(() => clsOrderData.Update(orderDTO));
+    }
     private bool _AddNew(clsOrderDTO orderDTO)
     {
         if (_Mode != enMode.AddNew)
             throw new InvalidOperationException("Cannot add a new order that is not in AddNew mode.");
         int? NewID = clsOrderData.AddNew(orderDTO);
+        if (NewID.HasValue && NewID.Value > 0)
+        {
+            Id = NewID.Value;
+            _Mode = enMode.Update;
+            return true;
+        }
+        return false;
+    }
+    private async Task<bool>_AddNewAsync(clsOrderDTO orderDTO)
+    {
+        if (_Mode != enMode.AddNew)
+            throw new InvalidOperationException("Cannot add a new order that is not in AddNew mode.");
+        int? NewID = await Task.Run(() => clsOrderData.AddNew(orderDTO));
         if (NewID.HasValue && NewID.Value > 0)
         {
             Id = NewID.Value;

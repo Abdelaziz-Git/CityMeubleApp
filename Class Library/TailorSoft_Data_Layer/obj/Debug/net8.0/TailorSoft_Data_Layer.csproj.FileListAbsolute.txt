@@ -30,6 +30,7 @@ C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\Class Libr
 C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\Class Library\TailorSoft_Data_Layer\obj\Debug\net8.0\TailorSoft_Data_Layer.pdb
 C:\Users\ABDELAZIZ\.dotnet\Windows Forms Projects\TailorSoft_Solution\Class Library\TailorSoft_Data_Layer\obj\Debug\net8.0\ref\TailorSoft_Data_Layer.dll
 C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Data_Layer\bin\Debug\net8.0\TailorSoft_Data_Layer.deps.json
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Data_Layer\bin\Debug\net8.0\TailorSoft_Data_Layer.runtimeconfig.json
 C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Data_Layer\bin\Debug\net8.0\TailorSoft_Data_Layer.dll
 C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Data_Layer\bin\Debug\net8.0\TailorSoft_Data_Layer.pdb
 C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Data_Layer\bin\Debug\net8.0\TailorSoft_Models.dll
@@ -44,4 +45,5 @@ C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Dat
 C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Data_Layer\obj\Debug\net8.0\TailorSoft_Data_Layer.dll
 C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Data_Layer\obj\Debug\net8.0\refint\TailorSoft_Data_Layer.dll
 C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Data_Layer\obj\Debug\net8.0\TailorSoft_Data_Layer.pdb
+C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Data_Layer\obj\Debug\net8.0\TailorSoft_Data_Layer.genruntimeconfig.cache
 C:\Users\ABDELAZIZ\source\repos\TailorSoft_Solution\Class Library\TailorSoft_Data_Layer\obj\Debug\net8.0\ref\TailorSoft_Data_Layer.dll

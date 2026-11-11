@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TailorSoft_Data_Layer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f7b18b8dbcec2a850be77dae52f62288c953409d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b280cd4ff9f41e6be685a2beb75c86070c4834af")]
 [assembly: System.Reflection.AssemblyProductAttribute("TailorSoft_Data_Layer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TailorSoft_Data_Layer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

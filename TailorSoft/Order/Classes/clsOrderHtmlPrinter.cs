@@ -21,7 +21,13 @@ namespace TailorSoft.Order.Classes
             string MoneyHtml(decimal amount)
             {
                 var parts = amount.ToString("N2", culture).Split(culture.NumberFormat.NumberDecimalSeparator);
-                return $"<span class=\"money-value\"><span class=\"money-integer\">{Encode(parts[0])}</span><span>,</span><span>{Encode(parts[1])}</span><span> DH</span></span>";
+                return $"<span class=\"money-value\"><span class=\"money-integer\">{Encode(parts[0])}</span><span>,</span><span>{Encode(parts[1])}</span> <span> </span></span>";
+            }
+
+            string MoneyHtmlWithDH(decimal amount)
+            {
+                var parts = amount.ToString("N2", culture).Split(culture.NumberFormat.NumberDecimalSeparator);
+                return $"<span class=\"money-value\"><span class=\"money-integer\">{Encode(parts[0])}</span><span>,</span><span>{Encode(parts[1])}</span> DH<span> </span></span>";
             }
             string Encode(string? value) => WebUtility.HtmlEncode(value ?? string.Empty);
             string logo = GetLogoDataUri(store.LogoImagePath);
@@ -55,9 +61,9 @@ namespace TailorSoft.Order.Classes
             html.AppendLine("<footer class=\"bottom no-break\">");
             html.AppendLine($"<div class=\"contact\"><svg class=\"contact-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M12 2a8 8 0 0 0-8 8c0 5.5 8 12 8 12s8-6.5 8-12a8 8 0 0 0-8-8Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z\"/></svg>{Encode(store.Address)}<br><svg class=\"contact-icon whatsapp-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M12 2a9.8 9.8 0 0 0-8.5 14.7L2 22l5.5-1.4A10 10 0 1 0 12 2Zm0 17.9a8 8 0 0 1-4.1-1.1l-.3-.2-3.2.8.9-3.1-.2-.3A8 8 0 1 1 12 19.9Zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8.9-.3.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.3 7.3 0 0 1-1.3-1.6c-.1-.2 0-.3.1-.4l.4-.5.2-.4v-.4c-.1-.1-.5-1.3-.7-1.7s-.4-.3-.5-.3h-.5c-.2 0-.4.1-.6.3a2.5 2.5 0 0 0-.8 1.8 4.4 4.4 0 0 0 .9 2.3 10 10 0 0 0 3.8 3.4c.5.2.9.4 1.2.5.5.2 1 .2 1.4.1.4-.1 1.4-.6 1.6-1.1s.2-1 .1-1.1-.2-.1-.4-.2Z\"/></svg>{Encode(store.Phone)}</div>");
             html.AppendLine("<table class=\"amounts\"><tbody>");
-            html.AppendLine($"<tr><td>TOTAL À PAYER</td><td>{MoneyHtml(order.TotalAmount)}</td></tr>");
-            html.AppendLine($"<tr><td>AVANCE</td><td>{MoneyHtml(order.InitialAmount)}</td></tr>");
-            html.AppendLine($"<tr><td>RESTE À PAYER</td><td>{MoneyHtml(order.RemainingAmount)}</td></tr>");
+            html.AppendLine($"<tr><td>TOTAL À PAYER</td><td>{MoneyHtmlWithDH(order.TotalAmount)}</td></tr>");
+            html.AppendLine($"<tr><td>AVANCE</td><td>{MoneyHtmlWithDH(order.InitialAmount)}</td></tr>");
+            html.AppendLine($"<tr><td>RESTE À PAYER</td><td>{MoneyHtmlWithDH(order.RemainingAmount)}</td></tr>");
             html.AppendLine("</tbody></table></footer>");
             html.AppendLine("<script>window.addEventListener('load',()=>window.print());</script></body></html>");
 

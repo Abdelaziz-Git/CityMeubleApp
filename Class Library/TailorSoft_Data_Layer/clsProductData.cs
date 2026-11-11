@@ -1,6 +1,8 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
 using TailorSoft_Models;
+using TailorSoft_Data_Layer.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace TailorSoft_Data_Layer
 {
@@ -9,6 +11,13 @@ namespace TailorSoft_Data_Layer
     /// </summary>
     public class clsProductData
     {
+        private readonly AppDbContext _context;
+
+        public clsProductData(AppDbContext context)
+        {
+            _context = context;
+        }
+
 
         public static int? AddNewProduct(clsProductDTO productDTO)
         {
@@ -220,9 +229,7 @@ namespace TailorSoft_Data_Layer
             return await ExecuteProductListQueryAsync("SP_Product_GetAllActive", token);
         }
 
-        public static async Task<List<clsProductDTO>> GetProductsByProductTypeIdAsync(
-            byte productTypeID,
-            CancellationToken token)
+        public static async Task<List<clsProductDTO>> GetProductsByProductTypeIdAsync(byte productTypeID, CancellationToken token)
         {
             return await ExecuteProductListQueryAsync(
                 "SP_Product_GetByTypeID", token,
@@ -305,9 +312,7 @@ namespace TailorSoft_Data_Layer
                 throw new Exception("Error retrieving products by type ID and category count", ex);
             }
         }
-        public static async Task<List<clsProductDTO>> GetProductsByTypeIdAndColorAsync(
-            byte productTypeID,
-            string productColor)
+        public static async Task<List<clsProductDTO>> GetProductsByTypeIdAndColorAsync(byte productTypeID, string productColor)
         {
             return await ExecuteProductListQueryAsync(
                 "SP_Product_GetByTypeIdAndColor",
@@ -334,16 +339,24 @@ namespace TailorSoft_Data_Layer
                 throw new Exception("Error retrieving products by type ID and color count", ex);
             }
         }
-        public static async Task<List<clsProductDTO>> GetProductsByCategoryAsync(
-            string productCategory)
+
+        public static async Task<List<clsProductDTO>> GetProductsByTypeIdAndDimensionsAsync(byte productTypeID, string productDimensions)
+        {
+            return await ExecuteProductListQueryAsync(
+                 "SP_Product_GetByTypeIdAndDimensions",
+                 new SqlParameter("@ProductTypeID", productTypeID),
+                 new SqlParameter("@ProductDimensions", productDimensions)
+             );
+        }
+
+        public static async Task<List<clsProductDTO>> GetProductsByCategoryAsync(string productCategory)
         {
             return await ExecuteProductListQueryAsync(
                 "SP_Product_GetByCategory",
                 new SqlParameter("@ProductCategory", productCategory));
         }
 
-        public static async Task<List<clsProductDTO>> GetProductsByColorAsync(
-            string productColor)
+        public static async Task<List<clsProductDTO>> GetProductsByColorAsync(string productColor)
         {
             return await ExecuteProductListQueryAsync(
                 "SP_Product_GetByColor",
@@ -430,8 +443,8 @@ namespace TailorSoft_Data_Layer
             cmd.Parameters.AddWithValue("@TypeID", productDTO.TypeID);
             cmd.Parameters.AddWithValue("@Category", productDTO.Category);
             cmd.Parameters.AddWithValue("@Color", productDTO.Color);
-            cmd.Parameters.AddWithValue("@InitialLength", productDTO.InitialLength);
-            cmd.Parameters.AddWithValue("@StockLength", productDTO.StockLength);
+            cmd.Parameters.AddWithValue("@Dimensions", productDTO.Dimensions);
+            cmd.Parameters.AddWithValue("@Quantity", productDTO.Quantity);
             cmd.Parameters.AddWithValue("@Price", productDTO.Price);
             cmd.Parameters.AddWithValue("@ImagePath", productDTO.ImagePath);
             cmd.Parameters.AddWithValue("@CreatedDate", productDTO.CreatedDate);
@@ -453,8 +466,8 @@ namespace TailorSoft_Data_Layer
                 reader.GetByte(reader.GetOrdinal("TypeID")),
                 reader.GetString(reader.GetOrdinal("Category")),
                 reader.GetString(reader.GetOrdinal("Color")),
-                reader.GetDouble(reader.GetOrdinal("InitialLength")),
-                reader.GetDouble(reader.GetOrdinal("StockLength")),
+                reader.GetString(reader.GetOrdinal("Dimensions")),
+                reader.GetInt32(reader.GetOrdinal("Quantity")),
                 reader.GetDouble(reader.GetOrdinal("Price")),
                 reader.GetString(reader.GetOrdinal("ImagePath")),
                 reader.GetDateTime(reader.GetOrdinal("CreatedDate")),
@@ -547,11 +560,11 @@ namespace TailorSoft_Data_Layer
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddRange(parameters);
 
-                    await conn.OpenAsync(token); // <-- هنا ندعم الإلغاء
+                    await conn.OpenAsync(token);
 
-                    using (var reader = await cmd.ExecuteReaderAsync(token)) // <-- دعم الإلغاء
+                    using (var reader = await cmd.ExecuteReaderAsync(token))
                     {
-                        while (await reader.ReadAsync(token)) // <-- دعم الإلغاء
+                        while (await reader.ReadAsync(token))
                         {
                             products.Add(_MapReaderToProductDTO(reader));
                         }
@@ -560,7 +573,11 @@ namespace TailorSoft_Data_Layer
             }
             catch (OperationCanceledException)
             {
-                throw; // إلقاء Exception للإشارة أن العملية توقفت
+                throw;
+            }
+            catch (SqlException ex) when (token.IsCancellationRequested || ex.Message.Contains("Operation cancelled by user", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new OperationCanceledException($"Execution of {storedProcedureName} was cancelled.", ex, token);
             }
             catch (Exception ex)
             {

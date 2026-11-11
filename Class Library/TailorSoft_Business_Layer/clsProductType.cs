@@ -12,7 +12,7 @@ namespace TailorSoft_Business_Layer
             Bardage = 2,
             Bibliothèque = 3,
             Buffet = 4,
-            Bureau = 5,
+            Bureautique = 5,
             CACA = 6,
             CACE = 7,
             Chaise = 8,
@@ -31,8 +31,9 @@ namespace TailorSoft_Business_Layer
             Salon_classique = 21,
             Salon_Moderne = 22,
             Salon_SR = 23,
-            Table_Bureau = 24,
-            Vitrine = 25
+            Table_Basse = 24,
+            Vitrine = 25,
+            Autres_Produits = 26
         }
 
         public byte? Id { get; set; }
